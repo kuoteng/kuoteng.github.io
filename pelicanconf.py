@@ -10,6 +10,15 @@ SITEURL = ''
 THEME = "themes/nest/"
 
 PATH = 'content'
+# Static files
+STATIC_PATHS = ['images', 'extra/robots.txt', 'extra/favicon.ico', 'extra/logo.svg']
+EXTRA_PATH_METADATA = {
+    'extra/robots.txt': {'path': 'robots.txt'},
+    'extra/favicon.ico': {'path': 'favicon.ico'},
+    'extra/logo.svg': {'path': 'logo.svg'}
+}
+ARTICLE_URL = 'posts/{category}/{date:%Y}/{date:%m}/{slug}.html'
+ARTICLE_SAVE_AS = 'posts/{category}/{date:%Y}/{date:%m}/{slug}.html'
 
 TIMEZONE = 'Asia/Taipei'
 
@@ -108,10 +117,3 @@ NEST_TAGS_HEADER_TITLE = u'Tags'
 NEST_TAGS_HEADER_SUBTITLE = u'Tags List'
 NEST_TAGS_CONTENT_TITLE = u'Tags List'
 NEST_TAGS_CONTENT_LIST = u'tagged'
-# Static files
-STATIC_PATHS = ['images', 'extra/robots.txt', 'extra/favicon.ico', 'extra/logo.svg']
-EXTRA_PATH_METADATA = {
-    'extra/robots.txt': {'path': 'robots.txt'},
-    'extra/favicon.ico': {'path': 'favicon.ico'},
-    'extra/logo.svg': {'path': 'logo.svg'}
-}
