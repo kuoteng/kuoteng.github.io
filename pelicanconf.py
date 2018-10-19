@@ -63,7 +63,7 @@ NEST_COPYRIGHT = u'&copy; 2018 Kuo-Teng Ding'
 # Footer optional
 NEST_FOOTER_HTML = ''
 # index.html
-NEST_INDEX_HEAD_TITLE = u'Homepage'
+NEST_INDEX_HEAD_TITLE = u'忘卻錄音'
 NEST_INDEX_HEADER_TITLE = "Oblivion Recording"
 NEST_INDEX_HEADER_SUBTITLE = SITESUBTITLE
 NEST_INDEX_CONTENT_TITLE = u'Last Posts'
