@@ -3,10 +3,11 @@
 from __future__ import unicode_literals
 
 AUTHOR = 'rapirent'
-SITENAME = "rapirent's blog"
+SITENAME = '忘卻錄音'
 SITESUBTITLE = 'In fleeting instant, living only in the present'
 GITHUB_URL = 'http://github.com/rapirent'
-SITEURL = ''
+SITEURL = 'http://rapirent.github.io'
+DISQUS_SITENAME = 'rapirent'
 THEME = "themes/nest/"
 
 PATH = 'content'
@@ -47,13 +48,13 @@ DEFAULT_PAGINATION = 10
 # Minified CSS
 NEST_CSS_MINIFY = True
 # Add items to top menu before pages
-MENUITEMS = [('Homepage', '/'),('Categories','/categories.html'),('Tags','/tags.html')]
+MENUITEMS = [('Archives', '/archives.html'),('Categories','/categories.html'),('Tags','/tags.html')]
 # Add header background image from content/images : 'background.jpg'
 NEST_HEADER_IMAGES = 'wallpaper.jpg'
 NEST_HEADER_LOGO = ''
 # Footer
 NEST_SITEMAP_COLUMN_TITLE = u'Sitemap'
-NEST_SITEMAP_MENU = [('Archives', '/archives.html'),('Tags','/tags.html')]
+NEST_SITEMAP_MENU = [('Archives', '/archives.html'),('Tags','/tags.html'),('Categories','/categories.html')]
 NEST_SITEMAP_ATOM_LINK = u'Atom Feed'
 NEST_SITEMAP_RSS_LINK = u'RSS Feed'
 NEST_SOCIAL_COLUMN_TITLE = u'Contacts'
@@ -63,7 +64,7 @@ NEST_COPYRIGHT = u'&copy; 2018 Kuo-Teng Ding'
 NEST_FOOTER_HTML = ''
 # index.html
 NEST_INDEX_HEAD_TITLE = u'Homepage'
-NEST_INDEX_HEADER_TITLE = "rapirent's Blog"
+NEST_INDEX_HEADER_TITLE = "Oblivion Recording"
 NEST_INDEX_HEADER_SUBTITLE = SITESUBTITLE
 NEST_INDEX_CONTENT_TITLE = u'Last Posts'
 # archives.html
