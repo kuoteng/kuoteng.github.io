@@ -4,19 +4,19 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Following is a review of my favorite mechanical keyboard.">
-        <meta name="keywords" content="">
+        <meta name="description" content="根據ArchWiki，電腦上的通常以硬體儲存時間，並且將其解析為通用的時間格式 有兩類的時間格式：UTC及localtime，UTC被UNIX系統使用，而localtime則在windows上系統被使用 至於linux...看來ubuntu是將它視為UTC 在ubuntu 15.04以上的版本可以使用以下的指令開啟localtime $ timedatectl set-local-rtc 1">
+        <meta name="keywords" content="Ubuntu">
         <link rel="icon" href="/favicon.ico">
 
-        <title>My First Review - rapirent's blog</title>
+        <title>ubuntu & windows 的時間衝突 - 忘卻錄音</title>
 
         <!-- Stylesheets -->
         <link href="/theme/css/all.min.css" rel="stylesheet">
         <!-- /Stylesheets -->
 
         <!-- RSS Feeds -->
-        <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="rapirent's blog Full Atom Feed" />
-        <link href="/feeds/review.atom.xml" type="application/atom+xml" rel="alternate" title="rapirent's blog Categories Atom Feed" />
+        <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="忘卻錄音 Full Atom Feed" />
+        <link href="/feeds/linux.atom.xml" type="application/atom+xml" rel="alternate" title="忘卻錄音 Categories Atom Feed" />
         <!-- /RSS Feeds -->
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -32,18 +32,18 @@
     <body>
 
         <!-- Header -->
-    <div class="header-container" style="background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('/images/wallpaper.jpg'); background-position: center; background-size: cover;">
+    <div class="header-container" style="background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2)), url('/images/wallpaper.jpg'); background-position: center; background-size: cover;">
 
             <!-- Static navbar -->
             <div class="container">
                 <div class="header-nav">
                     <div class="header-logo">
                         <a class="pull-left" href="/">
-                          rapirent's blog
+                          忘卻錄音
                         </a>
                     </div>
                     <div class="nav pull-right">
-                                <a href="/">Homepage</a>
+                                <a href="/archives.html">Archives</a>
                                 <a href="/categories.html">Categories</a>
                                 <a href="/tags.html">Tags</a>
                             <a  href="/pages/ubuntu-install.html">About Me</a>
@@ -58,13 +58,14 @@
         <div class="row">
               <div class="col-lg-12">
                   <div class="header-content">
-                      <h1 class="header-title">My First Review</h1>
-                      <p class="header-date">By <a href="/author/rapirent.html">rapirent</a>, 五 03 12月 2010, in category <a href="/category/review.html">Review</a></p>
+                      <h1 class="header-title">ubuntu & windows 的時間衝突</h1>
+                      <p class="header-date">By
+<a href="/author/kuoteng.html">kuoteng</a>, 二 06 3月 2018, in category <a href="/category/linux.html">Linux</a></p>
                       <div class="header-underline"></div>
                       <div class="clearfix"></div>
                       <p class="pull-right header-tags">
                           <span class="glyphicon glyphicon-tags mr5" aria-hidden="true"></span>
-                      </p>
+<a href="/tag/ubuntu.html">Ubuntu</a>                      </p>
                   </div>
               </div>
         </div>
@@ -78,10 +79,15 @@
 
         <!-- Content -->
     <div class="container content">
-        <p>Following is a review of my favorite mechanical keyboard.</p>
+        <p>根據ArchWiki，電腦上的通常以硬體儲存時間，並且將其解析為通用的時間格式
+有兩類的時間格式：UTC及localtime，UTC被UNIX系統使用，而localtime則在windows上系統被使用
+至於linux...看來ubuntu是將它視為UTC
+在ubuntu 15.04以上的版本可以使用以下的指令開啟localtime</p>
+<div class="highlight"><pre><span></span>$ timedatectl set-local-rtc <span class="m">1</span>
+</pre></div>
 
 
-        
+
     </div>
         <!-- /Content -->
 
@@ -94,6 +100,7 @@
                         <ul class="list-unstyled">
                             <li><a href="/archives.html">Archives</a></li>
                             <li><a href="/tags.html">Tags</a></li>
+                            <li><a href="/categories.html">Categories</a></li>
                             <li><a href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">Atom Feed</a></li>
                         </ul>
                     </div>

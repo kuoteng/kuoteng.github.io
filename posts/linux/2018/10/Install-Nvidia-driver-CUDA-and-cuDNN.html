@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="這學期在學校剛好有機會拿到使用顯示卡的機會，在這邊紀錄一下Ubuntu 18.04的環境建置 Nvidia driver 先解除安裝原本的driver $ sudo apt-get purge nvidia* # $ sudo apt-get autoremove 看需不需要 更新版本與安裝 $ sudo add-apt-repository...">
+        <meta name="keywords" content="Linux, Machine-Learning, Ubuntu">
+        <link rel="icon" href="/favicon.ico">
+
+        <title>Install Nvidia driver, CUDA and cuDNN with Ubuntu 18.04 - 忘卻錄音</title>
+
+        <!-- Stylesheets -->
+        <link href="/theme/css/all.min.css" rel="stylesheet">
+        <!-- /Stylesheets -->
+
+        <!-- RSS Feeds -->
+        <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="忘卻錄音 Full Atom Feed" />
+        <link href="/feeds/linux.atom.xml" type="application/atom+xml" rel="alternate" title="忘卻錄音 Categories Atom Feed" />
+        <!-- /RSS Feeds -->
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+
+
+    </head>
+
+    <body>
+
+        <!-- Header -->
+    <div class="header-container" style="background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2)), url('/images/wallpaper.jpg'); background-position: center; background-size: cover;">
+
+            <!-- Static navbar -->
+            <div class="container">
+                <div class="header-nav">
+                    <div class="header-logo">
+                        <a class="pull-left" href="/">
+                          忘卻錄音
+                        </a>
+                    </div>
+                    <div class="nav pull-right">
+                                <a href="/archives.html">Archives</a>
+                                <a href="/categories.html">Categories</a>
+                                <a href="/tags.html">Tags</a>
+                            <a  href="/pages/ubuntu-install.html">About Me</a>
+                    </div>
+                </div>
+            </div>
+            <!-- /Static navbar -->
+
+            <!-- Header -->
+    <!-- Header -->
+    <div class="container header-wrapper">
+        <div class="row">
+              <div class="col-lg-12">
+                  <div class="header-content">
+                      <h1 class="header-title">Install Nvidia driver, CUDA and cuDNN with Ubuntu 18.04</h1>
+                      <p class="header-date">By
+<a href="/author/kuoteng.html">kuoteng</a>, 五 19 10月 2018, in category <a href="/category/linux.html">Linux</a></p>
+                      <div class="header-underline"></div>
+                      <div class="clearfix"></div>
+                      <p class="pull-right header-tags">
+                          <span class="glyphicon glyphicon-tags mr5" aria-hidden="true"></span>
+<a href="/tag/linux.html">Linux</a>, <a href="/tag/machine-learning.html">Machine-Learning</a>, <a href="/tag/ubuntu.html">Ubuntu</a>                      </p>
+                  </div>
+              </div>
+        </div>
+    </div>
+    <!-- /Header -->
+            <!-- /Header -->
+
+        </div>
+        <!-- /Header -->
+
+
+        <!-- Content -->
+    <div class="container content">
+        <p>這學期在學校剛好有機會拿到使用顯示卡的機會，在這邊紀錄一下Ubuntu 18.04的環境建置</p>
+<h1>Nvidia driver</h1>
+<ul>
+<li>先解除安裝原本的driver</li>
+</ul>
+<div class="highlight"><pre><span></span>$ sudo apt-get purge nvidia*
+<span class="c1"># $ sudo apt-get autoremove 看需不需要</span>
+</pre></div>
+
+
+<ul>
+<li>更新版本與安裝</li>
+</ul>
+<div class="highlight"><pre><span></span>$ sudo add-apt-repository ppa:graphics-drivers/ppa
+$ sudo apt update
+$ sudo apt install nvidia-driver-410
+</pre></div>
+
+
+<ul>
+<li>重新啟動之後檢查</li>
+</ul>
+<div class="highlight"><pre><span></span>$ lsmod <span class="p">|</span> grep nvidia
+<span class="c1"># or</span>
+$ nvidia-smi
+</pre></div>
+
+
+<h1>Cuda</h1>
+<ul>
+<li>先去<a href="https://developer.nvidia.com/cuda-downloads">官網</a>下載最新的 deb</li>
+</ul>
+<div class="highlight"><pre><span></span>$ sudo apt-get install gcc
+$ sudo dpkg -i cuda-repo-ubuntu1804-10-0-local-10.0.130-410.48_1.0-1_amd64.deb
+$ sudo apt-key add /var/cuda-repo-10–0-local-10.0.130–410.48/7fa2af80.pub
+$ sudo apt-get update
+$ sudo apt install cuda
+</pre></div>
+
+
+<ul>
+<li>檢查cuda版本</li>
+</ul>
+<div class="highlight"><pre><span></span>$ cat /proc/driver/nvidia/version
+$ nvcc -V
+</pre></div>
+
+
+<ul>
+<li>在 ~/.bashrc 中加入以下這段 (看你的shell是用什麼)</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="c1"># CUDA</span>
+<span class="nb">export</span> <span class="nv">CUDA_HOME</span><span class="o">=</span>/usr/local/cuda-10.0
+<span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="si">${</span><span class="nv">CUDA_HOME</span><span class="si">}</span>/lib64
+
+<span class="nv">PATH</span><span class="o">=</span><span class="si">${</span><span class="nv">CUDA_HOME</span><span class="si">}</span>/bin:<span class="si">${</span><span class="nv">PATH</span><span class="si">}</span>
+<span class="nb">export</span> PATH
+</pre></div>
+
+
+<ul>
+<li>使用範例檢查</li>
+</ul>
+<div class="highlight"><pre><span></span>$ cuda-install-samples-10.0.sh &lt;dir&gt;
+$ <span class="nb">cd</span> &lt;dir&gt;/NVIDIA_CUDA-10.0_Samples
+$ make
+$ ./bin/x86_64/linux/release/deviceQuery
+</pre></div>
+
+
+<h1>cuDNN</h1>
+<ul>
+<li>去<a href="https://developer.nvidia.com/cudnn">官網</a>下載 deb 檔，依序下載並安裝<ul>
+<li>Runtime Library</li>
+<li>Developer Library</li>
+<li>Code Samples and User Guide</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre><span></span>sudo dpkg -i libcudnn7_7.3.0.29–1+cuda10.0_amd64.deb
+sudo dpkg -i libcudnn7-dev_7.3.0.29–1+cuda10.0_amd64.deb
+sudo dpkg -i libcudnn7-doc_7.3.0.29–1+cuda10.0_amd64.deb
+</pre></div>
+
+
+<ul>
+<li>檢查是否安裝成功</li>
+</ul>
+<div class="highlight"><pre><span></span>cp -r /usr/src/cudnn_samples_v7/ <span class="nv">$HOME</span>
+<span class="nb">cd</span> <span class="nv">$HOME</span>/cudnn_samples_v7/mnistCUDNN
+make clean <span class="o">&amp;&amp;</span> make
+./mnistCUDNN
+</pre></div>
+
+
+<h1>ref</h1>
+<p>https://medium.com/@vitali.usau/install-cuda-10-0-cudnn-7-3-and-build-tensorflow-gpu-from-source-on-ubuntu-18-04-3daf720b83fe</p>
+
+
+
+    </div>
+        <!-- /Content -->
+
+        <!-- Footer -->
+        <div class="footer gradient-2">
+            <div class="container footer-container ">
+                <div class="row">
+                    <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3">
+                        <div class="footer-title">Sitemap</div>
+                        <ul class="list-unstyled">
+                            <li><a href="/archives.html">Archives</a></li>
+                            <li><a href="/tags.html">Tags</a></li>
+                            <li><a href="/categories.html">Categories</a></li>
+                            <li><a href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">Atom Feed</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3">
+                        <div class="footer-title">Contacts</div>
+                        <ul class="list-unstyled">
+                            <li><a href="http://twitter.com/rapirent" target="_blank">twitter</a></li>
+                            <li><a href="http://www.facebook.com/rapirent" target="_blank">facebook</a></li>
+                            <li><a href="http://github.com/rapirent" target="_blank">github</a></li>
+                            <li><a href="http://tw.linkedin.com/in/rapirent" target="_blank">lindedin</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3">
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                        <p class="pull-right text-right">
+                            <small><em>Proudly powered by <a href="http://docs.getpelican.com/" target="_blank">pelican</a></em></small><br/>
+                            <small><em>Based on design by <a href="https://github.com/molivier" target="_blank">molivier</a></em></small><br/>
+                            <small>&copy; 2018 Kuo-Teng Ding</small>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /Footer -->
+    </body>
+</html>
