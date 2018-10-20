@@ -1,7 +1,7 @@
 Title: 到奴役之路書摘
 Date: 2018-02-27
 Category: Book
-Tags: Reading
+Tags: reading
 Slug: The-Road-to-Serfdom
 Author: kuoteng
 

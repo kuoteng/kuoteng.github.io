@@ -1,5 +1,5 @@
 Title: ubuntu 雙系統建置
-Date: 2017
+Date: 2016
 Category: Linux
 Tags: ubuntu
 Slug: Ubuntu-Dual-System

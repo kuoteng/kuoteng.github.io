@@ -1,7 +1,7 @@
 Title: 區塊鏈革命
 Date: 2018-10-20
 Category: Book
-Tags: block chain, review, Reading
+Tags: block chain, review, reading
 Slug: blockchain-revolution
 Author: kuoteng
 
@@ -13,10 +13,11 @@ Author: kuoteng
 這本書分成三大部分介紹區塊鏈，分別是「區塊鏈簡介」、「應用與現況」和「隱憂」
 
 在前序當中，作者將區塊鏈定位成網際網路的第二季元（90年代的網路崛起則是第一紀元），批判了現有資訊網際網路帶來的現況：社會不均、破壞智慧財產模式——我們需要新的價值網路，就作者所言，就是以區塊鏈建構的全球帳本
-很有趣的是，最近 Tim Berners-lee也[發佈了去中心化的平台](http://www.infoq.com/cn/articles/Tim-Berners-Lee-new-plan-to-upend-the-world-wide-web?utm_source=notification_email&utm_campaign=notifications&utm_medium=link&utm_content=content_in_followed_topic&utm_term=daily#0-fbook-1-57337-b182d7286068ff4101843e17368e4b10)
+
+很有趣的是，最近 Tim Berners-lee 也[發佈了去中心化的平台](http://www.infoq.com/cn/articles/Tim-Berners-Lee-new-plan-to-upend-the-world-wide-web?utm_source=notification_email&utm_campaign=notifications&utm_medium=link&utm_content=content_in_followed_topic&utm_term=daily#0-fbook-1-57337-b182d7286068ff4101843e17368e4b10)
 
 # Outline
-- 第一部份：你所期待的一場革命
+- 第一部：你所期待的一場革命
     - 信賴協定
     - 航向未來：區塊鏈經濟的七大設計原則
 - 第二部：轉型
@@ -72,7 +73,7 @@ Author: kuoteng
 - 隱私 Privacy
     - 比特幣的交易層和識別層、識別層脫鉤
     - 交易時只是將位址標上未花費交易輸出（unspent trasaction output）
-- 保障權益（Rights Preserved）
+- 保障權益 Rights Preserved
     - 線上交易有許多交易存在的「不履約」的風險
     - 智能合約：以程式來執行指令，並能追蹤合約何時才會生效
     - 能夠在任何可以上網的地方來簽署智能合約
