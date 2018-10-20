@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>忘卻錄音 - Book</title><link href="/" rel="alternate"></link><link href="/feeds/book.atom.xml" rel="self"></link><id>/</id><updated>2018-10-20T00:00:00+08:00</updated><entry><title>區塊鏈革命</title><link href="/posts/book/2018/10/blockchain-revolution.html" rel="alternate"></link><published>2018-10-20T00:00:00+08:00</published><updated>2018-10-20T00:00:00+08:00</updated><author><name>kuoteng</name></author><id>tag:None,2018-10-20:/posts/book/2018/10/blockchain-revolution.html</id><summary type="html">&lt;p&gt;這學期選修了「區塊鏈導論」，但到現在自己還是不太了解區塊鏈⋯⋯
+<feed xmlns="http://www.w3.org/2005/Atom"><title>忘卻錄音 - Book</title><link href="https://rapirent.github.io/" rel="alternate"></link><link href="https://rapirent.github.io/feeds/book.atom.xml" rel="self"></link><id>https://rapirent.github.io/</id><updated>2018-10-20T00:00:00+08:00</updated><entry><title>區塊鏈革命</title><link href="https://rapirent.github.io/posts/book/2018/10/blockchain-revolution.html" rel="alternate"></link><published>2018-10-20T00:00:00+08:00</published><updated>2018-10-20T00:00:00+08:00</updated><author><name>kuoteng</name></author><id>tag:rapirent.github.io,2018-10-20:/posts/book/2018/10/blockchain-revolution.html</id><summary type="html">&lt;p&gt;這學期選修了「區塊鏈導論」，但到現在自己還是不太了解區塊鏈⋯⋯
 又看到老師推薦這本書來看，那就順手在博客來上買來看了&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;這本書分成三大部分介紹區塊鏈，分別是「區塊鏈簡介」、「應用與現況」和「隱憂」&lt;/p&gt;
@@ -204,7 +204,7 @@
 &lt;li&gt;PoS 的貨幣高度集中&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;/ul&gt;</content><category term="block chain"></category><category term="review"></category><category term="reading"></category></entry><entry><title>到奴役之路書摘</title><link href="/posts/book/2018/02/The-Road-to-Serfdom.html" rel="alternate"></link><published>2018-02-27T00:00:00+08:00</published><updated>2018-02-27T00:00:00+08:00</updated><author><name>kuoteng</name></author><id>tag:None,2018-02-27:/posts/book/2018/02/The-Road-to-Serfdom.html</id><summary type="html">&lt;p&gt;最近將殷海光先生翻譯的到奴役之路（台大出版中心的新版）讀完，雖然自己對一些觀點不是很能認同XD 不過還是趁記憶尚新將一些自己覺得很棒的書中句子列出&lt;/p&gt;
+&lt;/ul&gt;</content><category term="block chain"></category><category term="review"></category><category term="reading"></category></entry><entry><title>到奴役之路書摘</title><link href="https://rapirent.github.io/posts/book/2018/02/The-Road-to-Serfdom.html" rel="alternate"></link><published>2018-02-27T00:00:00+08:00</published><updated>2018-02-27T00:00:00+08:00</updated><author><name>kuoteng</name></author><id>tag:rapirent.github.io,2018-02-27:/posts/book/2018/02/The-Road-to-Serfdom.html</id><summary type="html">&lt;p&gt;最近將殷海光先生翻譯的到奴役之路（台大出版中心的新版）讀完，雖然自己對一些觀點不是很能認同XD 不過還是趁記憶尚新將一些自己覺得很棒的書中句子列出&lt;/p&gt;
 &lt;p&gt;「只有在個人解放運動獲有進展時, 這種對個人才能的認識方能產生......解放個人能力之最大的結果，也許就是產生了科學」&lt;/p&gt;
 &lt;p&gt;「如果我們有權選擇，我們可能選擇新的措施，更可能因而使大家的境況得到改善...如果強迫實行標準化，或者禁止超過某種程度的花樣翻新，出品確可大量增加，足夠抵償消費者因在選擇方面所受限制的損失.......遇到這類的情形，需要我們抉擇時，我們可能真的必須犧牲一些眼前的利益，以換取將來的利益」&lt;/p&gt;
 &lt;p&gt;「編者按：...集體的形式不一：在左翼方面，強調『黨派』與『階級』；在右翼方面，強調『民族』，國家」&lt;/p&gt;
