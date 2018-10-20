@@ -120,7 +120,7 @@
 &lt;li&gt;交易時只是將位址標上未花費交易輸出（unspent trasaction output）&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;保障權益（Rights Preserved）&lt;ul&gt;
+&lt;li&gt;保障權益 Rights Preserved&lt;ul&gt;
 &lt;li&gt;線上交易有許多交易存在的「不履約」的風險&lt;/li&gt;
 &lt;li&gt;智能合約：以程式來執行指令，並能追蹤合約何時才會生效&lt;/li&gt;
 &lt;li&gt;能夠在任何可以上網的地方來簽署智能合約&lt;/li&gt;
