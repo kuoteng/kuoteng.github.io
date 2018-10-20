@@ -6,9 +6,9 @@ AUTHOR = 'rapirent'
 SITENAME = '忘卻錄音'
 SITESUBTITLE = 'In fleeting instant, living only in the present'
 GITHUB_URL = 'http://github.com/rapirent'
-SITEURL = 'http://rapirent.github.io'
+SITEURL = 'http://127.0.0.1:8000'
 DISQUS_SITENAME = 'rapirent-blog'
-THEME = "themes/nest/"
+THEME = 'themes/nest/'
 
 PATH = 'content'
 # Static files
