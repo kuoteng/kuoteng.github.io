@@ -7,7 +7,7 @@ SITENAME = '忘卻錄音'
 SITESUBTITLE = 'In fleeting instant, living only in the present'
 GITHUB_URL = 'http://github.com/rapirent'
 SITEURL = 'http://rapirent.github.io'
-DISQUS_SITENAME = 'rapirent'
+DISQUS_SITENAME = 'rapirent-blog'
 THEME = "themes/nest/"
 
 PATH = 'content'
