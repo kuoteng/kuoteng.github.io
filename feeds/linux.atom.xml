@@ -1,5 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>忘卻錄音 - Linux</title><link href="https://rapirent.github.io/" rel="alternate"></link><link href="https://rapirent.github.io/feeds/linux.atom.xml" rel="self"></link><id>https://rapirent.github.io/</id><updated>2018-10-19T00:00:00+08:00</updated><entry><title>Install Nvidia driver, CUDA and cuDNN with Ubuntu 18.04</title><link href="https://rapirent.github.io/posts/linux/2018/10/Install-Nvidia-driver-CUDA-and-cuDNN.html" rel="alternate"></link><published>2018-10-19T00:00:00+08:00</published><updated>2018-10-19T00:00:00+08:00</updated><author><name>kuoteng</name></author><id>tag:rapirent.github.io,2018-10-19:/posts/linux/2018/10/Install-Nvidia-driver-CUDA-and-cuDNN.html</id><summary type="html">&lt;p&gt;這學期在學校剛好有機會拿到使用顯示卡的機會，在這邊紀錄一下Ubuntu 18.04的環境建置&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>忘卻錄音 - Linux</title><link href="https://rapirent.github.io/" rel="alternate"></link><link href="https://rapirent.github.io/feeds/linux.atom.xml" rel="self"></link><id>https://rapirent.github.io/</id><updated>2018-10-21T00:00:00+08:00</updated><entry><title>在 Cuda 10.0 的環境下安裝 Pytorch 及 Tensorflow</title><link href="https://rapirent.github.io/posts/linux/2018/10/Install-pytorch-tensorflow-cuda10.html" rel="alternate"></link><published>2018-10-21T00:00:00+08:00</published><updated>2018-10-21T00:00:00+08:00</updated><author><name>kuoteng</name></author><id>tag:rapirent.github.io,2018-10-21:/posts/linux/2018/10/Install-pytorch-tensorflow-cuda10.html</id><summary type="html">&lt;h1&gt;Tensorflow&lt;/h1&gt;
+&lt;p&gt;可以直接照著&lt;a href="https://www.tensorflow.org/install/source"&gt;官網的教學&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;因為現在 tnesorflow 並不支援 python 3.7，需自己建立3.6的環境&lt;ul&gt;
+&lt;li&gt;原本我想使用 anaconda 來安裝，但現在 anaconda 上預裝的 python 版本已經變為 3.7，便作罷&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;在虛擬環境下安裝需要的套件&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ pip install -U --user pip six numpy wheel mock
+$ pip install -U --user &lt;span class="nv"&gt;keras_applications&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;.0.5 --no-deps
+$ pip install -U --user &lt;span class="nv"&gt;keras_preprocessing&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;.0.3 --no-deps …&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;h1&gt;Tensorflow&lt;/h1&gt;
+&lt;p&gt;可以直接照著&lt;a href="https://www.tensorflow.org/install/source"&gt;官網的教學&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;因為現在 tnesorflow 並不支援 python 3.7，需自己建立3.6的環境&lt;ul&gt;
+&lt;li&gt;原本我想使用 anaconda 來安裝，但現在 anaconda 上預裝的 python 版本已經變為 3.7，便作罷&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;在虛擬環境下安裝需要的套件&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ pip install -U --user pip six numpy wheel mock
+$ pip install -U --user &lt;span class="nv"&gt;keras_applications&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;.0.5 --no-deps
+$ pip install -U --user &lt;span class="nv"&gt;keras_preprocessing&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;.0.3 --no-deps
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;clone 下 tensorflow 的原始碼&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ git clone https://github.com/tensorflow/tensorflow.git
+$ &lt;span class="nb"&gt;cd&lt;/span&gt; tensorflow
+&lt;span class="c1"&gt;# $ git checkout r1.12 #選擇你自己要的版本，或是直接用 master&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;在 tensorflow 資料夾下 configure&lt;ul&gt;
+&lt;li&gt;記得要要指定 &lt;code&gt;cuda support&lt;/code&gt;, &lt;code&gt;cuda version&lt;/code&gt;, &lt;code&gt;cuDNN version&lt;/code&gt; 的相關數值&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ ./configure
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;bazel build&lt;ul&gt;
+&lt;li&gt;關於安裝 bazel 請參考上一篇&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ bazel build --config&lt;span class="o"&gt;=&lt;/span&gt;opt --config&lt;span class="o"&gt;=&lt;/span&gt;cuda --cxxopt&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;-D_GLIBCXX_USE_CXX11_ABI=0&amp;quot;&lt;/span&gt; //tensorflow/tools/pip_package:build_pip_package
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;使用上一步驟產生的檔案來 build 出安裝用的 wheel 檔案&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ ./bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/tensorflow_pkg
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;安裝 tensorflow&lt;ul&gt;
+&lt;li&gt;我這邊是安裝 r1.12 的版本，可能路徑有些不一樣&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ pip install /tmp/tensorflow_pkg/tensorflow-1.12.0rc0-cp36-cp36m-linux_x86_64.whl
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h1&gt;Pytorch&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;在虛擬環境中安裝需要的元件&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ pip install pyyaml cmake
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;執行以下指令&lt;ul&gt;
+&lt;li&gt;是不是超神的呢...我是別人跟我講才知道&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ git clone https://github.com/pytorch/pytorch.git
+$ &lt;span class="nb"&gt;cd&lt;/span&gt; pytorch
+$ git submodule update --init
+$ python setup.py install
+&lt;/pre&gt;&lt;/div&gt;</content><category term="ubuntu"></category><category term="machine learning"></category></entry><entry><title>Install Nvidia driver, CUDA and cuDNN with Ubuntu 18.04</title><link href="https://rapirent.github.io/posts/linux/2018/10/Install-Nvidia-driver-CUDA-and-cuDNN.html" rel="alternate"></link><published>2018-10-19T00:00:00+08:00</published><updated>2018-10-19T00:00:00+08:00</updated><author><name>kuoteng</name></author><id>tag:rapirent.github.io,2018-10-19:/posts/linux/2018/10/Install-Nvidia-driver-CUDA-and-cuDNN.html</id><summary type="html">&lt;p&gt;這學期在學校剛好有機會拿到使用顯示卡的機會，在這邊紀錄一下 Ubuntu 18.04 的環境建置&lt;/p&gt;
 &lt;h1&gt;Nvidia driver&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;先解除安裝原本的driver&lt;/li&gt;
@@ -32,7 +122,7 @@ $ nvidia-smi
 &lt;li&gt;先去&lt;a href="https://developer.nvidia.com/cuda-downloads"&gt;官網&lt;/a&gt;下載最新的 deb&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo apt-get install gcc
-$ sudo dpkg -i cuda-repo-ubuntu1804-10-0-local-10.0.130-410.48_1 …&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;這學期在學校剛好有機會拿到使用顯示卡的機會，在這邊紀錄一下Ubuntu 18.04的環境建置&lt;/p&gt;
+$ sudo dpkg -i cuda-repo-ubuntu1804-10-0-local-10.0 …&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;這學期在學校剛好有機會拿到使用顯示卡的機會，在這邊紀錄一下 Ubuntu 18.04 的環境建置&lt;/p&gt;
 &lt;h1&gt;Nvidia driver&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;先解除安裝原本的driver&lt;/li&gt;
@@ -111,24 +201,24 @@ $ ./bin/x86_64/linux/release/deviceQuery
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo dpkg -i libcudnn7_7.3.0.29–1+cuda10.0_amd64.deb
-sudo dpkg -i libcudnn7-dev_7.3.0.29–1+cuda10.0_amd64.deb
-sudo dpkg -i libcudnn7-doc_7.3.0.29–1+cuda10.0_amd64.deb
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo dpkg -i libcudnn7_7.3.0.29–1+cuda10.0_amd64.deb
+$ sudo dpkg -i libcudnn7-dev_7.3.0.29–1+cuda10.0_amd64.deb
+$ sudo dpkg -i libcudnn7-doc_7.3.0.29–1+cuda10.0_amd64.deb
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;ul&gt;
 &lt;li&gt;檢查是否安裝成功&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cp -r /usr/src/cudnn_samples_v7/ &lt;span class="nv"&gt;$HOME&lt;/span&gt;
-&lt;span class="nb"&gt;cd&lt;/span&gt; &lt;span class="nv"&gt;$HOME&lt;/span&gt;/cudnn_samples_v7/mnistCUDNN
-make clean &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; make
-./mnistCUDNN
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ cp -r /usr/src/cudnn_samples_v7/ &lt;span class="nv"&gt;$HOME&lt;/span&gt;
+$ &lt;span class="nb"&gt;cd&lt;/span&gt; &lt;span class="nv"&gt;$HOME&lt;/span&gt;/cudnn_samples_v7/mnistCUDNN
+$ make clean &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; make
+$ ./mnistCUDNN
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h1&gt;ref&lt;/h1&gt;
-&lt;p&gt;https://medium.com/@vitali.usau/install-cuda-10-0-cudnn-7-3-and-build-tensorflow-gpu-from-source-on-ubuntu-18-04-3daf720b83fe&lt;/p&gt;</content><category term="Machine-Learning"></category><category term="Ubuntu"></category><category term="Linux"></category></entry><entry><title>ubuntu &amp; windows 的時間衝突</title><link href="https://rapirent.github.io/posts/linux/2018/03/ubuntu-dual-system-time-conflict.html" rel="alternate"></link><published>2018-03-06T00:00:00+08:00</published><updated>2018-03-06T00:00:00+08:00</updated><author><name>kuoteng</name></author><id>tag:rapirent.github.io,2018-03-06:/posts/linux/2018/03/ubuntu-dual-system-time-conflict.html</id><summary type="html">&lt;p&gt;根據ArchWiki，電腦上的通常以硬體儲存時間，並且將其解析為通用的時間格式
+&lt;p&gt;https://medium.com/@vitali.usau/install-cuda-10-0-cudnn-7-3-and-build-tensorflow-gpu-from-source-on-ubuntu-18-04-3daf720b83fe&lt;/p&gt;</content><category term="machine-learning"></category><category term="ubuntu"></category><category term="linux"></category></entry><entry><title>ubuntu &amp; windows 的時間衝突</title><link href="https://rapirent.github.io/posts/linux/2018/03/ubuntu-dual-system-time-conflict.html" rel="alternate"></link><published>2018-03-06T00:00:00+08:00</published><updated>2018-03-06T00:00:00+08:00</updated><author><name>kuoteng</name></author><id>tag:rapirent.github.io,2018-03-06:/posts/linux/2018/03/ubuntu-dual-system-time-conflict.html</id><summary type="html">&lt;p&gt;根據ArchWiki，電腦上的通常以硬體儲存時間，並且將其解析為通用的時間格式
 有兩類的時間格式：UTC及localtime，UTC被UNIX系統使用，而localtime則在windows上系統被使用
 至於linux...看來ubuntu是將它視為UTC
 在ubuntu 15.04以上的版本可以使用以下的指令開啟localtime&lt;/p&gt;
@@ -138,7 +228,7 @@ make clean &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; make
 至於linux...看來ubuntu是將它視為UTC
 在ubuntu 15.04以上的版本可以使用以下的指令開啟localtime&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ timedatectl set-local-rtc &lt;span class="m"&gt;1&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</content><category term="Ubuntu"></category></entry><entry><title>ubuntu 16.04.3 升級python3.6而有的問題</title><link href="https://rapirent.github.io/posts/linux/2018/03/ubuntu-upgrade-pytyon3.6.html" rel="alternate"></link><published>2018-03-05T00:00:00+08:00</published><updated>2018-03-05T00:00:00+08:00</updated><author><name>kuoteng</name></author><id>tag:rapirent.github.io,2018-03-05:/posts/linux/2018/03/ubuntu-upgrade-pytyon3.6.html</id><summary type="html">&lt;p&gt;因為ubuntu 16.04.3 預裝的是python 3.5.2的版本
+&lt;/pre&gt;&lt;/div&gt;</content><category term="ubuntu"></category></entry><entry><title>ubuntu 16.04.3 升級python3.6而有的問題</title><link href="https://rapirent.github.io/posts/linux/2018/03/ubuntu-upgrade-pytyon3.6.html" rel="alternate"></link><published>2018-03-05T00:00:00+08:00</published><updated>2018-03-05T00:00:00+08:00</updated><author><name>kuoteng</name></author><id>tag:rapirent.github.io,2018-03-05:/posts/linux/2018/03/ubuntu-upgrade-pytyon3.6.html</id><summary type="html">&lt;p&gt;因為ubuntu 16.04.3 預裝的是python 3.5.2的版本
 先更新apt庫後安裝較新的python 3.6.4，並重新使用python3.6執行get-pip.py安裝pip
 最後以symbolic link的方式，將原本連結到python3.5的python3重新指向python3.6&lt;/p&gt;
 &lt;p&gt;結果後來發現...出現了gnome-terminal無法打開的問題

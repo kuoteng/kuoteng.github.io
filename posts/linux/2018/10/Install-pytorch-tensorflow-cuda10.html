@@ -4,11 +4,11 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="這學期在學校剛好有機會拿到使用顯示卡的機會，在這邊紀錄一下 Ubuntu 18.04 的環境建置 Nvidia driver 先解除安裝原本的driver $ sudo apt-get purge nvidia* # $ sudo apt-get autoremove 看需不需要 更新版本與安裝 $ sudo add-apt-repository...">
-        <meta name="keywords" content="linux, machine-learning, ubuntu">
+        <meta name="description" content="Tensorflow 可以直接照著官網的教學 因為現在 tnesorflow 並不支援 python 3.7，需自己建立3.6的環境 原本我想使用 anaconda 來安裝，但現在 anaconda 上預裝的 python 版本已經變為 3.7，便作罷 在虛擬環境下安裝需要的套件 $ pip install -U --user pip six numpy wheel mock $ pip...">
+        <meta name="keywords" content="machine learning, ubuntu">
         <link rel="icon" href="https://rapirent.github.io/favicon.ico">
 
-        <title>Install Nvidia driver, CUDA and cuDNN with Ubuntu 18.04 - 忘卻錄音</title>
+        <title>在 Cuda 10.0 的環境下安裝 Pytorch 及 Tensorflow - 忘卻錄音</title>
 
         <!-- Stylesheets -->
         <link href="https://rapirent.github.io/theme/css/all.min.css" rel="stylesheet">
@@ -69,14 +69,14 @@
         <div class="row">
               <div class="col-lg-12">
                   <div class="header-content">
-                      <h1 class="header-title">Install Nvidia driver, CUDA and cuDNN with Ubuntu 18.04</h1>
+                      <h1 class="header-title">在 Cuda 10.0 的環境下安裝 Pytorch 及 Tensorflow</h1>
                       <p class="header-date">By
-<a href="https://rapirent.github.io/author/kuoteng.html">kuoteng</a>, Fri 19 October 2018, in category <a href="https://rapirent.github.io/category/linux.html">Linux</a></p>
+<a href="https://rapirent.github.io/author/kuoteng.html">kuoteng</a>, Sun 21 October 2018, in category <a href="https://rapirent.github.io/category/linux.html">Linux</a></p>
                       <div class="header-underline"></div>
                       <div class="clearfix"></div>
                       <p class="pull-right header-tags">
                           <span class="glyphicon glyphicon-tags mr5" aria-hidden="true"></span>
-<a href="https://rapirent.github.io/tag/linux.html">linux</a>, <a href="https://rapirent.github.io/tag/machine-learning.html">machine-learning</a>, <a href="https://rapirent.github.io/tag/ubuntu.html">ubuntu</a>                      </p>
+<a href="https://rapirent.github.io/tag/machine-learning.html">machine learning</a>, <a href="https://rapirent.github.io/tag/ubuntu.html">ubuntu</a>                      </p>
                   </div>
               </div>
         </div>
@@ -90,111 +90,94 @@
 
         <!-- Content -->
     <div class="container content">
-        <p>這學期在學校剛好有機會拿到使用顯示卡的機會，在這邊紀錄一下 Ubuntu 18.04 的環境建置</p>
-<h1>Nvidia driver</h1>
+        <h1>Tensorflow</h1>
+<p>可以直接照著<a href="https://www.tensorflow.org/install/source">官網的教學</a></p>
 <ul>
-<li>先解除安裝原本的driver</li>
+<li>因為現在 tnesorflow 並不支援 python 3.7，需自己建立3.6的環境<ul>
+<li>原本我想使用 anaconda 來安裝，但現在 anaconda 上預裝的 python 版本已經變為 3.7，便作罷</li>
 </ul>
-<div class="highlight"><pre><span></span>$ sudo apt-get purge nvidia*
-<span class="c1"># $ sudo apt-get autoremove 看需不需要</span>
+</li>
+<li>在虛擬環境下安裝需要的套件</li>
+</ul>
+<div class="highlight"><pre><span></span>$ pip install -U --user pip six numpy wheel mock
+$ pip install -U --user <span class="nv">keras_applications</span><span class="o">==</span><span class="m">1</span>.0.5 --no-deps
+$ pip install -U --user <span class="nv">keras_preprocessing</span><span class="o">==</span><span class="m">1</span>.0.3 --no-deps
 </pre></div>
 
 
 <ul>
-<li>更新版本與安裝</li>
+<li>clone 下 tensorflow 的原始碼</li>
 </ul>
-<div class="highlight"><pre><span></span>$ sudo add-apt-repository ppa:graphics-drivers/ppa
-$ sudo apt update
-$ sudo apt install nvidia-driver-410
+<div class="highlight"><pre><span></span>$ git clone https://github.com/tensorflow/tensorflow.git
+$ <span class="nb">cd</span> tensorflow
+<span class="c1"># $ git checkout r1.12 #選擇你自己要的版本，或是直接用 master</span>
 </pre></div>
 
 
 <ul>
-<li>重新啟動之後檢查</li>
-</ul>
-<div class="highlight"><pre><span></span>$ lsmod <span class="p">|</span> grep nvidia
-<span class="c1"># or</span>
-$ nvidia-smi
-</pre></div>
-
-
-<h1>Cuda</h1>
-<ul>
-<li>先去<a href="https://developer.nvidia.com/cuda-downloads">官網</a>下載最新的 deb</li>
-</ul>
-<div class="highlight"><pre><span></span>$ sudo apt-get install gcc
-$ sudo dpkg -i cuda-repo-ubuntu1804-10-0-local-10.0.130-410.48_1.0-1_amd64.deb
-$ sudo apt-key add /var/cuda-repo-10–0-local-10.0.130–410.48/7fa2af80.pub
-$ sudo apt-get update
-$ sudo apt install cuda
-</pre></div>
-
-
-<ul>
-<li>檢查cuda版本</li>
-</ul>
-<div class="highlight"><pre><span></span>$ cat /proc/driver/nvidia/version
-$ nvcc -V
-</pre></div>
-
-
-<ul>
-<li>在 ~/.bashrc 中加入以下這段 (看你的shell是用什麼)</li>
-</ul>
-<div class="highlight"><pre><span></span><span class="c1"># CUDA</span>
-<span class="nb">export</span> <span class="nv">CUDA_HOME</span><span class="o">=</span>/usr/local/cuda-10.0
-<span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="si">${</span><span class="nv">CUDA_HOME</span><span class="si">}</span>/lib64
-
-<span class="nv">PATH</span><span class="o">=</span><span class="si">${</span><span class="nv">CUDA_HOME</span><span class="si">}</span>/bin:<span class="si">${</span><span class="nv">PATH</span><span class="si">}</span>
-<span class="nb">export</span> PATH
-</pre></div>
-
-
-<ul>
-<li>使用範例檢查</li>
-</ul>
-<div class="highlight"><pre><span></span>$ cuda-install-samples-10.0.sh &lt;dir&gt;
-$ <span class="nb">cd</span> &lt;dir&gt;/NVIDIA_CUDA-10.0_Samples
-$ make
-$ ./bin/x86_64/linux/release/deviceQuery
-</pre></div>
-
-
-<h1>cuDNN</h1>
-<ul>
-<li>去<a href="https://developer.nvidia.com/cudnn">官網</a>下載 deb 檔，依序下載並安裝<ul>
-<li>Runtime Library</li>
-<li>Developer Library</li>
-<li>Code Samples and User Guide</li>
+<li>在 tensorflow 資料夾下 configure<ul>
+<li>記得要要指定 <code>cuda support</code>, <code>cuda version</code>, <code>cuDNN version</code> 的相關數值</li>
 </ul>
 </li>
 </ul>
-<div class="highlight"><pre><span></span>$ sudo dpkg -i libcudnn7_7.3.0.29–1+cuda10.0_amd64.deb
-$ sudo dpkg -i libcudnn7-dev_7.3.0.29–1+cuda10.0_amd64.deb
-$ sudo dpkg -i libcudnn7-doc_7.3.0.29–1+cuda10.0_amd64.deb
+<div class="highlight"><pre><span></span>$ ./configure
 </pre></div>
 
 
 <ul>
-<li>檢查是否安裝成功</li>
+<li>bazel build<ul>
+<li>關於安裝 bazel 請參考上一篇</li>
 </ul>
-<div class="highlight"><pre><span></span>$ cp -r /usr/src/cudnn_samples_v7/ <span class="nv">$HOME</span>
-$ <span class="nb">cd</span> <span class="nv">$HOME</span>/cudnn_samples_v7/mnistCUDNN
-$ make clean <span class="o">&amp;&amp;</span> make
-$ ./mnistCUDNN
+</li>
+</ul>
+<div class="highlight"><pre><span></span>$ bazel build --config<span class="o">=</span>opt --config<span class="o">=</span>cuda --cxxopt<span class="o">=</span><span class="s2">&quot;-D_GLIBCXX_USE_CXX11_ABI=0&quot;</span> //tensorflow/tools/pip_package:build_pip_package
 </pre></div>
 
 
-<h1>ref</h1>
-<p>https://medium.com/@vitali.usau/install-cuda-10-0-cudnn-7-3-and-build-tensorflow-gpu-from-source-on-ubuntu-18-04-3daf720b83fe</p>
+<ul>
+<li>使用上一步驟產生的檔案來 build 出安裝用的 wheel 檔案</li>
+</ul>
+<div class="highlight"><pre><span></span>$ ./bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/tensorflow_pkg
+</pre></div>
+
+
+<ul>
+<li>安裝 tensorflow<ul>
+<li>我這邊是安裝 r1.12 的版本，可能路徑有些不一樣</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre><span></span>$ pip install /tmp/tensorflow_pkg/tensorflow-1.12.0rc0-cp36-cp36m-linux_x86_64.whl
+</pre></div>
+
+
+<h1>Pytorch</h1>
+<ul>
+<li>在虛擬環境中安裝需要的元件</li>
+</ul>
+<div class="highlight"><pre><span></span>$ pip install pyyaml cmake
+</pre></div>
+
+
+<ul>
+<li>執行以下指令<ul>
+<li>是不是超神的呢...我是別人跟我講才知道</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre><span></span>$ git clone https://github.com/pytorch/pytorch.git
+$ <span class="nb">cd</span> pytorch
+$ git submodule update --init
+$ python setup.py install
+</pre></div>
 
 
     <div class="comments">
         <div id="disqus_thread"></div>
             <script type="text/javascript">
                 var disqus_shortname = 'rapirent-blog';
-                var disqus_identifier = 'posts/linux/2018/10/Install-Nvidia-driver-CUDA-and-cuDNN.html';
-                var disqus_url = 'https://rapirent.github.io/posts/linux/2018/10/Install-Nvidia-driver-CUDA-and-cuDNN.html';
+                var disqus_identifier = 'posts/linux/2018/10/Install-pytorch-tensorflow-cuda10.html';
+                var disqus_url = 'https://rapirent.github.io/posts/linux/2018/10/Install-pytorch-tensorflow-cuda10.html';
                 (function() {
                     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
                     dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
