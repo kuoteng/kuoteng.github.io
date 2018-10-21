@@ -1,11 +1,11 @@
 Title: Install Nvidia driver, CUDA and cuDNN with Ubuntu 18.04
 Date: 2018-10-19
 Category: Linux
-Tags: Machine-Learning, Ubuntu, Linux
+Tags: machine-learning, ubuntu, linux
 Slug: Install-Nvidia-driver-CUDA-and-cuDNN
 Author: kuoteng
 
-這學期在學校剛好有機會拿到使用顯示卡的機會，在這邊紀錄一下Ubuntu 18.04的環境建置
+這學期在學校剛好有機會拿到使用顯示卡的機會，在這邊紀錄一下 Ubuntu 18.04 的環境建置
 
 # Nvidia driver
 - 先解除安裝原本的driver
@@ -62,16 +62,16 @@ $ ./bin/x86_64/linux/release/deviceQuery
     - Developer Library
     - Code Samples and User Guide
 ```sh
-sudo dpkg -i libcudnn7_7.3.0.29–1+cuda10.0_amd64.deb
-sudo dpkg -i libcudnn7-dev_7.3.0.29–1+cuda10.0_amd64.deb
-sudo dpkg -i libcudnn7-doc_7.3.0.29–1+cuda10.0_amd64.deb
+$ sudo dpkg -i libcudnn7_7.3.0.29–1+cuda10.0_amd64.deb
+$ sudo dpkg -i libcudnn7-dev_7.3.0.29–1+cuda10.0_amd64.deb
+$ sudo dpkg -i libcudnn7-doc_7.3.0.29–1+cuda10.0_amd64.deb
 ```
 - 檢查是否安裝成功
 ```sh
-cp -r /usr/src/cudnn_samples_v7/ $HOME
-cd $HOME/cudnn_samples_v7/mnistCUDNN
-make clean && make
-./mnistCUDNN
+$ cp -r /usr/src/cudnn_samples_v7/ $HOME
+$ cd $HOME/cudnn_samples_v7/mnistCUDNN
+$ make clean && make
+$ ./mnistCUDNN
 ```
 
 # ref

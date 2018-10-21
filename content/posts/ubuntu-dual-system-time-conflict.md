@@ -1,7 +1,7 @@
 Title: ubuntu & windows 的時間衝突
 Date: 2018-03-06
 Category: Linux
-Tags: Ubuntu
+Tags: ubuntu
 Slug: ubuntu-dual-system-time-conflict
 Author: kuoteng
 
