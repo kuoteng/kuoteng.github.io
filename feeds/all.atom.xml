@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>忘卻錄音</title><link href="https://rapirent.github.io/" rel="alternate"></link><link href="https://rapirent.github.io/feeds/all.atom.xml" rel="self"></link><id>https://rapirent.github.io/</id><updated>2018-12-11T00:00:00+08:00</updated><entry><title>Unity上實作坦克炮塔的瞄準以及轉向音效</title><link href="https://rapirent.github.io/posts/c/2018/12/unity-tank-aim-control.html" rel="alternate"></link><published>2018-12-11T00:00:00+08:00</published><updated>2018-12-11T00:00:00+08:00</updated><author><name>kuoteng</name></author><id>tag:rapirent.github.io,2018-12-11:/posts/c/2018/12/unity-tank-aim-control.html</id><summary type="html">&lt;h1&gt;瞄準&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>忘卻錄音</title><link href="https://rapirent.github.io/" rel="alternate"></link><link href="https://rapirent.github.io/feeds/all.atom.xml" rel="self"></link><id>https://rapirent.github.io/</id><updated>2018-12-11T00:00:00+08:00</updated><entry><title>Unity上實作坦克炮塔的瞄準以及轉向音效</title><link href="https://rapirent.github.io/posts/csharp/2018/12/unity-tank-aim-control.html" rel="alternate"></link><published>2018-12-11T00:00:00+08:00</published><updated>2018-12-11T00:00:00+08:00</updated><author><name>kuoteng</name></author><id>tag:rapirent.github.io,2018-12-11:/posts/csharp/2018/12/unity-tank-aim-control.html</id><summary type="html">&lt;h1&gt;瞄準&lt;/h1&gt;
 &lt;p&gt;這學期的計算機圖型課程有一份作業是要我們使用 Unity 寫出一款坦克遊戲，一想到坦克遊戲就想到之前在玩的 War thunder ...&lt;/p&gt;
 &lt;p&gt;.. youtube:: TD2GcubWX_k&lt;/p&gt;
 &lt;h2&gt;修正座標系&lt;/h2&gt;
@@ -37,8 +37,8 @@
 &lt;/ul&gt;
 &lt;h2&gt;計算出轉向角&lt;/h2&gt;
 &lt;p&gt;Unity 中有一好用的函式 &lt;code&gt;ScreenPointToRay&lt;/code&gt; 可以計算出場景照相機到場景某一點的向量，剛好我們有第一人稱視角的攝影機 Camera1&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://i.imgur.com/UT76C11.png"&gt;Camera1&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://i.imgur.com/DHtAwa5.png"&gt;Camera1-1&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Camera1" src="https://i.imgur.com/UT76C11.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Camera1-1" src="https://i.imgur.com/DHtAwa5.png"&gt;&lt;/p&gt;
 &lt;p&gt;（記住 Camera1不能在砲塔中，否則照相機會跟著我們砲塔轉動，而永遠不停止，我這邊卡超久&amp;gt;&amp;lt;）&lt;/p&gt;
 &lt;p&gt;我們就以此照相機來計算 (你必須先將 camera1 設置成 &lt;code&gt;Camera1&lt;/code&gt;) 方向向量 dir，並以黃線畫出，在沒有偵測到滑鼠與場景的交點時將此方向向量設置為物件正向 (以下 code 置於 FixedUpdate 方法中)&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;Ray&lt;/span&gt; &lt;span class="n"&gt;ray&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;camera1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ScreenPointToRay&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Input&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;mousePosition&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
@@ -70,7 +70,7 @@
 
 
 &lt;p&gt;最後結果：&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://i.imgur.com/xRbrhGI.gifv"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://i.imgur.com/xRbrhGI.gifv"&gt;&lt;/p&gt;
 &lt;h1&gt;音效&lt;/h1&gt;
 &lt;p&gt;而砲塔轉向有音效，人工轉動的砲塔如 KV 系列會有手搖輪桿的聲音，而電動砲塔則有電動傳帶的聲音&lt;/p&gt;
 &lt;p&gt;我們可以觀看目前物件的正向 (物件的 z 軸正向) 與轉動向量的夾角度數是否小於一定值，如果是則在 FixedUpdate 方法中改變 private 布林變數 is_looping&lt;/p&gt;
@@ -100,7 +100,7 @@
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;大功告成！&lt;/p&gt;</content><category term="c#"></category><category term="tutorial"></category><category term="unity"></category><category term="game"></category></entry><entry><title>Facebook 聊天機器人簡單教學</title><link href="https://rapirent.github.io/posts/backend/2018/11/facebook-chat-bot101.html" rel="alternate"></link><published>2018-11-09T00:00:00+08:00</published><updated>2018-11-09T00:00:00+08:00</updated><author><name>kuoteng</name></author><id>tag:rapirent.github.io,2018-11-09:/posts/backend/2018/11/facebook-chat-bot101.html</id><summary type="html"></summary><content type="html"></content><category term="chatbot"></category><category term="tutorial"></category><category term="backend"></category></entry><entry><title>在 Cuda 10.0 的環境下安裝 Pytorch 及 Tensorflow</title><link href="https://rapirent.github.io/posts/linux/2018/10/Install-pytorch-tensorflow-cuda10.html" rel="alternate"></link><published>2018-10-21T00:00:00+08:00</published><updated>2018-10-21T00:00:00+08:00</updated><author><name>kuoteng</name></author><id>tag:rapirent.github.io,2018-10-21:/posts/linux/2018/10/Install-pytorch-tensorflow-cuda10.html</id><summary type="html">&lt;h1&gt;Tensorflow&lt;/h1&gt;
+&lt;p&gt;大功告成！&lt;/p&gt;</content><category term="csharp"></category><category term="tutorial"></category><category term="unity"></category><category term="game"></category></entry><entry><title>在 Cuda 10.0 的環境下安裝 Pytorch 及 Tensorflow</title><link href="https://rapirent.github.io/posts/linux/2018/10/Install-pytorch-tensorflow-cuda10.html" rel="alternate"></link><published>2018-10-21T00:00:00+08:00</published><updated>2018-10-21T00:00:00+08:00</updated><author><name>kuoteng</name></author><id>tag:rapirent.github.io,2018-10-21:/posts/linux/2018/10/Install-pytorch-tensorflow-cuda10.html</id><summary type="html">&lt;h1&gt;Tensorflow&lt;/h1&gt;
 &lt;p&gt;可以直接照著&lt;a href="https://www.tensorflow.org/install/source"&gt;官網的教學&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;因為現在 tnesorflow 並不支援 python 3.7，需自己建立3.6的環境&lt;ul&gt;

@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="瞄準 這學期的計算機圖型課程有一份作業是要我們使用 Unity 寫出一款坦克遊戲，一想到坦克遊戲就想到之前在玩的 War thunder ... .. youtube:: TD2GcubWX_k 修正座標系 裡面有個操控是在第一人稱和第三人稱視角時，都能以鼠標指向來操控砲塔指向，如果我們要實作這個操控，必須先查看砲塔物件的座標軸是否是正確的 ( z...">
-        <meta name="keywords" content="c#, game, tutorial, unity">
+        <meta name="keywords" content="csharp, game, tutorial, unity">
         <link rel="icon" href="https://rapirent.github.io/favicon.ico">
 
         <title>Unity上實作坦克炮塔的瞄準以及轉向音效 - 忘卻錄音</title>
@@ -16,7 +16,7 @@
 
         <!-- RSS Feeds -->
         <link href="https://rapirent.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="忘卻錄音 Full Atom Feed" />
-        <link href="https://rapirent.github.io/feeds/c.atom.xml" type="application/atom+xml" rel="alternate" title="忘卻錄音 Categories Atom Feed" />
+        <link href="https://rapirent.github.io/feeds/csharp.atom.xml" type="application/atom+xml" rel="alternate" title="忘卻錄音 Categories Atom Feed" />
         <!-- /RSS Feeds -->
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -71,12 +71,12 @@
                   <div class="header-content">
                       <h1 class="header-title">Unity上實作坦克炮塔的瞄準以及轉向音效</h1>
                       <p class="header-date">By
-<a href="https://rapirent.github.io/author/kuoteng.html">kuoteng</a>, 二 11 12月 2018, in category <a href="https://rapirent.github.io/category/c.html">C#</a></p>
+<a href="https://rapirent.github.io/author/kuoteng.html">kuoteng</a>, 二 11 12月 2018, in category <a href="https://rapirent.github.io/category/csharp.html">Csharp</a></p>
                       <div class="header-underline"></div>
                       <div class="clearfix"></div>
                       <p class="pull-right header-tags">
                           <span class="glyphicon glyphicon-tags mr5" aria-hidden="true"></span>
-<a href="https://rapirent.github.io/tag/c.html">c#</a>, <a href="https://rapirent.github.io/tag/game.html">game</a>, <a href="https://rapirent.github.io/tag/tutorial.html">tutorial</a>, <a href="https://rapirent.github.io/tag/unity.html">unity</a>                      </p>
+<a href="https://rapirent.github.io/tag/csharp.html">csharp</a>, <a href="https://rapirent.github.io/tag/game.html">game</a>, <a href="https://rapirent.github.io/tag/tutorial.html">tutorial</a>, <a href="https://rapirent.github.io/tag/unity.html">unity</a>                      </p>
                   </div>
               </div>
         </div>
@@ -120,8 +120,8 @@
 </ul>
 <h2>計算出轉向角</h2>
 <p>Unity 中有一好用的函式 <code>ScreenPointToRay</code> 可以計算出場景照相機到場景某一點的向量，剛好我們有第一人稱視角的攝影機 Camera1</p>
-<p><a href="https://i.imgur.com/UT76C11.png">Camera1</a></p>
-<p><a href="https://i.imgur.com/DHtAwa5.png">Camera1-1</a></p>
+<p><img alt="Camera1" src="https://i.imgur.com/UT76C11.png"></p>
+<p><img alt="Camera1-1" src="https://i.imgur.com/DHtAwa5.png"></p>
 <p>（記住 Camera1不能在砲塔中，否則照相機會跟著我們砲塔轉動，而永遠不停止，我這邊卡超久&gt;&lt;）</p>
 <p>我們就以此照相機來計算 (你必須先將 camera1 設置成 <code>Camera1</code>) 方向向量 dir，並以黃線畫出，在沒有偵測到滑鼠與場景的交點時將此方向向量設置為物件正向 (以下 code 置於 FixedUpdate 方法中)</p>
 <div class="highlight"><pre><span></span><span class="n">Ray</span> <span class="n">ray</span> <span class="p">=</span> <span class="n">camera1</span><span class="p">.</span><span class="n">ScreenPointToRay</span><span class="p">(</span><span class="n">Input</span><span class="p">.</span><span class="n">mousePosition</span><span class="p">);</span>
@@ -153,7 +153,7 @@
 
 
 <p>最後結果：</p>
-<p><a href="https://i.imgur.com/xRbrhGI.gifv"></a></p>
+<p><img alt="" src="https://i.imgur.com/xRbrhGI.gifv"></p>
 <h1>音效</h1>
 <p>而砲塔轉向有音效，人工轉動的砲塔如 KV 系列會有手搖輪桿的聲音，而電動砲塔則有電動傳帶的聲音</p>
 <p>我們可以觀看目前物件的正向 (物件的 z 軸正向) 與轉動向量的夾角度數是否小於一定值，如果是則在 FixedUpdate 方法中改變 private 布林變數 is_looping</p>
@@ -190,8 +190,8 @@
         <div id="disqus_thread"></div>
             <script type="text/javascript">
                 var disqus_shortname = 'rapirent-blog';
-                var disqus_identifier = 'posts/c/2018/12/unity-tank-aim-control.html';
-                var disqus_url = 'https://rapirent.github.io/posts/c/2018/12/unity-tank-aim-control.html';
+                var disqus_identifier = 'posts/csharp/2018/12/unity-tank-aim-control.html';
+                var disqus_url = 'https://rapirent.github.io/posts/csharp/2018/12/unity-tank-aim-control.html';
                 (function() {
                     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
                     dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
