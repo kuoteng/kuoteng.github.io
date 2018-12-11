@@ -118,3 +118,6 @@ NEST_TAGS_HEADER_TITLE = u'Tags'
 NEST_TAGS_HEADER_SUBTITLE = u'Tags List'
 NEST_TAGS_CONTENT_TITLE = u'Tags List'
 NEST_TAGS_CONTENT_LIST = u'tagged'
+
+PLUGIN_PATHS = ['pelican-plugins']
+PLUGINS = ['pelican_youtube']
