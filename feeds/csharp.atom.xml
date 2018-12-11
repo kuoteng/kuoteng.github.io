@@ -1,15 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>忘卻錄音 - csharp</title><link href="https://rapirent.github.io/" rel="alternate"></link><link href="https://rapirent.github.io/feeds/csharp.atom.xml" rel="self"></link><id>https://rapirent.github.io/</id><updated>2018-12-11T00:00:00+08:00</updated><entry><title>Unity上實作坦克炮塔的瞄準以及轉向音效</title><link href="https://rapirent.github.io/posts/csharp/2018/12/unity-tank-aim-control.html" rel="alternate"></link><published>2018-12-11T00:00:00+08:00</published><updated>2018-12-11T00:00:00+08:00</updated><author><name>kuoteng</name></author><id>tag:rapirent.github.io,2018-12-11:/posts/csharp/2018/12/unity-tank-aim-control.html</id><summary type="html">&lt;h1&gt;瞄準&lt;/h1&gt;
 &lt;p&gt;這學期的計算機圖型課程有一份作業是要我們使用 Unity 寫出一款坦克遊戲，一想到坦克遊戲就想到之前在玩的 War thunder ...&lt;/p&gt;
-&lt;p&gt;.. youtube:: TD2GcubWX_k&lt;/p&gt;
+&lt;div class="youtube youtube-4x3"&gt;
+&lt;iframe src="https://www.youtube.com/embed/TD2GcubWX_k"&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
 &lt;h2&gt;修正座標系&lt;/h2&gt;
 &lt;p&gt;裡面有個操控是在第一人稱和第三人稱視角時，都能以鼠標指向來操控砲塔指向，如果我們要實作這個操控，必須先查看砲塔物件的座標軸是否是正確的 ( z 軸正向應該是物件正向)，所以在砲塔這個物件中&lt;/p&gt;
 &lt;p&gt;為此，我們在砲塔物件中加入以下 script (在 update 這個方法中)：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    &lt;span class="n"&gt;Debug&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DrawRay&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;transform&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;position&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;transform&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;forward&lt;/span&gt;&lt;span class="p"&gt;*&lt;/span&gt;&lt;span class="m"&gt;10f&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;Color&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;blue&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
     &lt;span class="n"&gt;Debug&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DrawRay&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;transform&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;position&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;transform&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;up&lt;/span&gt;&lt;span class="p"&gt;*&lt;/span&gt;&lt;span class="m"&gt;10f&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;Color&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;green&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-    &lt;span class="n"&gt;Debug&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DrawRay&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;transform&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;position&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;transform&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;right&lt;/span&gt; &lt;span class="p"&gt;*&lt;/span&gt; &lt;span class="m"&gt;10f&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Color&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;red …&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;h1&gt;瞄準&lt;/h1&gt;
+    &lt;span class="n"&gt;Debug&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DrawRay&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;transform&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;position&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;transform&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;right&lt;/span&gt; &lt;span class="p"&gt;*&lt;/span&gt; &lt;span class="m"&gt;10f&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Color&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;red&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="tank-01" src="https://i.imgur.com/MulJSb2.png"&gt;&lt;/p&gt;
+&lt;p&gt;這樣會畫出砲塔的座標軸方向，對應到藍色 …&lt;/p&gt;</summary><content type="html">&lt;h1&gt;瞄準&lt;/h1&gt;
 &lt;p&gt;這學期的計算機圖型課程有一份作業是要我們使用 Unity 寫出一款坦克遊戲，一想到坦克遊戲就想到之前在玩的 War thunder ...&lt;/p&gt;
-&lt;p&gt;.. youtube:: TD2GcubWX_k&lt;/p&gt;
+&lt;div class="youtube youtube-4x3"&gt;
+&lt;iframe src="https://www.youtube.com/embed/TD2GcubWX_k"&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
 &lt;h2&gt;修正座標系&lt;/h2&gt;
 &lt;p&gt;裡面有個操控是在第一人稱和第三人稱視角時，都能以鼠標指向來操控砲塔指向，如果我們要實作這個操控，必須先查看砲塔物件的座標軸是否是正確的 ( z 軸正向應該是物件正向)，所以在砲塔這個物件中&lt;/p&gt;
 &lt;p&gt;為此，我們在砲塔物件中加入以下 script (在 update 這個方法中)：&lt;/p&gt;

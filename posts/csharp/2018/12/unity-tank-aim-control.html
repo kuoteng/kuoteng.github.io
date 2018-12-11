@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="瞄準 這學期的計算機圖型課程有一份作業是要我們使用 Unity 寫出一款坦克遊戲，一想到坦克遊戲就想到之前在玩的 War thunder ... .. youtube:: TD2GcubWX_k 修正座標系 裡面有個操控是在第一人稱和第三人稱視角時，都能以鼠標指向來操控砲塔指向，如果我們要實作這個操控，必須先查看砲塔物件的座標軸是否是正確的 ( z...">
+        <meta name="description" content="瞄準 這學期的計算機圖型課程有一份作業是要我們使用 Unity 寫出一款坦克遊戲，一想到坦克遊戲就想到之前在玩的 War thunder ... 修正座標系 裡面有個操控是在第一人稱和第三人稱視角時，都能以鼠標指向來操控砲塔指向，如果我們要實作這個操控，必須先查看砲塔物件的座標軸是否是正確的 ( z 軸正向應該是物件正向)，所以在砲塔這個物件中 為此，我們在砲塔物件中加入以下 script...">
         <meta name="keywords" content="csharp, game, tutorial, unity">
         <link rel="icon" href="https://rapirent.github.io/favicon.ico">
 
@@ -92,7 +92,10 @@
     <div class="container content">
         <h1>瞄準</h1>
 <p>這學期的計算機圖型課程有一份作業是要我們使用 Unity 寫出一款坦克遊戲，一想到坦克遊戲就想到之前在玩的 War thunder ...</p>
-<p>.. youtube:: TD2GcubWX_k</p>
+<div class="youtube youtube-4x3">
+<iframe src="https://www.youtube.com/embed/TD2GcubWX_k"></iframe>
+</div>
+
 <h2>修正座標系</h2>
 <p>裡面有個操控是在第一人稱和第三人稱視角時，都能以鼠標指向來操控砲塔指向，如果我們要實作這個操控，必須先查看砲塔物件的座標軸是否是正確的 ( z 軸正向應該是物件正向)，所以在砲塔這個物件中</p>
 <p>為此，我們在砲塔物件中加入以下 script (在 update 這個方法中)：</p>
