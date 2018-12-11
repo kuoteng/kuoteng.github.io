@@ -4,11 +4,11 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Tensorflow 可以直接照著官網的教學 因為現在 tnesorflow 並不支援 python 3.7，需自己建立3.6的環境 原本我想使用 anaconda 來安裝，但現在 anaconda 上預裝的 python 版本已經變為 3.7，便作罷 在虛擬環境下安裝需要的套件 $ pip install -U --user pip six numpy wheel mock $ pip...">
-        <meta name="keywords" content="machine learning, ubuntu">
+        <meta name="description" content="">
+        <meta name="keywords" content="backend, chatbot, tutorial">
         <link rel="icon" href="https://rapirent.github.io/favicon.ico">
 
-        <title>在 Cuda 10.0 的環境下安裝 Pytorch 及 Tensorflow - 忘卻錄音</title>
+        <title>Facebook 聊天機器人簡單教學 - 忘卻錄音</title>
 
         <!-- Stylesheets -->
         <link href="https://rapirent.github.io/theme/css/all.min.css" rel="stylesheet">
@@ -16,7 +16,7 @@
 
         <!-- RSS Feeds -->
         <link href="https://rapirent.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="忘卻錄音 Full Atom Feed" />
-        <link href="https://rapirent.github.io/feeds/linux.atom.xml" type="application/atom+xml" rel="alternate" title="忘卻錄音 Categories Atom Feed" />
+        <link href="https://rapirent.github.io/feeds/backend.atom.xml" type="application/atom+xml" rel="alternate" title="忘卻錄音 Categories Atom Feed" />
         <!-- /RSS Feeds -->
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -69,14 +69,14 @@
         <div class="row">
               <div class="col-lg-12">
                   <div class="header-content">
-                      <h1 class="header-title">在 Cuda 10.0 的環境下安裝 Pytorch 及 Tensorflow</h1>
+                      <h1 class="header-title">Facebook 聊天機器人簡單教學</h1>
                       <p class="header-date">By
-<a href="https://rapirent.github.io/author/kuoteng.html">kuoteng</a>, 日 21 10月 2018, in category <a href="https://rapirent.github.io/category/linux.html">Linux</a></p>
+<a href="https://rapirent.github.io/author/kuoteng.html">kuoteng</a>, 五 09 11月 2018, in category <a href="https://rapirent.github.io/category/backend.html">Backend</a></p>
                       <div class="header-underline"></div>
                       <div class="clearfix"></div>
                       <p class="pull-right header-tags">
                           <span class="glyphicon glyphicon-tags mr5" aria-hidden="true"></span>
-<a href="https://rapirent.github.io/tag/machine-learning.html">machine learning</a>, <a href="https://rapirent.github.io/tag/ubuntu.html">ubuntu</a>                      </p>
+<a href="https://rapirent.github.io/tag/backend.html">backend</a>, <a href="https://rapirent.github.io/tag/chatbot.html">chatbot</a>, <a href="https://rapirent.github.io/tag/tutorial.html">tutorial</a>                      </p>
                   </div>
               </div>
         </div>
@@ -90,94 +90,15 @@
 
         <!-- Content -->
     <div class="container content">
-        <h1>Tensorflow</h1>
-<p>可以直接照著<a href="https://www.tensorflow.org/install/source">官網的教學</a></p>
-<ul>
-<li>因為現在 tnesorflow 並不支援 python 3.7，需自己建立3.6的環境<ul>
-<li>原本我想使用 anaconda 來安裝，但現在 anaconda 上預裝的 python 版本已經變為 3.7，便作罷</li>
-</ul>
-</li>
-<li>在虛擬環境下安裝需要的套件</li>
-</ul>
-<div class="highlight"><pre><span></span>$ pip install -U --user pip six numpy wheel mock
-$ pip install -U --user <span class="nv">keras_applications</span><span class="o">==</span><span class="m">1</span>.0.5 --no-deps
-$ pip install -U --user <span class="nv">keras_preprocessing</span><span class="o">==</span><span class="m">1</span>.0.3 --no-deps
-</pre></div>
-
-
-<ul>
-<li>clone 下 tensorflow 的原始碼</li>
-</ul>
-<div class="highlight"><pre><span></span>$ git clone https://github.com/tensorflow/tensorflow.git
-$ <span class="nb">cd</span> tensorflow
-<span class="c1"># $ git checkout r1.12 #選擇你自己要的版本，或是直接用 master</span>
-</pre></div>
-
-
-<ul>
-<li>在 tensorflow 資料夾下 configure<ul>
-<li>記得要要指定 <code>cuda support</code>, <code>cuda version</code>, <code>cuDNN version</code> 的相關數值</li>
-</ul>
-</li>
-</ul>
-<div class="highlight"><pre><span></span>$ ./configure
-</pre></div>
-
-
-<ul>
-<li>bazel build<ul>
-<li>關於安裝 bazel 請參考上一篇</li>
-</ul>
-</li>
-</ul>
-<div class="highlight"><pre><span></span>$ bazel build --config<span class="o">=</span>opt --config<span class="o">=</span>cuda --cxxopt<span class="o">=</span><span class="s2">&quot;-D_GLIBCXX_USE_CXX11_ABI=0&quot;</span> //tensorflow/tools/pip_package:build_pip_package
-</pre></div>
-
-
-<ul>
-<li>使用上一步驟產生的檔案來 build 出安裝用的 wheel 檔案</li>
-</ul>
-<div class="highlight"><pre><span></span>$ ./bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/tensorflow_pkg
-</pre></div>
-
-
-<ul>
-<li>安裝 tensorflow<ul>
-<li>我這邊是安裝 r1.12 的版本，可能路徑有些不一樣</li>
-</ul>
-</li>
-</ul>
-<div class="highlight"><pre><span></span>$ pip install /tmp/tensorflow_pkg/tensorflow-1.12.0rc0-cp36-cp36m-linux_x86_64.whl
-</pre></div>
-
-
-<h1>Pytorch</h1>
-<ul>
-<li>在虛擬環境中安裝需要的元件</li>
-</ul>
-<div class="highlight"><pre><span></span>$ pip install pyyaml cmake
-</pre></div>
-
-
-<ul>
-<li>執行以下指令<ul>
-<li>是不是超神的呢...我是別人跟我講才知道</li>
-</ul>
-</li>
-</ul>
-<div class="highlight"><pre><span></span>$ git clone https://github.com/pytorch/pytorch.git
-$ <span class="nb">cd</span> pytorch
-$ git submodule update --init
-$ python setup.py install
-</pre></div>
+        
 
 
     <div class="comments">
         <div id="disqus_thread"></div>
             <script type="text/javascript">
                 var disqus_shortname = 'rapirent-blog';
-                var disqus_identifier = 'posts/linux/2018/10/Install-pytorch-tensorflow-cuda10.html';
-                var disqus_url = 'https://rapirent.github.io/posts/linux/2018/10/Install-pytorch-tensorflow-cuda10.html';
+                var disqus_identifier = 'posts/backend/2018/11/facebook-chat-bot101.html';
+                var disqus_url = 'https://rapirent.github.io/posts/backend/2018/11/facebook-chat-bot101.html';
                 (function() {
                     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
                     dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
