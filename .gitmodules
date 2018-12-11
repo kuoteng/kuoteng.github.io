@@ -1,3 +1,6 @@
 [submodule "themes/nest"]
 	path = themes/nest
 	url = https://github.com/rapirent/nest.git
+[submodule "pelican-plugins"]
+	path = pelican-plugins
+	url = https://github.com/getpelican/pelican-plugins
