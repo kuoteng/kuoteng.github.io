@@ -58,7 +58,7 @@ NEST_SITEMAP_ATOM_LINK = u'Atom Feed'
 NEST_SITEMAP_RSS_LINK = u'RSS Feed'
 NEST_SOCIAL_COLUMN_TITLE = u'Contacts'
 NEST_LINKS_COLUMN_TITLE = u'Links'
-NEST_COPYRIGHT = u'&copy; 2018 Kuo-Teng Ding'
+NEST_COPYRIGHT = u'&copy; 2018 - 2019 Kuo-Teng Ding'
 # Footer optional
 NEST_FOOTER_HTML = ''
 # index.html
