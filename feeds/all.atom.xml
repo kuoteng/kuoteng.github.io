@@ -1,2 +1,667 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>忘卻錄音</title><link href="https://kuoteng.github.io/" rel="alternate"></link><link href="https://kuoteng.github.io/feeds/all.atom.xml" rel="self"></link><id>https://kuoteng.github.io/</id><updated>2019-09-07T18:48:44Z</updated><subtitle>In fleeting instant, living only in the present</subtitle></feed>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>忘卻錄音</title><link href="https://kuoteng.github.io/" rel="alternate"></link><link href="https://kuoteng.github.io/feeds/all.atom.xml" rel="self"></link><id>https://kuoteng.github.io/</id><updated>2018-12-11T00:00:00+08:00</updated><subtitle>In fleeting instant, living only in the present</subtitle><entry><title>Unity上實作坦克炮塔的瞄準以及轉向音效</title><link href="https://kuoteng.github.io/posts/csharp/2018/12/unity-tank-aim-control.html" rel="alternate"></link><published>2018-12-11T00:00:00+08:00</published><updated>2018-12-11T00:00:00+08:00</updated><author><name>kuoteng</name></author><id>tag:kuoteng.github.io,2018-12-11:/posts/csharp/2018/12/unity-tank-aim-control.html</id><summary type="html">&lt;h1&gt;瞄準&lt;/h1&gt;
+&lt;p&gt;這學期的計算機圖型課程有一份作業是要我們使用 Unity 寫出一款坦克遊戲，一想到坦克遊戲就想到之前在玩的 War thunder ...&lt;/p&gt;
+&lt;div class="youtube youtube-4x3"&gt;
+&lt;iframe src="https://www.youtube.com/embed/TD2GcubWX_k"&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;h2&gt;修正座標系&lt;/h2&gt;
+&lt;p&gt;裡面有個操控是在第一人稱和第三人稱視角時，都能以鼠標指向來操控砲塔指向，如果我們要實作這個操控，必須先查看砲塔物件的座標軸是否是正確的 ( z 軸正向應該是物件正向)，所以在砲塔這個物件中&lt;/p&gt;
+&lt;p&gt;為此，我們在砲塔物件中加入以下 script (在 update 這個方法中)：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    &lt;span class="n"&gt;Debug&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DrawRay&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;transform&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;position&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;transform&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;forward&lt;/span&gt;&lt;span class="p"&gt;*&lt;/span&gt;&lt;span class="m"&gt;10f&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;Color&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;blue&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="n"&gt;Debug&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DrawRay&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;transform&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;position&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;transform&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;up&lt;/span&gt;&lt;span class="p"&gt;*&lt;/span&gt;&lt;span class="m"&gt;10f&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;Color&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;green&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="n"&gt;Debug&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DrawRay&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;transform&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;position&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;transform&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;right&lt;/span&gt; &lt;span class="p"&gt;*&lt;/span&gt; &lt;span class="m"&gt;10f&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Color&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;red&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="tank-01" src="https://i.imgur.com/MulJSb2.png"&gt;&lt;/p&gt;
+&lt;p&gt;這樣會畫出砲塔的座標軸方向，對應到藍色 …&lt;/p&gt;</summary><content type="html">&lt;h1&gt;瞄準&lt;/h1&gt;
+&lt;p&gt;這學期的計算機圖型課程有一份作業是要我們使用 Unity 寫出一款坦克遊戲，一想到坦克遊戲就想到之前在玩的 War thunder ...&lt;/p&gt;
+&lt;div class="youtube youtube-4x3"&gt;
+&lt;iframe src="https://www.youtube.com/embed/TD2GcubWX_k"&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;h2&gt;修正座標系&lt;/h2&gt;
+&lt;p&gt;裡面有個操控是在第一人稱和第三人稱視角時，都能以鼠標指向來操控砲塔指向，如果我們要實作這個操控，必須先查看砲塔物件的座標軸是否是正確的 ( z 軸正向應該是物件正向)，所以在砲塔這個物件中&lt;/p&gt;
+&lt;p&gt;為此，我們在砲塔物件中加入以下 script (在 update 這個方法中)：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    &lt;span class="n"&gt;Debug&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DrawRay&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;transform&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;position&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;transform&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;forward&lt;/span&gt;&lt;span class="p"&gt;*&lt;/span&gt;&lt;span class="m"&gt;10f&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;Color&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;blue&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="n"&gt;Debug&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DrawRay&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;transform&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;position&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;transform&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;up&lt;/span&gt;&lt;span class="p"&gt;*&lt;/span&gt;&lt;span class="m"&gt;10f&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;Color&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;green&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="n"&gt;Debug&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DrawRay&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;transform&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;position&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;transform&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;right&lt;/span&gt; &lt;span class="p"&gt;*&lt;/span&gt; &lt;span class="m"&gt;10f&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Color&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;red&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="tank-01" src="https://i.imgur.com/MulJSb2.png"&gt;&lt;/p&gt;
+&lt;p&gt;這樣會畫出砲塔的座標軸方向，對應到藍色、綠色、紅色&lt;/p&gt;
+&lt;p&gt;&lt;img alt="tank-02" src="https://i.imgur.com/Prrg584.png"&gt;&lt;/p&gt;
+&lt;p&gt;可以看到座標軸是錯的，所以我們應該要修正座標軸，這邊要怎麼修正已經加入 Unity 場景中的物件呢？&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;我在 Unity 的官方論壇上找到了&lt;a href="https://answers.unity.com/questions/62675/redefine-axis-of-an-object.html"&gt;解答&lt;/a&gt;：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;先新增一個新的空 GameObject (隨便命名，像我就設置成&lt;code&gt;TowerAgent&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;將 GameObject 置於需要修正物件下，使之成為其子物件&lt;/li&gt;
+&lt;li&gt;Reset 空 GameObject 的座標，這個空物件的座標應該會顯示為 (1, 1, 1)，但他實際上已經是母物件的座標了&lt;/li&gt;
+&lt;li&gt;將空 GameObject 拉出修正物件，並且設置對應的座標轉向&lt;/li&gt;
+&lt;li&gt;設置轉向後將修正物件置於空 GameObject 下，使修正物件成為其子物件&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;計算出轉向角&lt;/h2&gt;
+&lt;p&gt;Unity 中有一好用的函式 &lt;code&gt;ScreenPointToRay&lt;/code&gt; 可以計算出場景照相機到場景某一點的向量，剛好我們有第一人稱視角的攝影機 Camera1&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Camera1" src="https://i.imgur.com/UT76C11.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Camera1-1" src="https://i.imgur.com/DHtAwa5.png"&gt;&lt;/p&gt;
+&lt;p&gt;（記住 Camera1不能在砲塔中，否則照相機會跟著我們砲塔轉動，而永遠不停止，我這邊卡超久&amp;gt;&amp;lt;）&lt;/p&gt;
+&lt;p&gt;我們就以此照相機來計算 (你必須先將 camera1 設置成 &lt;code&gt;Camera1&lt;/code&gt;) 方向向量 dir，並以黃線畫出，在沒有偵測到滑鼠與場景的交點時將此方向向量設置為物件正向 (以下 code 置於 FixedUpdate 方法中)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;Ray&lt;/span&gt; &lt;span class="n"&gt;ray&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;camera1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ScreenPointToRay&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Input&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;mousePosition&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;RaycastHit&lt;/span&gt; &lt;span class="n"&gt;hit&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;Vector3&lt;/span&gt; &lt;span class="n"&gt;dir&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Physics&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Raycast&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ray&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;out&lt;/span&gt; &lt;span class="n"&gt;hit&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;Vector3&lt;/span&gt; &lt;span class="n"&gt;hitpos&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;Vector3&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;hit&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;point&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;transform&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;position&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;hit&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;point&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;z&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="n"&gt;dir&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;hitpos&lt;/span&gt; &lt;span class="p"&gt;-&lt;/span&gt; &lt;span class="n"&gt;transform&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;position&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="n"&gt;normalized&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;dir&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;transform&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;forward&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="n"&gt;Debug&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DrawRay&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;transform&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;position&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;dir&lt;/span&gt;&lt;span class="p"&gt;*&lt;/span&gt;&lt;span class="m"&gt;10f&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Color&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;yellow&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+&lt;span class="kt"&gt;float&lt;/span&gt; &lt;span class="n"&gt;angle&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Vector3&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Angle&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;transform&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;forward&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;dir&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;Quaternion&lt;/span&gt; &lt;span class="n"&gt;rotate&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Quaternion&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;RotateTowards&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;transform&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rotation&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                                            &lt;span class="n"&gt;Quaternion&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;LookRotation&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dir&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;transform&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;up&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+                                            &lt;span class="n"&gt;RotateSpeed&lt;/span&gt; &lt;span class="p"&gt;*&lt;/span&gt; &lt;span class="n"&gt;Time&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;deltaTime&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;transform&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rotation&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;rotate&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;視角轉換&lt;/h2&gt;
+&lt;p&gt;但我們並不只有第一人稱視角相機，所以我們將原本的相機設為當前使用的場景攝影機 &lt;code&gt;Camera.current&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;Ray&lt;/span&gt; &lt;span class="n"&gt;ray&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Camera&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;current&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ScreenPointToRay&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Input&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;mousePosition&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;最後結果：&lt;/p&gt;
+&lt;iframe class="imgur-embed" width="100%" height="338" frameborder="0" src="https://i.imgur.com/xRbrhGI.gifv"&gt;&lt;/iframe&gt;
+
+&lt;h1&gt;音效&lt;/h1&gt;
+&lt;p&gt;而砲塔轉向有音效，人工轉動的砲塔如 KV 系列會有手搖輪桿的聲音，而電動砲塔則有電動傳帶的聲音&lt;/p&gt;
+&lt;p&gt;我們可以觀看目前物件的正向 (物件的 z 軸正向) 與轉動向量的夾角度數是否小於一定值，如果是則在 FixedUpdate 方法中改變 private 布林變數 is_looping&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Vector3&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Angle&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt; &lt;span class="n"&gt;transform&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;forward&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;dir&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;&amp;lt;&lt;/span&gt; &lt;span class="m"&gt;0.2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;is_looping&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="k"&gt;false&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;is_looping&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="k"&gt;true&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;當然...在 Start 方法中要記得初始化這個布林值&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;is_looping&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="k"&gt;true&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;最後在 Update 方法中處理音訊的播放與停止與否，其中 &lt;code&gt;loopSound&lt;/code&gt; 是 public AudioSource，必須先預設&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;is_looping&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(!&lt;/span&gt;&lt;span class="n"&gt;loopSound&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;isPlaying&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;
+        &lt;span class="n"&gt;loopSound&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Play&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;loopSound&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Stop&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;大功告成！&lt;/p&gt;</content><category term="csharp"></category><category term="tutorial"></category><category term="unity"></category><category term="game"></category></entry><entry><title>在 Cuda 10.0 的環境下安裝 Pytorch 及 Tensorflow</title><link href="https://kuoteng.github.io/posts/linux/2018/10/Install-pytorch-tensorflow-cuda10.html" rel="alternate"></link><published>2018-10-21T00:00:00+08:00</published><updated>2018-10-21T00:00:00+08:00</updated><author><name>kuoteng</name></author><id>tag:kuoteng.github.io,2018-10-21:/posts/linux/2018/10/Install-pytorch-tensorflow-cuda10.html</id><summary type="html">&lt;h1&gt;Tensorflow&lt;/h1&gt;
+&lt;p&gt;可以直接照著&lt;a href="https://www.tensorflow.org/install/source"&gt;官網的教學&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;因為現在 tnesorflow 並不支援 python 3.7，需自己建立3.6的環境&lt;ul&gt;
+&lt;li&gt;原本我想使用 anaconda 來安裝，但現在 anaconda 上預裝的 python 版本已經變為 3.7，便作罷&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;在虛擬環境下安裝需要的套件&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ pip install -U --user pip six numpy wheel mock
+$ pip install -U --user &lt;span class="nv"&gt;keras_applications&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;.0.5 --no-deps
+$ pip install -U --user &lt;span class="nv"&gt;keras_preprocessing&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;.0.3 --no-deps …&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;h1&gt;Tensorflow&lt;/h1&gt;
+&lt;p&gt;可以直接照著&lt;a href="https://www.tensorflow.org/install/source"&gt;官網的教學&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;因為現在 tnesorflow 並不支援 python 3.7，需自己建立3.6的環境&lt;ul&gt;
+&lt;li&gt;原本我想使用 anaconda 來安裝，但現在 anaconda 上預裝的 python 版本已經變為 3.7，便作罷&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;在虛擬環境下安裝需要的套件&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ pip install -U --user pip six numpy wheel mock
+$ pip install -U --user &lt;span class="nv"&gt;keras_applications&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;.0.5 --no-deps
+$ pip install -U --user &lt;span class="nv"&gt;keras_preprocessing&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;.0.3 --no-deps
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;clone 下 tensorflow 的原始碼&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ git clone https://github.com/tensorflow/tensorflow.git
+$ &lt;span class="nb"&gt;cd&lt;/span&gt; tensorflow
+&lt;span class="c1"&gt;# $ git checkout r1.12 #選擇你自己要的版本，或是直接用 master&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;在 tensorflow 資料夾下 configure&lt;ul&gt;
+&lt;li&gt;記得要要指定 &lt;code&gt;cuda support&lt;/code&gt;, &lt;code&gt;cuda version&lt;/code&gt;, &lt;code&gt;cuDNN version&lt;/code&gt; 的相關數值&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ ./configure
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;bazel build&lt;ul&gt;
+&lt;li&gt;關於安裝 bazel 請參考上一篇&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ bazel build --config&lt;span class="o"&gt;=&lt;/span&gt;opt --config&lt;span class="o"&gt;=&lt;/span&gt;cuda --cxxopt&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;-D_GLIBCXX_USE_CXX11_ABI=0&amp;quot;&lt;/span&gt; //tensorflow/tools/pip_package:build_pip_package
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;使用上一步驟產生的檔案來 build 出安裝用的 wheel 檔案&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ ./bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/tensorflow_pkg
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;安裝 tensorflow&lt;ul&gt;
+&lt;li&gt;我這邊是安裝 r1.12 的版本，可能路徑有些不一樣&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ pip install /tmp/tensorflow_pkg/tensorflow-1.12.0rc0-cp36-cp36m-linux_x86_64.whl
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h1&gt;Pytorch&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;在虛擬環境中安裝需要的元件&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ pip install pyyaml cmake
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;執行以下指令&lt;ul&gt;
+&lt;li&gt;是不是超神的呢...我是別人跟我講才知道&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ git clone https://github.com/pytorch/pytorch.git
+$ &lt;span class="nb"&gt;cd&lt;/span&gt; pytorch
+$ git submodule update --init
+$ python setup.py install
+&lt;/pre&gt;&lt;/div&gt;</content><category term="ubuntu"></category><category term="machine learning"></category></entry><entry><title>區塊鏈革命</title><link href="https://kuoteng.github.io/posts/book/2018/10/blockchain-revolution.html" rel="alternate"></link><published>2018-10-20T00:00:00+08:00</published><updated>2018-10-20T00:00:00+08:00</updated><author><name>kuoteng</name></author><id>tag:kuoteng.github.io,2018-10-20:/posts/book/2018/10/blockchain-revolution.html</id><summary type="html">&lt;p&gt;這學期選修了「區塊鏈導論」，但到現在自己還是不太了解區塊鏈⋯⋯
+又看到老師推薦這本書來看，那就順手在博客來上買來看了&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;這本書分成三大部分介紹區塊鏈，分別是「區塊鏈簡介」、「應用與現況」和「隱憂」&lt;/p&gt;
+&lt;p&gt;在前序當中，作者將區塊鏈定位成網際網路的第二季元（90年代的網路崛起則是第一紀元），批判了現有資訊網際網路帶來的現況：社會不均、破壞智慧財產模式——我們需要新的價值網路，就作者所言，就是以區塊鏈建構的全球帳本&lt;/p&gt;
+&lt;p&gt;很有趣的是，最近 Tim Berners-lee 也&lt;a href="http://www.infoq.com/cn/articles/Tim-Berners-Lee-new-plan-to-upend-the-world-wide-web?utm_source=notification_email&amp;amp;utm_campaign=notifications&amp;amp;utm_medium=link&amp;amp;utm_content=content_in_followed_topic&amp;amp;utm_term=daily#0-fbook-1-57337-b182d7286068ff4101843e17368e4b10"&gt;發佈了去中心化的平台&lt;/a&gt;&lt;/p&gt;
+&lt;h1&gt;Outline&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;第一部：你所期待的一場革命&lt;ul&gt;
+&lt;li&gt;信賴協定&lt;/li&gt;
+&lt;li&gt;航向未來：區塊鏈經濟的七大設計原則&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;第二部：轉型&lt;ul&gt;
+&lt;li&gt;重新打造金融服務&lt;/li&gt;
+&lt;li&gt;重新組件公司架構：核心與邊陲&lt;/li&gt;
+&lt;li&gt;新經營模式：區塊鏈帶來的春風化雨&lt;/li&gt;
+&lt;li&gt;物帳本：賦予實體世界生命&lt;/li&gt;
+&lt;li&gt;解決繁榮弔詭：經濟包容性與創業&lt;/li&gt;
+&lt;li&gt;改造政府與民主&lt;/li&gt;
+&lt;li&gt;在區塊鏈上解放文化：喜聞樂見&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;第三部：前景與危險&lt;ul&gt;
+&lt;li&gt;克服阻礙：十大推行面挑戰 …&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/ul&gt;</summary><content type="html">&lt;p&gt;這學期選修了「區塊鏈導論」，但到現在自己還是不太了解區塊鏈⋯⋯
+又看到老師推薦這本書來看，那就順手在博客來上買來看了&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;這本書分成三大部分介紹區塊鏈，分別是「區塊鏈簡介」、「應用與現況」和「隱憂」&lt;/p&gt;
+&lt;p&gt;在前序當中，作者將區塊鏈定位成網際網路的第二季元（90年代的網路崛起則是第一紀元），批判了現有資訊網際網路帶來的現況：社會不均、破壞智慧財產模式——我們需要新的價值網路，就作者所言，就是以區塊鏈建構的全球帳本&lt;/p&gt;
+&lt;p&gt;很有趣的是，最近 Tim Berners-lee 也&lt;a href="http://www.infoq.com/cn/articles/Tim-Berners-Lee-new-plan-to-upend-the-world-wide-web?utm_source=notification_email&amp;amp;utm_campaign=notifications&amp;amp;utm_medium=link&amp;amp;utm_content=content_in_followed_topic&amp;amp;utm_term=daily#0-fbook-1-57337-b182d7286068ff4101843e17368e4b10"&gt;發佈了去中心化的平台&lt;/a&gt;&lt;/p&gt;
+&lt;h1&gt;Outline&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;第一部：你所期待的一場革命&lt;ul&gt;
+&lt;li&gt;信賴協定&lt;/li&gt;
+&lt;li&gt;航向未來：區塊鏈經濟的七大設計原則&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;第二部：轉型&lt;ul&gt;
+&lt;li&gt;重新打造金融服務&lt;/li&gt;
+&lt;li&gt;重新組件公司架構：核心與邊陲&lt;/li&gt;
+&lt;li&gt;新經營模式：區塊鏈帶來的春風化雨&lt;/li&gt;
+&lt;li&gt;物帳本：賦予實體世界生命&lt;/li&gt;
+&lt;li&gt;解決繁榮弔詭：經濟包容性與創業&lt;/li&gt;
+&lt;li&gt;改造政府與民主&lt;/li&gt;
+&lt;li&gt;在區塊鏈上解放文化：喜聞樂見&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;第三部：前景與危險&lt;ul&gt;
+&lt;li&gt;克服阻礙：十大推行面挑戰&lt;/li&gt;
+&lt;li&gt;次世代的領導&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1&gt;第一部分&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;基本上我覺得只要看這部分就好&lt;/code&gt;&lt;/p&gt;
+&lt;h2&gt;ch.1&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;信賴協定的打造歷史久遠，早在1981年就有人想要嘗試&lt;ul&gt;
+&lt;li&gt;1993年，終於有人以 eCash 做出嘗試，結果 5 年後破產&lt;/li&gt;
+&lt;li&gt;該公司的員工在破產之際發表論文，認為之後一定會出現「上帝協定」（The God Protocol）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;複式帳本帶來中世紀的經濟繁榮，帳本本身就是信賴&lt;ul&gt;
+&lt;li&gt;現在的線上交易必須要第三方介入，隨之而來的是確認的耗時與越來越強而有力的第三方（線上交易的利益都由中介拿走）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;現有的網際網路問題重重&lt;ul&gt;
+&lt;li&gt;網路犯罪越來越多&lt;/li&gt;
+&lt;li&gt;仍然有部分區域因為基礎建設不夠無法進入網際網路&lt;/li&gt;
+&lt;li&gt;工作機會增長的幅度沒有跟上網路基建&lt;/li&gt;
+&lt;li&gt;新興科技企業成為新的大企業&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;區塊鏈所說的「信賴」是指交易時提供的完整資訊與資訊不會外洩&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;ch.2&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Zyskind, Guy, Oz Nathan, and Alex Pentland. "Enigma: Decentralized computation platform with guaranteed privacy." arXiv preprint arXiv:1506.03471 (2015).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;介紹七大設計原則&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;網路支撐的可靠度 Networked Integrity&lt;ul&gt;
+&lt;li&gt;double-spending 問題&lt;/li&gt;
+&lt;li&gt;比特幣區塊上每十分鐘會結清內容：Proof of work&lt;ul&gt;
+&lt;li&gt;猜 SHA-256 的雜湊值，按照 Poisson distribution 平均下來大約十分鐘&lt;/li&gt;
+&lt;li&gt;只要雜湊值能夠低於目標值（由網路決定，每2016個區塊更新一次）就解開了一次&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;每個人都可以查看區塊上的資料&lt;/li&gt;
+&lt;li&gt;其他的信賴機制&lt;ul&gt;
+&lt;li&gt;Proof of stake：要求礦工投入資本已取得一些籌碼&lt;/li&gt;
+&lt;li&gt;unique node list：要求參與者本身就能被其他人信任&lt;ul&gt;
+&lt;li&gt;至少 100 個節點組成&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;proof of activity：某區塊完成認證之前，隨機數量的礦工必須認證該使用密鑰的區塊&lt;/li&gt;
+&lt;li&gt;proof of capacity：要求礦工貢獻一定容量的硬碟空間&lt;/li&gt;
+&lt;li&gt;proof of storage：撥付硬碟空間組成分散式雲端&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;分權式的權力架構 Distributed Power&lt;/li&gt;
+&lt;li&gt;價值導向的誘因機制 Value as Incentive&lt;ul&gt;
+&lt;li&gt;女巫攻擊：節點設立分身帳號稀釋其他人參與的權重&lt;/li&gt;
+&lt;li&gt;比特幣是限量發行：類似貴金屬而非貨幣&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;網路安全 Security&lt;ul&gt;
+&lt;li&gt;比特幣要求參與者使用非對稱金鑰的公開金鑰基礎建設&lt;/li&gt;
+&lt;li&gt;並沒有專門儲存密碼貨幣的檔案，交易時是使用一個加密過的雜湊值&lt;ul&gt;
+&lt;li&gt;雜湊值來代表一個區塊的位址&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;隱私 Privacy&lt;ul&gt;
+&lt;li&gt;比特幣的交易層和識別層、識別層脫鉤&lt;/li&gt;
+&lt;li&gt;交易時只是將位址標上未花費交易輸出（unspent trasaction output）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;保障權益 Rights Preserved&lt;ul&gt;
+&lt;li&gt;線上交易有許多交易存在的「不履約」的風險&lt;/li&gt;
+&lt;li&gt;智能合約：以程式來執行指令，並能追蹤合約何時才會生效&lt;/li&gt;
+&lt;li&gt;能夠在任何可以上網的地方來簽署智能合約&lt;/li&gt;
+&lt;li&gt;將權利加入「轉讓權」的觀念，以轉讓資源來交易&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;普惠 Inclusion&lt;ul&gt;
+&lt;li&gt;進入區塊鏈的世界中不需要現實社會的證明&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1&gt;第二部分&lt;/h1&gt;
+&lt;h2&gt;ch.3&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;三重記帳會計制：將第三筆欄位登錄於區塊鏈上&lt;ul&gt;
+&lt;li&gt;作者主張隱私只能由個人主張，而非企業&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;這似乎和 GDPR 不太相符XD&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;ch.4&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;使用智能合約自動化&lt;/li&gt;
+&lt;li&gt;企業的本質（The Nature of the Firm）：經濟活動包含搜尋成本、協調成本及履約成本&lt;ul&gt;
+&lt;li&gt;企業規模會一直擴大直到在企業內部執行交易的成本大過對外交易的成本&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;使用區塊鏈可以降低三大成本&lt;ul&gt;
+&lt;li&gt;搜尋以「信賴」解決&lt;/li&gt;
+&lt;li&gt;履約成本以「智能合約」解決&lt;ul&gt;
+&lt;li&gt;多方的情況則使用雜湊指令支付方式（P2SH）&lt;ul&gt;
+&lt;li&gt;以多重驗證簽核來完成交易&lt;/li&gt;
+&lt;li&gt;必須同意設定金鑰的總數 （N）以及需要其中幾把金鑰（M）才能完成交易&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;協調成本以「分權」來解決&lt;ul&gt;
+&lt;li&gt;書中主張權力與公司責任拆開會有良性結果&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;我個人是覺得公司與團隊都必須要有一個能做出決策和負責的人、履約也是優先找現實認識的人，作者提出的事情並沒有考慮現實社交層面的影響&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;ch.6&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;介紹物聯網上鏈&lt;/li&gt;
+&lt;li&gt;能源上鏈&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1&gt;第三部分&lt;/h1&gt;
+&lt;h2&gt;ch.10&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;區塊鏈的流動性不足：比特幣是限量發行，不能夠採取靈活的貨幣政策&lt;ul&gt;
+&lt;li&gt;比較像是貴金屬&lt;/li&gt;
+&lt;li&gt;一些人主張因為可以微量交易（分割比特幣至小數點層級）所以沒問題&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;交易容量（capacity）不足&lt;/li&gt;
+&lt;li&gt;難以親近：雜湊值位址太長，很難用在一般交易&lt;/li&gt;
+&lt;li&gt;漫長的等待時間：雖然比特幣比多數支付系統的點對點處理速度還快，但不足以用在物聯網或一般的小額支付&lt;ul&gt;
+&lt;li&gt;金融交易很在乎實時交易，等待時間過長會導致市場時序攻擊&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;欠缺法律救濟機制&lt;/li&gt;
+&lt;li&gt;Proof of work 的能源花費過大：一些替代幣的出現&lt;ul&gt;
+&lt;li&gt;以太坊的解法是 Proof of stake：將決定權下放至各群使用者&lt;ul&gt;
+&lt;li&gt;三群使用者：電腦算力擁有者（使用 Proof of work）、權益所有人（使用錢包軟體的權益認證方法）、社群網路成員（使用聯邦形式的共識演算法）&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;⋯⋯完全不懂這樣怎麼達到共識的&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;磁碟認證（proof of disk）將磁碟儲存空間的擁有人定義為符合經濟效益的使用者&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;誘因不足&lt;ul&gt;
+&lt;li&gt;比特幣以交易費來吸引工作者記帳&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;高度集中的風險&lt;ul&gt;
+&lt;li&gt;PoW 的 51%攻擊&lt;/li&gt;
+&lt;li&gt;PoS 的貨幣高度集中&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</content><category term="block chain"></category><category term="review"></category><category term="reading"></category></entry><entry><title>Install Nvidia driver, CUDA and cuDNN with Ubuntu 18.04</title><link href="https://kuoteng.github.io/posts/linux/2018/10/Install-Nvidia-driver-CUDA-and-cuDNN.html" rel="alternate"></link><published>2018-10-19T00:00:00+08:00</published><updated>2018-10-19T00:00:00+08:00</updated><author><name>kuoteng</name></author><id>tag:kuoteng.github.io,2018-10-19:/posts/linux/2018/10/Install-Nvidia-driver-CUDA-and-cuDNN.html</id><summary type="html">&lt;p&gt;這學期在學校剛好有機會拿到使用顯示卡的機會，在這邊紀錄一下 Ubuntu 18.04 的環境建置&lt;/p&gt;
+&lt;h1&gt;Nvidia driver&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;先解除安裝原本的driver&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo apt-get purge nvidia*
+&lt;span class="c1"&gt;# $ sudo apt-get autoremove 看需不需要&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;更新版本與安裝&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo add-apt-repository ppa:graphics-drivers/ppa
+$ sudo apt update
+$ sudo apt install nvidia-driver-410
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;重新啟動之後檢查&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ lsmod &lt;span class="p"&gt;|&lt;/span&gt; grep nvidia
+&lt;span class="c1"&gt;# or&lt;/span&gt;
+$ nvidia-smi
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h1&gt;Cuda&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;先去&lt;a href="https://developer.nvidia.com/cuda-downloads"&gt;官網&lt;/a&gt;下載最新的 deb&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo apt-get install gcc
+$ sudo dpkg -i cuda-repo-ubuntu1804-10-0-local-10.0 …&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;這學期在學校剛好有機會拿到使用顯示卡的機會，在這邊紀錄一下 Ubuntu 18.04 的環境建置&lt;/p&gt;
+&lt;h1&gt;Nvidia driver&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;先解除安裝原本的driver&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo apt-get purge nvidia*
+&lt;span class="c1"&gt;# $ sudo apt-get autoremove 看需不需要&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;更新版本與安裝&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo add-apt-repository ppa:graphics-drivers/ppa
+$ sudo apt update
+$ sudo apt install nvidia-driver-410
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;重新啟動之後檢查&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ lsmod &lt;span class="p"&gt;|&lt;/span&gt; grep nvidia
+&lt;span class="c1"&gt;# or&lt;/span&gt;
+$ nvidia-smi
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h1&gt;Cuda&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;先去&lt;a href="https://developer.nvidia.com/cuda-downloads"&gt;官網&lt;/a&gt;下載最新的 deb&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo apt-get install gcc
+$ sudo dpkg -i cuda-repo-ubuntu1804-10-0-local-10.0.130-410.48_1.0-1_amd64.deb
+$ sudo apt-key add /var/cuda-repo-10–0-local-10.0.130–410.48/7fa2af80.pub
+$ sudo apt-get update
+$ sudo apt install cuda
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;檢查cuda版本&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ cat /proc/driver/nvidia/version
+$ nvcc -V
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;在 ~/.bashrc 中加入以下這段 (看你的shell是用什麼)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# CUDA&lt;/span&gt;
+&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;CUDA_HOME&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/usr/local/cuda-10.0
+&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;LD_LIBRARY_PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;CUDA_HOME&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;/lib64
+
+&lt;span class="nv"&gt;PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;CUDA_HOME&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;/bin:&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;PATH&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
+&lt;span class="nb"&gt;export&lt;/span&gt; PATH
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;使用範例檢查&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ cuda-install-samples-10.0.sh &amp;lt;dir&amp;gt;
+$ &lt;span class="nb"&gt;cd&lt;/span&gt; &amp;lt;dir&amp;gt;/NVIDIA_CUDA-10.0_Samples
+$ make
+$ ./bin/x86_64/linux/release/deviceQuery
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h1&gt;cuDNN&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;去&lt;a href="https://developer.nvidia.com/cudnn"&gt;官網&lt;/a&gt;下載 deb 檔，依序下載並安裝&lt;ul&gt;
+&lt;li&gt;Runtime Library&lt;/li&gt;
+&lt;li&gt;Developer Library&lt;/li&gt;
+&lt;li&gt;Code Samples and User Guide&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo dpkg -i libcudnn7_7.3.0.29–1+cuda10.0_amd64.deb
+$ sudo dpkg -i libcudnn7-dev_7.3.0.29–1+cuda10.0_amd64.deb
+$ sudo dpkg -i libcudnn7-doc_7.3.0.29–1+cuda10.0_amd64.deb
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;檢查是否安裝成功&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ cp -r /usr/src/cudnn_samples_v7/ &lt;span class="nv"&gt;$HOME&lt;/span&gt;
+$ &lt;span class="nb"&gt;cd&lt;/span&gt; &lt;span class="nv"&gt;$HOME&lt;/span&gt;/cudnn_samples_v7/mnistCUDNN
+$ make clean &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; make
+$ ./mnistCUDNN
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h1&gt;ref&lt;/h1&gt;
+&lt;p&gt;https://medium.com/@vitali.usau/install-cuda-10-0-cudnn-7-3-and-build-tensorflow-gpu-from-source-on-ubuntu-18-04-3daf720b83fe&lt;/p&gt;</content><category term="machine-learning"></category><category term="ubuntu"></category><category term="linux"></category></entry><entry><title>ubuntu &amp; windows 的時間衝突</title><link href="https://kuoteng.github.io/posts/linux/2018/03/ubuntu-dual-system-time-conflict.html" rel="alternate"></link><published>2018-03-06T00:00:00+08:00</published><updated>2018-03-06T00:00:00+08:00</updated><author><name>kuoteng</name></author><id>tag:kuoteng.github.io,2018-03-06:/posts/linux/2018/03/ubuntu-dual-system-time-conflict.html</id><content type="html">&lt;p&gt;根據ArchWiki，電腦上的通常以硬體儲存時間，並且將其解析為通用的時間格式
+有兩類的時間格式：UTC及localtime，UTC被UNIX系統使用，而localtime則在windows上系統被使用
+至於linux...看來ubuntu是將它視為UTC
+在ubuntu 15.04以上的版本可以使用以下的指令開啟localtime&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ timedatectl set-local-rtc &lt;span class="m"&gt;1&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</content><category term="ubuntu"></category></entry><entry><title>ubuntu 16.04.3 升級python3.6而有的問題</title><link href="https://kuoteng.github.io/posts/linux/2018/03/ubuntu-upgrade-pytyon3.6.html" rel="alternate"></link><published>2018-03-05T00:00:00+08:00</published><updated>2018-03-05T00:00:00+08:00</updated><author><name>kuoteng</name></author><id>tag:kuoteng.github.io,2018-03-05:/posts/linux/2018/03/ubuntu-upgrade-pytyon3.6.html</id><summary type="html">&lt;p&gt;因為ubuntu 16.04.3 預裝的是python 3.5.2的版本
+先更新apt庫後安裝較新的python 3.6.4，並重新使用python3.6執行get-pip.py安裝pip
+最後以symbolic link的方式，將原本連結到python3.5的python3重新指向python3.6&lt;/p&gt;
+&lt;p&gt;結果後來發現...出現了gnome-terminal無法打開的問題
+原本以為是gcin（我有另外裝）相衝，重新update後更新版本，結果發現問題還是沒解決
+最後發現有兩個問題ImportError: cannot import name '_gi'、ModuleNotFoundError: No module named 'apt_pkg'
+重新以apt工具安裝python-apt沒有用...
+後來發現應該是升級python遺留的模組造成的&lt;/p&gt;
+&lt;p&gt;解決方法：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span class="nb"&gt;cd&lt;/span&gt; /usr/lib/python3/dist-packages/
+$ sudo cp apt_pkg.cpython-35m-x86_64-linux-gnu.so …&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;因為ubuntu 16.04.3 預裝的是python 3.5.2的版本
+先更新apt庫後安裝較新的python 3.6.4，並重新使用python3.6執行get-pip.py安裝pip
+最後以symbolic link的方式，將原本連結到python3.5的python3重新指向python3.6&lt;/p&gt;
+&lt;p&gt;結果後來發現...出現了gnome-terminal無法打開的問題
+原本以為是gcin（我有另外裝）相衝，重新update後更新版本，結果發現問題還是沒解決
+最後發現有兩個問題ImportError: cannot import name '_gi'、ModuleNotFoundError: No module named 'apt_pkg'
+重新以apt工具安裝python-apt沒有用...
+後來發現應該是升級python遺留的模組造成的&lt;/p&gt;
+&lt;p&gt;解決方法：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span class="nb"&gt;cd&lt;/span&gt; /usr/lib/python3/dist-packages/
+$ sudo cp apt_pkg.cpython-35m-x86_64-linux-gnu.so apt_pkg.cpython-36m-x86_64-linux-gnu.so
+$ &lt;span class="nb"&gt;cd&lt;/span&gt; /usr/lib/python3/dist-packages/gi
+$ sudo cp _gi.cpython-35m-x86_64-linux-gnu.so _gi.cpython-36m-x86_64-linux-gnu.so
+$ sudo cp _gi.cpython-35m-x86_64-linux-gnu.so _gi_cairo.cpython-36m-x86_64-linux-gnu.so
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;gnome-terminal恢復正常了XD&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;另外，gcin更新後一直跳出&lt;code&gt;cannot open /usr/share/gcin/table/.kbm&lt;/code&gt;的問題
+我直接重新安裝就恢復正常了&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo dpkg -i --force-all /var/cache/apt/archives/gcin-im-client_2.8.5+eliu-4_amd64.deb
+$ sudo dpkg -i --force-all /var/cache/apt/archives/gcin_2.8.5+eliu-4_amd64.deb
+&lt;/pre&gt;&lt;/div&gt;</content><category term="ubuntu"></category></entry><entry><title>到奴役之路書摘</title><link href="https://kuoteng.github.io/posts/book/2018/02/The-Road-to-Serfdom.html" rel="alternate"></link><published>2018-02-27T00:00:00+08:00</published><updated>2018-02-27T00:00:00+08:00</updated><author><name>kuoteng</name></author><id>tag:kuoteng.github.io,2018-02-27:/posts/book/2018/02/The-Road-to-Serfdom.html</id><summary type="html">&lt;p&gt;最近將殷海光先生翻譯的到奴役之路（台大出版中心的新版）讀完，雖然自己對一些觀點不是很能認同XD 不過還是趁記憶尚新將一些自己覺得很棒的書中句子列出&lt;/p&gt;
+&lt;p&gt;「只有在個人解放運動獲有進展時, 這種對個人才能的認識方能產生......解放個人能力之最大的結果，也許就是產生了科學」&lt;/p&gt;
+&lt;p&gt;「如果我們有權選擇，我們可能選擇新的措施，更可能因而使大家的境況得到改善...如果強迫實行標準化，或者禁止超過某種程度的花樣翻新，出品確可大量增加，足夠抵償消費者因在選擇方面所受限制的損失.......遇到這類的情形，需要我們抉擇時，我們可能真的必須犧牲一些眼前的利益，以換取將來的利益」&lt;/p&gt;
+&lt;p&gt;「編者按：...集體的形式不一：在左翼方面，強調『黨派』與『階級』；在右翼方面，強調『民族』，國家」&lt;/p&gt;
+&lt;p&gt;「我們不僅不能得到一種無所不包的道德標準，並且任何人都無法確知不同的人之各種不同的需要何在」&lt;/p&gt;
+&lt;p&gt;「只有在自由競爭制度以內，民主政治才有實行之可能。然而，當民主政治受集體主義的教條之支配時，民主政治變無可避免地毀滅其自己」&lt;/p&gt;
+&lt;p&gt;「在某些專制統治之下，較之在許多民主政治之下，常有較高之文化的或精神的自由。至少，我們可以想像，由極其同質而且同樣堅持一種信仰的多數人所構成的民主政府，在其施行統治權時，其對人民之壓迫，可能與最惡劣的獨裁政治無異」&lt;/p&gt;
+&lt;p&gt;「法律之前人人平等，與政府精心策劃以使不同的人得到實質的平等，這兩件事是互相衝突的 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;最近將殷海光先生翻譯的到奴役之路（台大出版中心的新版）讀完，雖然自己對一些觀點不是很能認同XD 不過還是趁記憶尚新將一些自己覺得很棒的書中句子列出&lt;/p&gt;
+&lt;p&gt;「只有在個人解放運動獲有進展時, 這種對個人才能的認識方能產生......解放個人能力之最大的結果，也許就是產生了科學」&lt;/p&gt;
+&lt;p&gt;「如果我們有權選擇，我們可能選擇新的措施，更可能因而使大家的境況得到改善...如果強迫實行標準化，或者禁止超過某種程度的花樣翻新，出品確可大量增加，足夠抵償消費者因在選擇方面所受限制的損失.......遇到這類的情形，需要我們抉擇時，我們可能真的必須犧牲一些眼前的利益，以換取將來的利益」&lt;/p&gt;
+&lt;p&gt;「編者按：...集體的形式不一：在左翼方面，強調『黨派』與『階級』；在右翼方面，強調『民族』，國家」&lt;/p&gt;
+&lt;p&gt;「我們不僅不能得到一種無所不包的道德標準，並且任何人都無法確知不同的人之各種不同的需要何在」&lt;/p&gt;
+&lt;p&gt;「只有在自由競爭制度以內，民主政治才有實行之可能。然而，當民主政治受集體主義的教條之支配時，民主政治變無可避免地毀滅其自己」&lt;/p&gt;
+&lt;p&gt;「在某些專制統治之下，較之在許多民主政治之下，常有較高之文化的或精神的自由。至少，我們可以想像，由極其同質而且同樣堅持一種信仰的多數人所構成的民主政府，在其施行統治權時，其對人民之壓迫，可能與最惡劣的獨裁政治無異」&lt;/p&gt;
+&lt;p&gt;「法律之前人人平等，與政府精心策劃以使不同的人得到實質的平等，這兩件事是互相衝突的。任何以直接分配『正義』為理想目標之政策必至引起法治之毀滅」&lt;/p&gt;
+&lt;p&gt;「只要通過法律程序給予政府以無限權力，則最專斷的權利都可以是合法的。即使在民主政治之下，設吾人也可如法炮製，則不難製出吾人可以想像得到的最完備的專制政體」&lt;/p&gt;
+&lt;p&gt;「他們相信威爾斯的一重要主張.......我們既不能實行中央管制而又保持個人權利」&lt;/p&gt;
+&lt;p&gt;「實行計劃者有時宣言實行計劃之目標是使人不復只成為一種工具；但是，在事實上，個人在計畫社會中必至成為工具」&lt;/p&gt;
+&lt;p&gt;「問題之所在，仍在我們實現某些人所標尚之『社會正義』的理想時所需償付之代價，是否製造更多的不安和更多的壓迫」&lt;/p&gt;
+&lt;p&gt;「雖然自由競爭與社會正義兩者共同之處不多，但兩者都是值得讚美的。因為，無論是自由競爭也好，或是社會正義也好，其建制也，並非預先為了對於誰何人等有利，亦非預先為了不利於誰何人等。」&lt;/p&gt;
+&lt;p&gt;「在自由競爭制度下，我們簡直無法預知誰會獲利，誰會遭受損失」&lt;/p&gt;
+&lt;p&gt;「如果沒有任何人能夠拿它的看法強使人同，那麼，消除機會不均等之事遲早總是可能實現的，在消除機會不平等時，消除之方式，必須不是為著任何個人打算的，而須是超乎人身的」&lt;/p&gt;
+&lt;p&gt;「在自由競爭的社會中，窮人致富之機會確較承繼遺產者致富之機會為少，雖然如此，在這種社會中，窮人畢竟有致富的可能。自由競爭制度係建立於想獲致財富的人身上，而非建立於權勢之上」&lt;/p&gt;
+&lt;p&gt;「...將一切私有財產轉變為政府財產時，政府的行動在實際上便決定著大家一切其他的收入。這麼一來，我們就是將『生活權利』交給政府了。」&lt;/p&gt;
+&lt;p&gt;「伊斯特曼....他說：『馬克斯希望藉著消滅私有財產而無限獲致自由與平等。真夠奇怪的，馬克斯是看出這個問題的第一人。他首先告訴我們，叫我們往後看。他說，私有資本制度之演進以及與之俱來的自由市場曾經是我們一切民主式的自由之先決條件。可是，他卻從來不向前看。如果他說的不差，那麼，設若廢除了自由市場，則這些自由便會一齊消失』」&lt;/p&gt;
+&lt;p&gt;「一切經濟現象係彼此密切關連著的。既然如此，計畫者極不易將計畫之事剛好做得適可而止」&lt;/p&gt;
+&lt;p&gt;「無疑，在人類社會中，不平等之事在所難敏。如果不平等之事係出於社會因素所致，而非出於人為的計畫，則對於個人尊嚴打擊尚小」&lt;/p&gt;
+&lt;p&gt;「照社會主義者看來，只有一條普遍原則，只有一條簡單的規律，可以確定地解答所有的這些問題，即是：平等，一切個人在所有藉人為管制而形成的那些條件上完全而且絕對平等......所們所有的公平標準，是從我們已知的自由競爭範圍內衍生出來的。一但自由競爭制度消滅了，這些標準便立即隨之消失」&lt;/p&gt;
+&lt;p&gt;「社會主義者明白，要他們的『理想』行得通，必須大家普遍接受一個共同的世界觀（Weltanschauung）」&lt;/p&gt;
+&lt;p&gt;「老式社會主義者用來獲得一個職業集團支持的種種手段，並不能用來獲得所有集團之支持。這樣一來，必定發生許多彼此抗爭的社會主義運動......工人運動中比較得到利益的部分，與其說是屬於被剝削的階層，無寧說是屬於新的剝削階層」&lt;/p&gt;
+&lt;p&gt;「凡不能確實自主自立的人，其心靈很少能夠獨立，其人格役男發揮何種力量。...所謂『經濟安全』這一名詞，其意義之含混，較之大多數其他名詞，或尤過之。正因如此，一班人對於經濟安全的要求，可能就威脅著真正的自由」&lt;/p&gt;
+&lt;p&gt;「即使每個人可以自由選擇行業，並不足以保證他們的收入穩定。如果政府設法保證這些人的收入穩定，那麼他們的收入之穩定就變成一項特權了。而此項特權之獲得，難免建立於他人的損失之上」&lt;/p&gt;
+&lt;p&gt;「官方作這些決定，大部分不過是行使專斷權力而已。運用專斷權力的結果，必至同工者不得同酬。如果同工者不得同仇，那麼就不復能激勵大家作有益於社會之事」&lt;/p&gt;
+&lt;p&gt;「我們愈是想藉干涉自由市場制度來獲致全班的經濟安全，則所得結果愈不安全。...經濟安全之事，如愈成為一項特權，則得不到經濟安全者的危險將益愈增加」&lt;/p&gt;
+&lt;p&gt;「實現經濟安全的措施，必須在不破壞自由市場制度的原則之下行之；而且同時應該聽任自由競爭制度繼續發生其作用」&lt;/p&gt;
+&lt;p&gt;「權力趨於腐壞，絕對的權力則絕對地趨於腐壞」--阿克頓&lt;/p&gt;
+&lt;p&gt;「即令是民主的政治家，如果在一開始的時候就為一般人的經濟生活而實行計劃，那麼演變所及，他必至面臨一項抉擇，即是，要麼他僭越獨裁權利，要麼他放棄計劃經濟。同樣的，一個人如果實行極權統治，他馬上也會面臨一項抉擇，即是，他要麼不顧通常的道德肆行無忌，他要麼坐待失敗」&lt;/p&gt;
+&lt;p&gt;「一般說來，各個人的教育程度和理知愈高，則各人的看法和品建立也愈不相同，因此各個人也就愈不容易產生一項共同一致的價值觀念。......價值標準相似的大多數人的道德水準是較低的，而且品鑑力也是較差的。如果推行集體制度時所需要的是多數人，而且要把這些人的人生觀科諸別人頭上，那麼這類的人永遠不是品鑑力極高和極特殊的人。這類的人往往最缺乏原創能力，不能獨立思考和行動。」&lt;/p&gt;
+&lt;p&gt;「集體制度以人道主義為根據時，充其量只能在比較小的團體以內實行。因為，人道主義哲學是從個人主義裡發展出來的」&lt;/p&gt;
+&lt;p&gt;「許多自由的社會主義者有一項悲劇式的幻想。他們以為剝奪個人在個體主義制度下個人所有的權利，並且把這種權力轉移到社會去，這樣便可以使權力歸於消滅。......集中了權力固然能完成一個單一的集體計畫；可是，全力不僅是轉移了就算數的，它還要無限地擴張的。」&lt;/p&gt;
+&lt;p&gt;「一個邦國如果有一個超乎一切的共同政治目標時，那麼任何普遍的道德便無容身之地」&lt;/p&gt;
+&lt;p&gt;「極權主義是整個浸沈於權威主義的空氣之中的政治。所以，意理的思想上的權威，在極權政治之下，一定與政治權威互相表裏」&lt;/p&gt;
+&lt;p&gt;「柏拉圖之『高貴的謊言』（noble lies）和索利勒的『神話』，都可為納粹的種族優越論，或墨索里尼的合作邦國論辯護」&lt;/p&gt;
+&lt;p&gt;「如果藉文字之移義來表述政治理想，並且一直繼續下去藉以影響一班人的想法，那麼意義之混亂便更趨嚴重......文字也就變成空殼，不復有任何確定的意義」&lt;/p&gt;
+&lt;p&gt;「凡足以把本國不利的情形與外國做比較的機會，凡政府措施失當的真象，或諾言不能兌現之處，都要禁止發表」&lt;/p&gt;
+&lt;p&gt;「在知識的每一步門中，如有意見上的參差，都變成政治上的爭端。因此，這類爭端之解決，不靠科學研究，悉賴官方的權威」&lt;/p&gt;
+&lt;p&gt;「在自由社會中，各個人彼此交互影響，獲得不同的知識和不同的看法，構成思想的生活。理知的成長有賴於個別的差異，互為個人（interpersonal）的程序促進個人理知的成長。如果我們拿任何前提來控制理知。遲早會使思想和理知趨於僵固的」&lt;/p&gt;</content><category term="reading"></category></entry><entry><title>ubuntu 雙系統建置</title><link href="https://kuoteng.github.io/posts/linux/2016/09/Ubuntu-Dual-System.html" rel="alternate"></link><published>2016-09-07T00:00:00+08:00</published><updated>2016-09-07T00:00:00+08:00</updated><author><name>kuoteng</name></author><id>tag:kuoteng.github.io,2016-09-07:/posts/linux/2016/09/Ubuntu-Dual-System.html</id><summary type="html">&lt;p&gt;新學期到了, 又到了該重灌ubuntu雙系統的時間了XDDD（等debian改版後就改裝debian）&lt;/p&gt;
+&lt;p&gt;既然要重灌, 那就順便紀錄下來吧＠＠&lt;/p&gt;
+&lt;p&gt;下載並燒錄ubuntu
+到ubuntu官網(https://www.ubuntu.com/)下載你想安裝的ubuntu版本iso檔&lt;/p&gt;
+&lt;p&gt;並且將此iso檔燒錄在光碟片中(我直接使用筆電預設的power2GO來安裝, 不過也可以使用nero等燒錄軟體)&lt;/p&gt;
+&lt;p&gt;取消快速啟動
+快速啟動會讓gnu啟動器失效…所以我們進入電源選項中關閉這個功能&lt;/p&gt;
+&lt;p&gt;取消安全啟動
+開機進入windows開機畫面前按鍵盤「del」（delete鍵）進入bios, 在security中取消secure boot&lt;/p&gt;
+&lt;p&gt;partition
+利用windows磁碟管理工具來給予多的空間給ubuntu&lt;/p&gt;
+&lt;p&gt;(這部份我以前就做過了XD 所以就不截圖, 不過一般試用可以先試試看20~40GB的空間就好)&lt;/p&gt;
+&lt;p&gt;使用光碟片安裝
+將光碟片放入光碟機中, 關機再開機後再次進入bios, 調整開機順序(startup priority), 將光碟機順位調至最高(如果不是使用光碟片而是隨身碟也是如此), 最後save and exit&lt;/p&gt;
+&lt;p&gt;然後就會進入ubuntu環境了, 選擇圖形界面中的安裝&lt;/p&gt;
+&lt;p&gt;ubuntu partition
+這邊要注意一塊硬碟最多容納4個主分區(You obviously have …&lt;/p&gt;</summary><content type="html">&lt;p&gt;新學期到了, 又到了該重灌ubuntu雙系統的時間了XDDD（等debian改版後就改裝debian）&lt;/p&gt;
+&lt;p&gt;既然要重灌, 那就順便紀錄下來吧＠＠&lt;/p&gt;
+&lt;p&gt;下載並燒錄ubuntu
+到ubuntu官網(https://www.ubuntu.com/)下載你想安裝的ubuntu版本iso檔&lt;/p&gt;
+&lt;p&gt;並且將此iso檔燒錄在光碟片中(我直接使用筆電預設的power2GO來安裝, 不過也可以使用nero等燒錄軟體)&lt;/p&gt;
+&lt;p&gt;取消快速啟動
+快速啟動會讓gnu啟動器失效…所以我們進入電源選項中關閉這個功能&lt;/p&gt;
+&lt;p&gt;取消安全啟動
+開機進入windows開機畫面前按鍵盤「del」（delete鍵）進入bios, 在security中取消secure boot&lt;/p&gt;
+&lt;p&gt;partition
+利用windows磁碟管理工具來給予多的空間給ubuntu&lt;/p&gt;
+&lt;p&gt;(這部份我以前就做過了XD 所以就不截圖, 不過一般試用可以先試試看20~40GB的空間就好)&lt;/p&gt;
+&lt;p&gt;使用光碟片安裝
+將光碟片放入光碟機中, 關機再開機後再次進入bios, 調整開機順序(startup priority), 將光碟機順位調至最高(如果不是使用光碟片而是隨身碟也是如此), 最後save and exit&lt;/p&gt;
+&lt;p&gt;然後就會進入ubuntu環境了, 選擇圖形界面中的安裝&lt;/p&gt;
+&lt;p&gt;ubuntu partition
+這邊要注意一塊硬碟最多容納4個主分區(You obviously have a msdos-partitioned disk, so you may only create 4 primary partitions on it.)&lt;/p&gt;
+&lt;p&gt;/: file system root , ext4, 建議10GB ~ 15GB
+swap:虛擬記憶體，通常為實體記憶體的1~2倍, 類型為linux-swap
+/boot:啟動文件，給個200M就好
+/home: 其他的全給, 類型為ext4
+語言支援
+安裝完成後, 點選右上角的語言支援(language support), 會跳出安裝的語言尚未完備, 點選安裝並完成安裝後, 登出再登入就可以右上角找到小企鵝輸入法的設定頁面了&lt;/p&gt;
+&lt;p&gt;參考資料
+https://askubuntu.com/questions/666631/how-can-i-dual-boot-windows-10-and-ubuntu-on-a-uefi-hp-notebook&lt;/p&gt;
+&lt;p&gt;https://read01.com/jND7m.html&lt;/p&gt;
+&lt;p&gt;http://askubuntu.com/questions/662214/ubuntu-file-system-partition-dual-boot&lt;/p&gt;
+&lt;p&gt;http://askubuntu.com/questions/343268/how-to-use-manual-partitioning-during-installation&lt;/p&gt;
+&lt;p&gt;http://www.coctec.com/docs/linux/show-post-140951.html&lt;/p&gt;</content><category term="ubuntu"></category></entry></feed>

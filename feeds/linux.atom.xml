@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>忘卻錄音 - Linux</title><link href="https://kuoteng.github.io/" rel="alternate"></link><link href="https://kuoteng.github.io/feeds/linux.atom.xml" rel="self"></link><id>https://kuoteng.github.io/</id><updated>2018-10-21T00:00:00+08:00</updated><subtitle>In fleeting instant, living only in the present</subtitle><entry><title>在 Cuda 10.0 的環境下安裝 Pytorch 及 Tensorflow</title><link href="https://kuoteng.github.io/posts/linux/2018/10/Install-pytorch-tensorflow-cuda10.html" rel="alternate"></link><published>2018-10-21T00:00:00+08:00</published><updated>2018-10-21T00:00:00+08:00</updated><author><name>kuoteng</name></author><id>tag:kuoteng.github.io,2018-10-21:/posts/linux/2018/10/Install-pytorch-tensorflow-cuda10.html</id><summary type="html">&lt;h1&gt;Tensorflow&lt;/h1&gt;
+&lt;p&gt;可以直接照著&lt;a href="https://www.tensorflow.org/install/source"&gt;官網的教學&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;因為現在 tnesorflow 並不支援 python 3.7，需自己建立3.6的環境&lt;ul&gt;
+&lt;li&gt;原本我想使用 anaconda 來安裝，但現在 anaconda 上預裝的 python 版本已經變為 3.7，便作罷&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;在虛擬環境下安裝需要的套件&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ pip install -U --user pip six numpy wheel mock
+$ pip install -U --user &lt;span class="nv"&gt;keras_applications&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;.0.5 --no-deps
+$ pip install -U --user &lt;span class="nv"&gt;keras_preprocessing&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;.0.3 --no-deps …&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;h1&gt;Tensorflow&lt;/h1&gt;
+&lt;p&gt;可以直接照著&lt;a href="https://www.tensorflow.org/install/source"&gt;官網的教學&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;因為現在 tnesorflow 並不支援 python 3.7，需自己建立3.6的環境&lt;ul&gt;
+&lt;li&gt;原本我想使用 anaconda 來安裝，但現在 anaconda 上預裝的 python 版本已經變為 3.7，便作罷&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;在虛擬環境下安裝需要的套件&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ pip install -U --user pip six numpy wheel mock
+$ pip install -U --user &lt;span class="nv"&gt;keras_applications&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;.0.5 --no-deps
+$ pip install -U --user &lt;span class="nv"&gt;keras_preprocessing&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;.0.3 --no-deps
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;clone 下 tensorflow 的原始碼&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ git clone https://github.com/tensorflow/tensorflow.git
+$ &lt;span class="nb"&gt;cd&lt;/span&gt; tensorflow
+&lt;span class="c1"&gt;# $ git checkout r1.12 #選擇你自己要的版本，或是直接用 master&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;在 tensorflow 資料夾下 configure&lt;ul&gt;
+&lt;li&gt;記得要要指定 &lt;code&gt;cuda support&lt;/code&gt;, &lt;code&gt;cuda version&lt;/code&gt;, &lt;code&gt;cuDNN version&lt;/code&gt; 的相關數值&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ ./configure
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;bazel build&lt;ul&gt;
+&lt;li&gt;關於安裝 bazel 請參考上一篇&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ bazel build --config&lt;span class="o"&gt;=&lt;/span&gt;opt --config&lt;span class="o"&gt;=&lt;/span&gt;cuda --cxxopt&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;-D_GLIBCXX_USE_CXX11_ABI=0&amp;quot;&lt;/span&gt; //tensorflow/tools/pip_package:build_pip_package
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;使用上一步驟產生的檔案來 build 出安裝用的 wheel 檔案&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ ./bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/tensorflow_pkg
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;安裝 tensorflow&lt;ul&gt;
+&lt;li&gt;我這邊是安裝 r1.12 的版本，可能路徑有些不一樣&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ pip install /tmp/tensorflow_pkg/tensorflow-1.12.0rc0-cp36-cp36m-linux_x86_64.whl
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h1&gt;Pytorch&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;在虛擬環境中安裝需要的元件&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ pip install pyyaml cmake
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;執行以下指令&lt;ul&gt;
+&lt;li&gt;是不是超神的呢...我是別人跟我講才知道&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ git clone https://github.com/pytorch/pytorch.git
+$ &lt;span class="nb"&gt;cd&lt;/span&gt; pytorch
+$ git submodule update --init
+$ python setup.py install
+&lt;/pre&gt;&lt;/div&gt;</content><category term="ubuntu"></category><category term="machine learning"></category></entry><entry><title>Install Nvidia driver, CUDA and cuDNN with Ubuntu 18.04</title><link href="https://kuoteng.github.io/posts/linux/2018/10/Install-Nvidia-driver-CUDA-and-cuDNN.html" rel="alternate"></link><published>2018-10-19T00:00:00+08:00</published><updated>2018-10-19T00:00:00+08:00</updated><author><name>kuoteng</name></author><id>tag:kuoteng.github.io,2018-10-19:/posts/linux/2018/10/Install-Nvidia-driver-CUDA-and-cuDNN.html</id><summary type="html">&lt;p&gt;這學期在學校剛好有機會拿到使用顯示卡的機會，在這邊紀錄一下 Ubuntu 18.04 的環境建置&lt;/p&gt;
+&lt;h1&gt;Nvidia driver&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;先解除安裝原本的driver&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo apt-get purge nvidia*
+&lt;span class="c1"&gt;# $ sudo apt-get autoremove 看需不需要&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;更新版本與安裝&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo add-apt-repository ppa:graphics-drivers/ppa
+$ sudo apt update
+$ sudo apt install nvidia-driver-410
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;重新啟動之後檢查&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ lsmod &lt;span class="p"&gt;|&lt;/span&gt; grep nvidia
+&lt;span class="c1"&gt;# or&lt;/span&gt;
+$ nvidia-smi
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h1&gt;Cuda&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;先去&lt;a href="https://developer.nvidia.com/cuda-downloads"&gt;官網&lt;/a&gt;下載最新的 deb&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo apt-get install gcc
+$ sudo dpkg -i cuda-repo-ubuntu1804-10-0-local-10.0 …&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;這學期在學校剛好有機會拿到使用顯示卡的機會，在這邊紀錄一下 Ubuntu 18.04 的環境建置&lt;/p&gt;
+&lt;h1&gt;Nvidia driver&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;先解除安裝原本的driver&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo apt-get purge nvidia*
+&lt;span class="c1"&gt;# $ sudo apt-get autoremove 看需不需要&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;更新版本與安裝&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo add-apt-repository ppa:graphics-drivers/ppa
+$ sudo apt update
+$ sudo apt install nvidia-driver-410
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;重新啟動之後檢查&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ lsmod &lt;span class="p"&gt;|&lt;/span&gt; grep nvidia
+&lt;span class="c1"&gt;# or&lt;/span&gt;
+$ nvidia-smi
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h1&gt;Cuda&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;先去&lt;a href="https://developer.nvidia.com/cuda-downloads"&gt;官網&lt;/a&gt;下載最新的 deb&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo apt-get install gcc
+$ sudo dpkg -i cuda-repo-ubuntu1804-10-0-local-10.0.130-410.48_1.0-1_amd64.deb
+$ sudo apt-key add /var/cuda-repo-10–0-local-10.0.130–410.48/7fa2af80.pub
+$ sudo apt-get update
+$ sudo apt install cuda
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;檢查cuda版本&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ cat /proc/driver/nvidia/version
+$ nvcc -V
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;在 ~/.bashrc 中加入以下這段 (看你的shell是用什麼)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# CUDA&lt;/span&gt;
+&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;CUDA_HOME&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/usr/local/cuda-10.0
+&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;LD_LIBRARY_PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;CUDA_HOME&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;/lib64
+
+&lt;span class="nv"&gt;PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;CUDA_HOME&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;/bin:&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;PATH&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
+&lt;span class="nb"&gt;export&lt;/span&gt; PATH
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;使用範例檢查&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ cuda-install-samples-10.0.sh &amp;lt;dir&amp;gt;
+$ &lt;span class="nb"&gt;cd&lt;/span&gt; &amp;lt;dir&amp;gt;/NVIDIA_CUDA-10.0_Samples
+$ make
+$ ./bin/x86_64/linux/release/deviceQuery
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h1&gt;cuDNN&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;去&lt;a href="https://developer.nvidia.com/cudnn"&gt;官網&lt;/a&gt;下載 deb 檔，依序下載並安裝&lt;ul&gt;
+&lt;li&gt;Runtime Library&lt;/li&gt;
+&lt;li&gt;Developer Library&lt;/li&gt;
+&lt;li&gt;Code Samples and User Guide&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo dpkg -i libcudnn7_7.3.0.29–1+cuda10.0_amd64.deb
+$ sudo dpkg -i libcudnn7-dev_7.3.0.29–1+cuda10.0_amd64.deb
+$ sudo dpkg -i libcudnn7-doc_7.3.0.29–1+cuda10.0_amd64.deb
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;檢查是否安裝成功&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ cp -r /usr/src/cudnn_samples_v7/ &lt;span class="nv"&gt;$HOME&lt;/span&gt;
+$ &lt;span class="nb"&gt;cd&lt;/span&gt; &lt;span class="nv"&gt;$HOME&lt;/span&gt;/cudnn_samples_v7/mnistCUDNN
+$ make clean &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; make
+$ ./mnistCUDNN
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h1&gt;ref&lt;/h1&gt;
+&lt;p&gt;https://medium.com/@vitali.usau/install-cuda-10-0-cudnn-7-3-and-build-tensorflow-gpu-from-source-on-ubuntu-18-04-3daf720b83fe&lt;/p&gt;</content><category term="machine-learning"></category><category term="ubuntu"></category><category term="linux"></category></entry><entry><title>ubuntu &amp; windows 的時間衝突</title><link href="https://kuoteng.github.io/posts/linux/2018/03/ubuntu-dual-system-time-conflict.html" rel="alternate"></link><published>2018-03-06T00:00:00+08:00</published><updated>2018-03-06T00:00:00+08:00</updated><author><name>kuoteng</name></author><id>tag:kuoteng.github.io,2018-03-06:/posts/linux/2018/03/ubuntu-dual-system-time-conflict.html</id><content type="html">&lt;p&gt;根據ArchWiki，電腦上的通常以硬體儲存時間，並且將其解析為通用的時間格式
+有兩類的時間格式：UTC及localtime，UTC被UNIX系統使用，而localtime則在windows上系統被使用
+至於linux...看來ubuntu是將它視為UTC
+在ubuntu 15.04以上的版本可以使用以下的指令開啟localtime&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ timedatectl set-local-rtc &lt;span class="m"&gt;1&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</content><category term="ubuntu"></category></entry><entry><title>ubuntu 16.04.3 升級python3.6而有的問題</title><link href="https://kuoteng.github.io/posts/linux/2018/03/ubuntu-upgrade-pytyon3.6.html" rel="alternate"></link><published>2018-03-05T00:00:00+08:00</published><updated>2018-03-05T00:00:00+08:00</updated><author><name>kuoteng</name></author><id>tag:kuoteng.github.io,2018-03-05:/posts/linux/2018/03/ubuntu-upgrade-pytyon3.6.html</id><summary type="html">&lt;p&gt;因為ubuntu 16.04.3 預裝的是python 3.5.2的版本
+先更新apt庫後安裝較新的python 3.6.4，並重新使用python3.6執行get-pip.py安裝pip
+最後以symbolic link的方式，將原本連結到python3.5的python3重新指向python3.6&lt;/p&gt;
+&lt;p&gt;結果後來發現...出現了gnome-terminal無法打開的問題
+原本以為是gcin（我有另外裝）相衝，重新update後更新版本，結果發現問題還是沒解決
+最後發現有兩個問題ImportError: cannot import name '_gi'、ModuleNotFoundError: No module named 'apt_pkg'
+重新以apt工具安裝python-apt沒有用...
+後來發現應該是升級python遺留的模組造成的&lt;/p&gt;
+&lt;p&gt;解決方法：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span class="nb"&gt;cd&lt;/span&gt; /usr/lib/python3/dist-packages/
+$ sudo cp apt_pkg.cpython-35m-x86_64-linux-gnu.so …&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;因為ubuntu 16.04.3 預裝的是python 3.5.2的版本
+先更新apt庫後安裝較新的python 3.6.4，並重新使用python3.6執行get-pip.py安裝pip
+最後以symbolic link的方式，將原本連結到python3.5的python3重新指向python3.6&lt;/p&gt;
+&lt;p&gt;結果後來發現...出現了gnome-terminal無法打開的問題
+原本以為是gcin（我有另外裝）相衝，重新update後更新版本，結果發現問題還是沒解決
+最後發現有兩個問題ImportError: cannot import name '_gi'、ModuleNotFoundError: No module named 'apt_pkg'
+重新以apt工具安裝python-apt沒有用...
+後來發現應該是升級python遺留的模組造成的&lt;/p&gt;
+&lt;p&gt;解決方法：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span class="nb"&gt;cd&lt;/span&gt; /usr/lib/python3/dist-packages/
+$ sudo cp apt_pkg.cpython-35m-x86_64-linux-gnu.so apt_pkg.cpython-36m-x86_64-linux-gnu.so
+$ &lt;span class="nb"&gt;cd&lt;/span&gt; /usr/lib/python3/dist-packages/gi
+$ sudo cp _gi.cpython-35m-x86_64-linux-gnu.so _gi.cpython-36m-x86_64-linux-gnu.so
+$ sudo cp _gi.cpython-35m-x86_64-linux-gnu.so _gi_cairo.cpython-36m-x86_64-linux-gnu.so
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;gnome-terminal恢復正常了XD&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;另外，gcin更新後一直跳出&lt;code&gt;cannot open /usr/share/gcin/table/.kbm&lt;/code&gt;的問題
+我直接重新安裝就恢復正常了&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo dpkg -i --force-all /var/cache/apt/archives/gcin-im-client_2.8.5+eliu-4_amd64.deb
+$ sudo dpkg -i --force-all /var/cache/apt/archives/gcin_2.8.5+eliu-4_amd64.deb
+&lt;/pre&gt;&lt;/div&gt;</content><category term="ubuntu"></category></entry><entry><title>ubuntu 雙系統建置</title><link href="https://kuoteng.github.io/posts/linux/2016/09/Ubuntu-Dual-System.html" rel="alternate"></link><published>2016-09-07T00:00:00+08:00</published><updated>2016-09-07T00:00:00+08:00</updated><author><name>kuoteng</name></author><id>tag:kuoteng.github.io,2016-09-07:/posts/linux/2016/09/Ubuntu-Dual-System.html</id><summary type="html">&lt;p&gt;新學期到了, 又到了該重灌ubuntu雙系統的時間了XDDD（等debian改版後就改裝debian）&lt;/p&gt;
+&lt;p&gt;既然要重灌, 那就順便紀錄下來吧＠＠&lt;/p&gt;
+&lt;p&gt;下載並燒錄ubuntu
+到ubuntu官網(https://www.ubuntu.com/)下載你想安裝的ubuntu版本iso檔&lt;/p&gt;
+&lt;p&gt;並且將此iso檔燒錄在光碟片中(我直接使用筆電預設的power2GO來安裝, 不過也可以使用nero等燒錄軟體)&lt;/p&gt;
+&lt;p&gt;取消快速啟動
+快速啟動會讓gnu啟動器失效…所以我們進入電源選項中關閉這個功能&lt;/p&gt;
+&lt;p&gt;取消安全啟動
+開機進入windows開機畫面前按鍵盤「del」（delete鍵）進入bios, 在security中取消secure boot&lt;/p&gt;
+&lt;p&gt;partition
+利用windows磁碟管理工具來給予多的空間給ubuntu&lt;/p&gt;
+&lt;p&gt;(這部份我以前就做過了XD 所以就不截圖, 不過一般試用可以先試試看20~40GB的空間就好)&lt;/p&gt;
+&lt;p&gt;使用光碟片安裝
+將光碟片放入光碟機中, 關機再開機後再次進入bios, 調整開機順序(startup priority), 將光碟機順位調至最高(如果不是使用光碟片而是隨身碟也是如此), 最後save and exit&lt;/p&gt;
+&lt;p&gt;然後就會進入ubuntu環境了, 選擇圖形界面中的安裝&lt;/p&gt;
+&lt;p&gt;ubuntu partition
+這邊要注意一塊硬碟最多容納4個主分區(You obviously have …&lt;/p&gt;</summary><content type="html">&lt;p&gt;新學期到了, 又到了該重灌ubuntu雙系統的時間了XDDD（等debian改版後就改裝debian）&lt;/p&gt;
+&lt;p&gt;既然要重灌, 那就順便紀錄下來吧＠＠&lt;/p&gt;
+&lt;p&gt;下載並燒錄ubuntu
+到ubuntu官網(https://www.ubuntu.com/)下載你想安裝的ubuntu版本iso檔&lt;/p&gt;
+&lt;p&gt;並且將此iso檔燒錄在光碟片中(我直接使用筆電預設的power2GO來安裝, 不過也可以使用nero等燒錄軟體)&lt;/p&gt;
+&lt;p&gt;取消快速啟動
+快速啟動會讓gnu啟動器失效…所以我們進入電源選項中關閉這個功能&lt;/p&gt;
+&lt;p&gt;取消安全啟動
+開機進入windows開機畫面前按鍵盤「del」（delete鍵）進入bios, 在security中取消secure boot&lt;/p&gt;
+&lt;p&gt;partition
+利用windows磁碟管理工具來給予多的空間給ubuntu&lt;/p&gt;
+&lt;p&gt;(這部份我以前就做過了XD 所以就不截圖, 不過一般試用可以先試試看20~40GB的空間就好)&lt;/p&gt;
+&lt;p&gt;使用光碟片安裝
+將光碟片放入光碟機中, 關機再開機後再次進入bios, 調整開機順序(startup priority), 將光碟機順位調至最高(如果不是使用光碟片而是隨身碟也是如此), 最後save and exit&lt;/p&gt;
+&lt;p&gt;然後就會進入ubuntu環境了, 選擇圖形界面中的安裝&lt;/p&gt;
+&lt;p&gt;ubuntu partition
+這邊要注意一塊硬碟最多容納4個主分區(You obviously have a msdos-partitioned disk, so you may only create 4 primary partitions on it.)&lt;/p&gt;
+&lt;p&gt;/: file system root , ext4, 建議10GB ~ 15GB
+swap:虛擬記憶體，通常為實體記憶體的1~2倍, 類型為linux-swap
+/boot:啟動文件，給個200M就好
+/home: 其他的全給, 類型為ext4
+語言支援
+安裝完成後, 點選右上角的語言支援(language support), 會跳出安裝的語言尚未完備, 點選安裝並完成安裝後, 登出再登入就可以右上角找到小企鵝輸入法的設定頁面了&lt;/p&gt;
+&lt;p&gt;參考資料
+https://askubuntu.com/questions/666631/how-can-i-dual-boot-windows-10-and-ubuntu-on-a-uefi-hp-notebook&lt;/p&gt;
+&lt;p&gt;https://read01.com/jND7m.html&lt;/p&gt;
+&lt;p&gt;http://askubuntu.com/questions/662214/ubuntu-file-system-partition-dual-boot&lt;/p&gt;
+&lt;p&gt;http://askubuntu.com/questions/343268/how-to-use-manual-partitioning-during-installation&lt;/p&gt;
+&lt;p&gt;http://www.coctec.com/docs/linux/show-post-140951.html&lt;/p&gt;</content><category term="ubuntu"></category></entry></feed>
