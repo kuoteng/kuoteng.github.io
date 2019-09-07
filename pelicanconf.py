@@ -2,12 +2,12 @@
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
 
-AUTHOR = 'rapirent'
+AUTHOR = 'kuoteng'
 SITENAME = '忘卻錄音'
 SITESUBTITLE = 'In fleeting instant, living only in the present'
-GITHUB_URL = 'http://github.com/rapirent'
+GITHUB_URL = 'http://github.com/kuoteng'
 SITEURL = 'http://127.0.0.1:8000'
-DISQUS_SITENAME = 'rapirent-blog'
+DISQUS_SITENAME = 'kuoteng-blog'
 THEME = 'themes/nest/'
 
 PATH = 'content'
@@ -35,10 +35,9 @@ AUTHOR_FEED_RSS = None
 LINKS = None
 
 # Social widget
-SOCIAL = (('twitter', 'http://twitter.com/rapirent'),
-          ('facebook', 'http://www.facebook.com/rapirent'),
-          ('github', 'http://github.com/rapirent'),
-          ('lindedin','http://tw.linkedin.com/in/rapirent'))
+SOCIAL = (('facebook', 'http://www.facebook.com/kuoteng.ding'),
+          ('github', 'http://github.com/kuoteng'),
+          ('lindedin','http://tw.linkedin.com/in/kuoteng'))
 
 DEFAULT_PAGINATION = 10
 
