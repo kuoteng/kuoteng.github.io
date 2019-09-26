@@ -1,5 +1,186 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>忘卻錄音</title><link href="https://kuoteng.github.io/" rel="alternate"></link><link href="https://kuoteng.github.io/feeds/all.atom.xml" rel="self"></link><id>https://kuoteng.github.io/</id><updated>2018-12-11T00:00:00+08:00</updated><subtitle>In fleeting instant, living only in the present</subtitle><entry><title>Unity上實作坦克炮塔的瞄準以及轉向音效</title><link href="https://kuoteng.github.io/posts/csharp/2018/12/unity-tank-aim-control.html" rel="alternate"></link><published>2018-12-11T00:00:00+08:00</published><updated>2018-12-11T00:00:00+08:00</updated><author><name>kuoteng</name></author><id>tag:kuoteng.github.io,2018-12-11:/posts/csharp/2018/12/unity-tank-aim-control.html</id><summary type="html">&lt;h1&gt;瞄準&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>忘卻錄音</title><link href="https://kuoteng.github.io/" rel="alternate"></link><link href="https://kuoteng.github.io/feeds/all.atom.xml" rel="self"></link><id>https://kuoteng.github.io/</id><updated>2019-09-26T00:00:00+08:00</updated><subtitle>In fleeting instant, living only in the present</subtitle><entry><title>Academic Writing Features</title><link href="https://kuoteng.github.io/posts/course/2019/09/academic-english-week2.html" rel="alternate"></link><published>2019-09-26T00:00:00+08:00</published><updated>2019-09-26T00:00:00+08:00</updated><author><name>kuoteng</name></author><id>tag:kuoteng.github.io,2019-09-26:/posts/course/2019/09/academic-english-week2.html</id><summary type="html">&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;寫在前面，這學期修習了一門學術英語寫作，也嘗試把自己的一些課程筆記放上來&lt;/span&gt; &lt;span class="n"&gt;blog&lt;/span&gt; &lt;span class="err"&gt;看看&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h1&gt;Academic Writing Features&lt;/h1&gt;
+&lt;h2&gt;Audience&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Target audience: 觀眾是誰？&lt;ul&gt;
+&lt;li&gt;請看 author’s word&lt;/li&gt;
+&lt;li&gt;讀該期刊最新兩期的 paper，掌握他們的觀眾是誰&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Purpose&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;writing angle：經由觀眾的 background knowledge 來判斷&lt;ul&gt;
+&lt;li&gt;audience &amp;lt; writer：教科書&lt;/li&gt;
+&lt;li&gt;audience &amp;gt; writer：類似與指導教授的互動，你不必介紹太多前備知識&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;writers’ tone&lt;ul&gt;
+&lt;li&gt;美式論文總會寫道：「The find …」&lt;ol&gt;
+&lt;li&gt;現在式&lt;/li&gt;
+&lt;li&gt;理直氣壯&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;英式、歐式&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Organization&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;論文的重點：透過結構化格式將「資訊」傳遞給讀者，所以即使是小片段也會有 regular和predictable 的結構 …&lt;/li&gt;&lt;/ul&gt;</summary><content type="html">&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;寫在前面，這學期修習了一門學術英語寫作，也嘗試把自己的一些課程筆記放上來&lt;/span&gt; &lt;span class="n"&gt;blog&lt;/span&gt; &lt;span class="err"&gt;看看&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h1&gt;Academic Writing Features&lt;/h1&gt;
+&lt;h2&gt;Audience&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Target audience: 觀眾是誰？&lt;ul&gt;
+&lt;li&gt;請看 author’s word&lt;/li&gt;
+&lt;li&gt;讀該期刊最新兩期的 paper，掌握他們的觀眾是誰&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Purpose&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;writing angle：經由觀眾的 background knowledge 來判斷&lt;ul&gt;
+&lt;li&gt;audience &amp;lt; writer：教科書&lt;/li&gt;
+&lt;li&gt;audience &amp;gt; writer：類似與指導教授的互動，你不必介紹太多前備知識&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;writers’ tone&lt;ul&gt;
+&lt;li&gt;美式論文總會寫道：「The find …」&lt;ol&gt;
+&lt;li&gt;現在式&lt;/li&gt;
+&lt;li&gt;理直氣壯&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;英式、歐式&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Organization&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;論文的重點：透過結構化格式將「資訊」傳遞給讀者，所以即使是小片段也會有 regular和predictable 的結構&lt;/li&gt;
+&lt;li&gt;這對應到提案（proposal）的四大要素：SPSE (Hoey, 1983)&lt;ul&gt;
+&lt;li&gt;不過因為提案總是在結果產出前，帶有「預期效果」，所以不太一樣&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;也很像其他的寫作模式：Comparison &amp;amp; Contrast（行動研究）、Cause &amp;amp; Effect、Classification&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;SPSE&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;description of a Situation&lt;/li&gt;
+&lt;li&gt;identification of a Problem&lt;/li&gt;
+&lt;li&gt;description of a Solution&lt;/li&gt;
+&lt;li&gt;Evaluation of the solution&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Style&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;學術寫作需要保持「一致性」和「適切」的用詞，例如：such as 不正式（但十年前可用），應該改用 like&lt;/li&gt;
+&lt;li&gt;何謂學術論文：&lt;ul&gt;
+&lt;li&gt;有邏輯且精準的語言（defining academic）&lt;/li&gt;
+&lt;li&gt;因果比較（standardizing variations in different fields/communities）&lt;/li&gt;
+&lt;li&gt;跟隨最新成果更新的用詞（keeping track of updated principles/rules）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;何謂學術的正式語？&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;舉例：
+    tolerate =/=&amp;gt; put up with
+    investigating =/=&amp;gt; looking into
+    determine =/=&amp;gt; determine
+    developed =/=&amp;gt; come up with
+    constitute =/=&amp;gt; make up
+    eliminate =/=&amp;gt; get rid of
+    reached =/=&amp;gt; go up
+    maintain =/=&amp;gt; keep up
+    decreased =/=&amp;gt; go down
+    considering =/=&amp;gt; thinking about
+    an intergral part of =/=&amp;gt; really important for
+    nearly =/=&amp;gt; just about
+    considerable =/=&amp;gt; a lot of/lots of
+    robust =/=&amp;gt; nice （並不是非常正式的字）
+    increasing =/=&amp;gt; getting bigger and bigger
+    no =/=&amp;gt; not&lt;/li&gt;
+&lt;li&gt;不是片語或少介系詞、多為一個單字
+    offer/find =/=&amp;gt; come up with
+    examine =/=&amp;gt; test
+    request =/=&amp;gt; ask for
+    inform =/=&amp;gt; tell
+    provide =/=&amp;gt; give
+    maintain =/=&amp;gt; keep up
+    eliminate =/=&amp;gt; get rid of
+    evidence =/= facts
+    profession =/=&amp;gt; job
+    objective =/=&amp;gt; goal
+    means =/=&amp;gt; tool
+    opinion =/=&amp;gt; thinking
+    as a result of/due to =/=&amp;gt; because of
+    furthermore/moreover =/=&amp;gt; also
+    many =/=&amp;gt; lots of
+    possibly =/=&amp;gt; maybe、perhaps
+    however/nevertheless =/=&amp;gt; but&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;何謂正式的文法？&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;避免縮寫&lt;ul&gt;
+&lt;li&gt;can’t → can not/cannot&lt;/li&gt;
+&lt;li&gt;don’t → do not&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;使用正式的否定名詞，而不是使用 not（避免使用 not）：no、little、few&lt;ul&gt;
+&lt;li&gt;the analysis yielded no new results&lt;/li&gt;
+&lt;li&gt;the government allocated little funding to the program&lt;/li&gt;
+&lt;li&gt;this problem has few viable solutions&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;避免模糊範圍的舉例，避免&lt;code&gt;etc.&lt;/code&gt;、&lt;code&gt;and so forth&lt;/code&gt;&lt;ul&gt;
+&lt;li&gt;明確使用 other … 來舉出範圍&lt;/li&gt;
+&lt;li&gt;或是使用 for example 來舉例&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;常用第三人稱（但工科常用主動式如&lt;code&gt;we&lt;/code&gt;，代表一種背書，是可以的）&lt;ul&gt;
+&lt;li&gt;the results can be seen in Table 1&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;不要用主動疑問句，請使用間接疑問句&lt;ul&gt;
+&lt;li&gt;the application of the results needs to be carefully considered 而非直接說我們需要&lt;/li&gt;
+&lt;li&gt;除非是自己的研究主題，因為本來就是想搞清楚這個「研究問題」&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;be concise：避免頭重腳輕的虛主詞結構&lt;/li&gt;
+&lt;li&gt;請多將副詞多置於句中，放於動詞前後（不要使用 because of）&lt;ul&gt;
+&lt;li&gt;學術文章不像是新聞&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Flow&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;Gold&lt;/span&gt; 
+&lt;span class="o"&gt;---&lt;/span&gt;
+&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;Throughout&lt;/span&gt; &lt;span class="nv"&gt;history&lt;/span&gt;, &lt;span class="nv"&gt;gold&lt;/span&gt; &lt;span class="nv"&gt;has&lt;/span&gt; &lt;span class="nv"&gt;always&lt;/span&gt; &lt;span class="nv"&gt;been&lt;/span&gt; &lt;span class="nv"&gt;one&lt;/span&gt; &lt;span class="nv"&gt;of&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;most&lt;/span&gt; &lt;span class="nv"&gt;used&lt;/span&gt; &lt;span class="nv"&gt;materials&lt;/span&gt;.&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="nv"&gt;Gold&lt;/span&gt;, &lt;span class="nv"&gt;a&lt;/span&gt; &lt;span class="nv"&gt;precious&lt;/span&gt; &lt;span class="nv"&gt;metal&lt;/span&gt;, &lt;span class="nv"&gt;is&lt;/span&gt; &lt;span class="nv"&gt;prized&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="nv"&gt;two&lt;/span&gt; &lt;span class="nv"&gt;important&lt;/span&gt; &lt;span class="nv"&gt;characteristics&lt;/span&gt;. &lt;span class="nv"&gt;First&lt;/span&gt; &lt;span class="nv"&gt;of&lt;/span&gt; &lt;span class="nv"&gt;all&lt;/span&gt;, &lt;span class="nv"&gt;gold&lt;/span&gt; &lt;span class="nv"&gt;has&lt;/span&gt; &lt;span class="nv"&gt;a&lt;/span&gt; &lt;span class="nv"&gt;lustrous&lt;/span&gt; &lt;span class="nv"&gt;beauty&lt;/span&gt; &lt;span class="nv"&gt;that&lt;/span&gt; &lt;span class="nv"&gt;is&lt;/span&gt; &lt;span class="nv"&gt;resistant&lt;/span&gt; &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="nv"&gt;corrosion&lt;/span&gt;. &lt;span class="nv"&gt;Therefore&lt;/span&gt;, &lt;span class="nv"&gt;it&lt;/span&gt; &lt;span class="nv"&gt;is&lt;/span&gt; &lt;span class="nv"&gt;suitable&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="nv"&gt;jewelry&lt;/span&gt;, &lt;span class="nv"&gt;coins&lt;/span&gt;, &lt;span class="nv"&gt;and&lt;/span&gt; &lt;span class="nv"&gt;ornamental&lt;/span&gt; &lt;span class="nv"&gt;purposes&lt;/span&gt;. &lt;span class="nv"&gt;Gold&lt;/span&gt; &lt;span class="nv"&gt;never&lt;/span&gt; &lt;span class="nv"&gt;needs&lt;/span&gt; &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="nv"&gt;be&lt;/span&gt; &lt;span class="nv"&gt;polished&lt;/span&gt; &lt;span class="nv"&gt;and&lt;/span&gt; &lt;span class="nv"&gt;will&lt;/span&gt; &lt;span class="nv"&gt;remain&lt;/span&gt; &lt;span class="nv"&gt;beautiful&lt;/span&gt; &lt;span class="nv"&gt;forever&lt;/span&gt;. &lt;span class="k"&gt;For&lt;/span&gt; &lt;span class="nv"&gt;example&lt;/span&gt;, &lt;span class="nv"&gt;a&lt;/span&gt; &lt;span class="nv"&gt;Macedonian&lt;/span&gt; &lt;span class="nv"&gt;coin&lt;/span&gt; &lt;span class="nv"&gt;remains&lt;/span&gt; &lt;span class="nv"&gt;as&lt;/span&gt; &lt;span class="nv"&gt;untarnished&lt;/span&gt; &lt;span class="nv"&gt;today&lt;/span&gt; &lt;span class="nv"&gt;as&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;day&lt;/span&gt; &lt;span class="nv"&gt;it&lt;/span&gt; &lt;span class="nv"&gt;was&lt;/span&gt; &lt;span class="nv"&gt;made&lt;/span&gt; &lt;span class="mi"&gt;25&lt;/span&gt; &lt;span class="nv"&gt;centuries&lt;/span&gt; &lt;span class="nv"&gt;ago&lt;/span&gt;. &lt;span class="nv"&gt;Another&lt;/span&gt; &lt;span class="nv"&gt;important&lt;/span&gt; &lt;span class="nv"&gt;characteristic&lt;/span&gt; &lt;span class="nv"&gt;of&lt;/span&gt; &lt;span class="nv"&gt;gold&lt;/span&gt; &lt;span class="nv"&gt;is&lt;/span&gt; &lt;span class="nv"&gt;its&lt;/span&gt; &lt;span class="nv"&gt;usefulness&lt;/span&gt; &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="nv"&gt;industry&lt;/span&gt; &lt;span class="nv"&gt;and&lt;/span&gt; &lt;span class="nv"&gt;science&lt;/span&gt;. &lt;span class="k"&gt;For&lt;/span&gt; &lt;span class="nv"&gt;many&lt;/span&gt; &lt;span class="nv"&gt;years&lt;/span&gt;, &lt;span class="nv"&gt;it&lt;/span&gt; &lt;span class="nv"&gt;has&lt;/span&gt; &lt;span class="nv"&gt;been&lt;/span&gt; &lt;span class="nv"&gt;used&lt;/span&gt; &lt;span class="nv"&gt;in&lt;/span&gt; &lt;span class="nv"&gt;hundreds&lt;/span&gt; &lt;span class="nv"&gt;of&lt;/span&gt; &lt;span class="nv"&gt;industrial&lt;/span&gt; &lt;span class="nv"&gt;applications&lt;/span&gt;, &lt;span class="nv"&gt;such&lt;/span&gt; &lt;span class="nv"&gt;as&lt;/span&gt; &lt;span class="nv"&gt;photography&lt;/span&gt; &lt;span class="nv"&gt;and&lt;/span&gt; &lt;span class="nv"&gt;dentistry&lt;/span&gt;. &lt;span class="nv"&gt;The&lt;/span&gt; &lt;span class="nv"&gt;most&lt;/span&gt; &lt;span class="nv"&gt;recent&lt;/span&gt; &lt;span class="nv"&gt;use&lt;/span&gt; &lt;span class="nv"&gt;of&lt;/span&gt; &lt;span class="nv"&gt;gold&lt;/span&gt; &lt;span class="nv"&gt;is&lt;/span&gt; &lt;span class="nv"&gt;in&lt;/span&gt; &lt;span class="nv"&gt;astronauts&lt;/span&gt;’ &lt;span class="nv"&gt;suits&lt;/span&gt;. &lt;span class="nv"&gt;Astronauts&lt;/span&gt; &lt;span class="nv"&gt;wear&lt;/span&gt; &lt;span class="nv"&gt;gold&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;plated&lt;/span&gt; &lt;span class="nv"&gt;heat&lt;/span&gt; &lt;span class="nv"&gt;shields&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="nv"&gt;protection&lt;/span&gt; &lt;span class="nv"&gt;when&lt;/span&gt; &lt;span class="nv"&gt;they&lt;/span&gt; &lt;span class="nv"&gt;go&lt;/span&gt; &lt;span class="nv"&gt;outside&lt;/span&gt; &lt;span class="nv"&gt;spaceships&lt;/span&gt; &lt;span class="nv"&gt;in&lt;/span&gt; &lt;span class="nv"&gt;space&lt;/span&gt;. &lt;span class="nv"&gt;In&lt;/span&gt; &lt;span class="nv"&gt;conclusion&lt;/span&gt;, &lt;span class="nv"&gt;gold&lt;/span&gt; &lt;span class="nv"&gt;is&lt;/span&gt; &lt;span class="nv"&gt;treasured&lt;/span&gt; &lt;span class="nv"&gt;not&lt;/span&gt; &lt;span class="nv"&gt;only&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="nv"&gt;its&lt;/span&gt; &lt;span class="nv"&gt;beauty&lt;/span&gt; &lt;span class="nv"&gt;but&lt;/span&gt; &lt;span class="nv"&gt;also&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="nv"&gt;its&lt;/span&gt; &lt;span class="nv"&gt;utility&lt;/span&gt;. &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="k"&gt;For&lt;/span&gt; &lt;span class="nv"&gt;these&lt;/span&gt; &lt;span class="nv"&gt;reasons&lt;/span&gt;, &lt;span class="nv"&gt;we&lt;/span&gt; &lt;span class="nv"&gt;can&lt;/span&gt; &lt;span class="nv"&gt;foresee&lt;/span&gt; &lt;span class="nv"&gt;its&lt;/span&gt; &lt;span class="nv"&gt;longlasting&lt;/span&gt; &lt;span class="nv"&gt;popularity&lt;/span&gt; &lt;span class="nv"&gt;in&lt;/span&gt; &lt;span class="nv"&gt;different&lt;/span&gt; &lt;span class="nv"&gt;industries&lt;/span&gt;.&lt;span class="ss"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;重複提起關鍵字：學術文章不要怕重複字詞&lt;/li&gt;
+&lt;li&gt;using synonyms：使用同義字&lt;/li&gt;
+&lt;li&gt;consistent pronoun：前後一致的代名詞&lt;/li&gt;
+&lt;li&gt;repeating a sentence structure&lt;/li&gt;
+&lt;li&gt;transition signal&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;小技巧&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;標點&lt;ul&gt;
+&lt;li&gt;逗號使用於 and、but、or&lt;/li&gt;
+&lt;li&gt;分號和句號使用於句子相連如 however、moreover、therefore、in other words、in fact&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;在名詞前加入 this/these&lt;/li&gt;
+&lt;/ul&gt;</content><category term="course"></category><category term="self-help"></category><category term="english"></category></entry><entry><title>Unity上實作坦克炮塔的瞄準以及轉向音效</title><link href="https://kuoteng.github.io/posts/csharp/2018/12/unity-tank-aim-control.html" rel="alternate"></link><published>2018-12-11T00:00:00+08:00</published><updated>2018-12-11T00:00:00+08:00</updated><author><name>kuoteng</name></author><id>tag:kuoteng.github.io,2018-12-11:/posts/csharp/2018/12/unity-tank-aim-control.html</id><summary type="html">&lt;h1&gt;瞄準&lt;/h1&gt;
 &lt;p&gt;這學期的計算機圖型課程有一份作業是要我們使用 Unity 寫出一款坦克遊戲，一想到坦克遊戲就想到之前在玩的 War thunder ...&lt;/p&gt;
 &lt;div class="youtube youtube-4x3"&gt;
 &lt;iframe src="https://www.youtube.com/embed/TD2GcubWX_k"&gt;&lt;/iframe&gt;
@@ -202,188 +383,7 @@ $ &lt;span class="nb"&gt;cd&lt;/span&gt; tensorflow
 $ &lt;span class="nb"&gt;cd&lt;/span&gt; pytorch
 $ git submodule update --init
 $ python setup.py install
-&lt;/pre&gt;&lt;/div&gt;</content><category term="ubuntu"></category><category term="machine learning"></category></entry><entry><title>Academic Writing Features</title><link href="https://kuoteng.github.io/posts/course/2018/10/academic-english-week2.html" rel="alternate"></link><published>2018-10-20T00:00:00+08:00</published><updated>2018-10-20T00:00:00+08:00</updated><author><name>kuoteng</name></author><id>tag:kuoteng.github.io,2018-10-20:/posts/course/2018/10/academic-english-week2.html</id><summary type="html">&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;寫在前面，這學期修習了一門學術英語寫作，也嘗試把自己的一些課程筆記放上來&lt;/span&gt; &lt;span class="n"&gt;blog&lt;/span&gt; &lt;span class="err"&gt;看看&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h1&gt;Academic Writing Features&lt;/h1&gt;
-&lt;h2&gt;Audience&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Target audience: 觀眾是誰？&lt;ul&gt;
-&lt;li&gt;請看 author’s word&lt;/li&gt;
-&lt;li&gt;讀該期刊最新兩期的 paper，掌握他們的觀眾是誰&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;Purpose&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;writing angle：經由觀眾的 background knowledge 來判斷&lt;ul&gt;
-&lt;li&gt;audience &amp;lt; writer：教科書&lt;/li&gt;
-&lt;li&gt;audience &amp;gt; writer：類似與指導教授的互動，你不必介紹太多前備知識&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;writers’ tone&lt;ul&gt;
-&lt;li&gt;美式論文總會寫道：「The find …」&lt;ol&gt;
-&lt;li&gt;現在式&lt;/li&gt;
-&lt;li&gt;理直氣壯&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;英式、歐式&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;Organization&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;論文的重點：透過結構化格式將「資訊」傳遞給讀者，所以即使是小片段也會有 regular和predictable 的結構 …&lt;/li&gt;&lt;/ul&gt;</summary><content type="html">&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;寫在前面，這學期修習了一門學術英語寫作，也嘗試把自己的一些課程筆記放上來&lt;/span&gt; &lt;span class="n"&gt;blog&lt;/span&gt; &lt;span class="err"&gt;看看&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h1&gt;Academic Writing Features&lt;/h1&gt;
-&lt;h2&gt;Audience&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Target audience: 觀眾是誰？&lt;ul&gt;
-&lt;li&gt;請看 author’s word&lt;/li&gt;
-&lt;li&gt;讀該期刊最新兩期的 paper，掌握他們的觀眾是誰&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;Purpose&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;writing angle：經由觀眾的 background knowledge 來判斷&lt;ul&gt;
-&lt;li&gt;audience &amp;lt; writer：教科書&lt;/li&gt;
-&lt;li&gt;audience &amp;gt; writer：類似與指導教授的互動，你不必介紹太多前備知識&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;writers’ tone&lt;ul&gt;
-&lt;li&gt;美式論文總會寫道：「The find …」&lt;ol&gt;
-&lt;li&gt;現在式&lt;/li&gt;
-&lt;li&gt;理直氣壯&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;英式、歐式&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;Organization&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;論文的重點：透過結構化格式將「資訊」傳遞給讀者，所以即使是小片段也會有 regular和predictable 的結構&lt;/li&gt;
-&lt;li&gt;這對應到提案（proposal）的四大要素：SPSE (Hoey, 1983)&lt;ul&gt;
-&lt;li&gt;不過因為提案總是在結果產出前，帶有「預期效果」，所以不太一樣&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;也很像其他的寫作模式：Comparison &amp;amp; Contrast（行動研究）、Cause &amp;amp; Effect、Classification&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;SPSE&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;description of a Situation&lt;/li&gt;
-&lt;li&gt;identification of a Problem&lt;/li&gt;
-&lt;li&gt;description of a Solution&lt;/li&gt;
-&lt;li&gt;Evaluation of the solution&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;Style&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;學術寫作需要保持「一致性」和「適切」的用詞，例如：such as 不正式（但十年前可用），應該改用 like&lt;/li&gt;
-&lt;li&gt;何謂學術論文：&lt;ul&gt;
-&lt;li&gt;有邏輯且精準的語言（defining academic）&lt;/li&gt;
-&lt;li&gt;因果比較（standardizing variations in different fields/communities）&lt;/li&gt;
-&lt;li&gt;跟隨最新成果更新的用詞（keeping track of updated principles/rules）&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;何謂學術的正式語？&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;舉例：
-    tolerate =/=&amp;gt; put up with
-    investigating =/=&amp;gt; looking into
-    determine =/=&amp;gt; determine
-    developed =/=&amp;gt; come up with
-    constitute =/=&amp;gt; make up
-    eliminate =/=&amp;gt; get rid of
-    reached =/=&amp;gt; go up
-    maintain =/=&amp;gt; keep up
-    decreased =/=&amp;gt; go down
-    considering =/=&amp;gt; thinking about
-    an intergral part of =/=&amp;gt; really important for
-    nearly =/=&amp;gt; just about
-    considerable =/=&amp;gt; a lot of/lots of
-    robust =/=&amp;gt; nice （並不是非常正式的字）
-    increasing =/=&amp;gt; getting bigger and bigger
-    no =/=&amp;gt; not&lt;/li&gt;
-&lt;li&gt;不是片語或少介系詞、多為一個單字
-    offer/find =/=&amp;gt; come up with
-    examine =/=&amp;gt; test
-    request =/=&amp;gt; ask for
-    inform =/=&amp;gt; tell
-    provide =/=&amp;gt; give
-    maintain =/=&amp;gt; keep up
-    eliminate =/=&amp;gt; get rid of
-    evidence =/= facts
-    profession =/=&amp;gt; job
-    objective =/=&amp;gt; goal
-    means =/=&amp;gt; tool
-    opinion =/=&amp;gt; thinking
-    as a result of/due to =/=&amp;gt; because of
-    furthermore/moreover =/=&amp;gt; also
-    many =/=&amp;gt; lots of
-    possibly =/=&amp;gt; maybe、perhaps
-    however/nevertheless =/=&amp;gt; but&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;何謂正式的文法？&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;避免縮寫&lt;ul&gt;
-&lt;li&gt;can’t → can not/cannot&lt;/li&gt;
-&lt;li&gt;don’t → do not&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;使用正式的否定名詞，而不是使用 not（避免使用 not）：no、little、few&lt;ul&gt;
-&lt;li&gt;the analysis yielded no new results&lt;/li&gt;
-&lt;li&gt;the government allocated little funding to the program&lt;/li&gt;
-&lt;li&gt;this problem has few viable solutions&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;避免模糊範圍的舉例，避免&lt;code&gt;etc.&lt;/code&gt;、&lt;code&gt;and so forth&lt;/code&gt;&lt;ul&gt;
-&lt;li&gt;明確使用 other … 來舉出範圍&lt;/li&gt;
-&lt;li&gt;或是使用 for example 來舉例&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;常用第三人稱（但工科常用主動式如&lt;code&gt;we&lt;/code&gt;，代表一種背書，是可以的）&lt;ul&gt;
-&lt;li&gt;the results can be seen in Table 1&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;不要用主動疑問句，請使用間接疑問句&lt;ul&gt;
-&lt;li&gt;the application of the results needs to be carefully considered 而非直接說我們需要&lt;/li&gt;
-&lt;li&gt;除非是自己的研究主題，因為本來就是想搞清楚這個「研究問題」&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;be concise：避免頭重腳輕的虛主詞結構&lt;/li&gt;
-&lt;li&gt;請多將副詞多置於句中，放於動詞前後（不要使用 because of）&lt;ul&gt;
-&lt;li&gt;學術文章不像是新聞&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;Flow&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;Gold&lt;/span&gt; 
-&lt;span class="o"&gt;---&lt;/span&gt;
-&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;Throughout&lt;/span&gt; &lt;span class="nv"&gt;history&lt;/span&gt;, &lt;span class="nv"&gt;gold&lt;/span&gt; &lt;span class="nv"&gt;has&lt;/span&gt; &lt;span class="nv"&gt;always&lt;/span&gt; &lt;span class="nv"&gt;been&lt;/span&gt; &lt;span class="nv"&gt;one&lt;/span&gt; &lt;span class="nv"&gt;of&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;most&lt;/span&gt; &lt;span class="nv"&gt;used&lt;/span&gt; &lt;span class="nv"&gt;materials&lt;/span&gt;.&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="nv"&gt;Gold&lt;/span&gt;, &lt;span class="nv"&gt;a&lt;/span&gt; &lt;span class="nv"&gt;precious&lt;/span&gt; &lt;span class="nv"&gt;metal&lt;/span&gt;, &lt;span class="nv"&gt;is&lt;/span&gt; &lt;span class="nv"&gt;prized&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="nv"&gt;two&lt;/span&gt; &lt;span class="nv"&gt;important&lt;/span&gt; &lt;span class="nv"&gt;characteristics&lt;/span&gt;. &lt;span class="nv"&gt;First&lt;/span&gt; &lt;span class="nv"&gt;of&lt;/span&gt; &lt;span class="nv"&gt;all&lt;/span&gt;, &lt;span class="nv"&gt;gold&lt;/span&gt; &lt;span class="nv"&gt;has&lt;/span&gt; &lt;span class="nv"&gt;a&lt;/span&gt; &lt;span class="nv"&gt;lustrous&lt;/span&gt; &lt;span class="nv"&gt;beauty&lt;/span&gt; &lt;span class="nv"&gt;that&lt;/span&gt; &lt;span class="nv"&gt;is&lt;/span&gt; &lt;span class="nv"&gt;resistant&lt;/span&gt; &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="nv"&gt;corrosion&lt;/span&gt;. &lt;span class="nv"&gt;Therefore&lt;/span&gt;, &lt;span class="nv"&gt;it&lt;/span&gt; &lt;span class="nv"&gt;is&lt;/span&gt; &lt;span class="nv"&gt;suitable&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="nv"&gt;jewelry&lt;/span&gt;, &lt;span class="nv"&gt;coins&lt;/span&gt;, &lt;span class="nv"&gt;and&lt;/span&gt; &lt;span class="nv"&gt;ornamental&lt;/span&gt; &lt;span class="nv"&gt;purposes&lt;/span&gt;. &lt;span class="nv"&gt;Gold&lt;/span&gt; &lt;span class="nv"&gt;never&lt;/span&gt; &lt;span class="nv"&gt;needs&lt;/span&gt; &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="nv"&gt;be&lt;/span&gt; &lt;span class="nv"&gt;polished&lt;/span&gt; &lt;span class="nv"&gt;and&lt;/span&gt; &lt;span class="nv"&gt;will&lt;/span&gt; &lt;span class="nv"&gt;remain&lt;/span&gt; &lt;span class="nv"&gt;beautiful&lt;/span&gt; &lt;span class="nv"&gt;forever&lt;/span&gt;. &lt;span class="k"&gt;For&lt;/span&gt; &lt;span class="nv"&gt;example&lt;/span&gt;, &lt;span class="nv"&gt;a&lt;/span&gt; &lt;span class="nv"&gt;Macedonian&lt;/span&gt; &lt;span class="nv"&gt;coin&lt;/span&gt; &lt;span class="nv"&gt;remains&lt;/span&gt; &lt;span class="nv"&gt;as&lt;/span&gt; &lt;span class="nv"&gt;untarnished&lt;/span&gt; &lt;span class="nv"&gt;today&lt;/span&gt; &lt;span class="nv"&gt;as&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;day&lt;/span&gt; &lt;span class="nv"&gt;it&lt;/span&gt; &lt;span class="nv"&gt;was&lt;/span&gt; &lt;span class="nv"&gt;made&lt;/span&gt; &lt;span class="mi"&gt;25&lt;/span&gt; &lt;span class="nv"&gt;centuries&lt;/span&gt; &lt;span class="nv"&gt;ago&lt;/span&gt;. &lt;span class="nv"&gt;Another&lt;/span&gt; &lt;span class="nv"&gt;important&lt;/span&gt; &lt;span class="nv"&gt;characteristic&lt;/span&gt; &lt;span class="nv"&gt;of&lt;/span&gt; &lt;span class="nv"&gt;gold&lt;/span&gt; &lt;span class="nv"&gt;is&lt;/span&gt; &lt;span class="nv"&gt;its&lt;/span&gt; &lt;span class="nv"&gt;usefulness&lt;/span&gt; &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="nv"&gt;industry&lt;/span&gt; &lt;span class="nv"&gt;and&lt;/span&gt; &lt;span class="nv"&gt;science&lt;/span&gt;. &lt;span class="k"&gt;For&lt;/span&gt; &lt;span class="nv"&gt;many&lt;/span&gt; &lt;span class="nv"&gt;years&lt;/span&gt;, &lt;span class="nv"&gt;it&lt;/span&gt; &lt;span class="nv"&gt;has&lt;/span&gt; &lt;span class="nv"&gt;been&lt;/span&gt; &lt;span class="nv"&gt;used&lt;/span&gt; &lt;span class="nv"&gt;in&lt;/span&gt; &lt;span class="nv"&gt;hundreds&lt;/span&gt; &lt;span class="nv"&gt;of&lt;/span&gt; &lt;span class="nv"&gt;industrial&lt;/span&gt; &lt;span class="nv"&gt;applications&lt;/span&gt;, &lt;span class="nv"&gt;such&lt;/span&gt; &lt;span class="nv"&gt;as&lt;/span&gt; &lt;span class="nv"&gt;photography&lt;/span&gt; &lt;span class="nv"&gt;and&lt;/span&gt; &lt;span class="nv"&gt;dentistry&lt;/span&gt;. &lt;span class="nv"&gt;The&lt;/span&gt; &lt;span class="nv"&gt;most&lt;/span&gt; &lt;span class="nv"&gt;recent&lt;/span&gt; &lt;span class="nv"&gt;use&lt;/span&gt; &lt;span class="nv"&gt;of&lt;/span&gt; &lt;span class="nv"&gt;gold&lt;/span&gt; &lt;span class="nv"&gt;is&lt;/span&gt; &lt;span class="nv"&gt;in&lt;/span&gt; &lt;span class="nv"&gt;astronauts&lt;/span&gt;’ &lt;span class="nv"&gt;suits&lt;/span&gt;. &lt;span class="nv"&gt;Astronauts&lt;/span&gt; &lt;span class="nv"&gt;wear&lt;/span&gt; &lt;span class="nv"&gt;gold&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;plated&lt;/span&gt; &lt;span class="nv"&gt;heat&lt;/span&gt; &lt;span class="nv"&gt;shields&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="nv"&gt;protection&lt;/span&gt; &lt;span class="nv"&gt;when&lt;/span&gt; &lt;span class="nv"&gt;they&lt;/span&gt; &lt;span class="nv"&gt;go&lt;/span&gt; &lt;span class="nv"&gt;outside&lt;/span&gt; &lt;span class="nv"&gt;spaceships&lt;/span&gt; &lt;span class="nv"&gt;in&lt;/span&gt; &lt;span class="nv"&gt;space&lt;/span&gt;. &lt;span class="nv"&gt;In&lt;/span&gt; &lt;span class="nv"&gt;conclusion&lt;/span&gt;, &lt;span class="nv"&gt;gold&lt;/span&gt; &lt;span class="nv"&gt;is&lt;/span&gt; &lt;span class="nv"&gt;treasured&lt;/span&gt; &lt;span class="nv"&gt;not&lt;/span&gt; &lt;span class="nv"&gt;only&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="nv"&gt;its&lt;/span&gt; &lt;span class="nv"&gt;beauty&lt;/span&gt; &lt;span class="nv"&gt;but&lt;/span&gt; &lt;span class="nv"&gt;also&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="nv"&gt;its&lt;/span&gt; &lt;span class="nv"&gt;utility&lt;/span&gt;. &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="k"&gt;For&lt;/span&gt; &lt;span class="nv"&gt;these&lt;/span&gt; &lt;span class="nv"&gt;reasons&lt;/span&gt;, &lt;span class="nv"&gt;we&lt;/span&gt; &lt;span class="nv"&gt;can&lt;/span&gt; &lt;span class="nv"&gt;foresee&lt;/span&gt; &lt;span class="nv"&gt;its&lt;/span&gt; &lt;span class="nv"&gt;longlasting&lt;/span&gt; &lt;span class="nv"&gt;popularity&lt;/span&gt; &lt;span class="nv"&gt;in&lt;/span&gt; &lt;span class="nv"&gt;different&lt;/span&gt; &lt;span class="nv"&gt;industries&lt;/span&gt;.&lt;span class="ss"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;ul&gt;
-&lt;li&gt;重複提起關鍵字：學術文章不要怕重複字詞&lt;/li&gt;
-&lt;li&gt;using synonyms：使用同義字&lt;/li&gt;
-&lt;li&gt;consistent pronoun：前後一致的代名詞&lt;/li&gt;
-&lt;li&gt;repeating a sentence structure&lt;/li&gt;
-&lt;li&gt;transition signal&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;小技巧&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;標點&lt;ul&gt;
-&lt;li&gt;逗號使用於 and、but、or&lt;/li&gt;
-&lt;li&gt;分號和句號使用於句子相連如 however、moreover、therefore、in other words、in fact&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;在名詞前加入 this/these&lt;/li&gt;
-&lt;/ul&gt;</content><category term="course"></category><category term="self-help"></category><category term="english"></category></entry><entry><title>區塊鏈革命</title><link href="https://kuoteng.github.io/posts/book/2018/10/blockchain-revolution.html" rel="alternate"></link><published>2018-10-20T00:00:00+08:00</published><updated>2018-10-20T00:00:00+08:00</updated><author><name>kuoteng</name></author><id>tag:kuoteng.github.io,2018-10-20:/posts/book/2018/10/blockchain-revolution.html</id><summary type="html">&lt;p&gt;這學期選修了「區塊鏈導論」，但到現在自己還是不太了解區塊鏈⋯⋯
+&lt;/pre&gt;&lt;/div&gt;</content><category term="ubuntu"></category><category term="machine learning"></category></entry><entry><title>區塊鏈革命</title><link href="https://kuoteng.github.io/posts/book/2018/10/blockchain-revolution.html" rel="alternate"></link><published>2018-10-20T00:00:00+08:00</published><updated>2018-10-20T00:00:00+08:00</updated><author><name>kuoteng</name></author><id>tag:kuoteng.github.io,2018-10-20:/posts/book/2018/10/blockchain-revolution.html</id><summary type="html">&lt;p&gt;這學期選修了「區塊鏈導論」，但到現在自己還是不太了解區塊鏈⋯⋯
 又看到老師推薦這本書來看，那就順手在博客來上買來看了&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;這本書分成三大部分介紹區塊鏈，分別是「區塊鏈簡介」、「應用與現況」和「隱憂」&lt;/p&gt;
