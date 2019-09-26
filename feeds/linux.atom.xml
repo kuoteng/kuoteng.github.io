@@ -256,7 +256,7 @@ $ sudo cp _gi.cpython-35m-x86_64-linux-gnu.so _gi_cairo.cpython-36m-x86_64-linux
 我直接重新安裝就恢復正常了&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo dpkg -i --force-all /var/cache/apt/archives/gcin-im-client_2.8.5+eliu-4_amd64.deb
 $ sudo dpkg -i --force-all /var/cache/apt/archives/gcin_2.8.5+eliu-4_amd64.deb
-&lt;/pre&gt;&lt;/div&gt;</content><category term="ubuntu"></category></entry><entry><title>ubuntu 雙系統建置</title><link href="https://kuoteng.github.io/posts/linux/2016/09/Ubuntu-Dual-System.html" rel="alternate"></link><published>2016-09-07T00:00:00+08:00</published><updated>2016-09-07T00:00:00+08:00</updated><author><name>kuoteng</name></author><id>tag:kuoteng.github.io,2016-09-07:/posts/linux/2016/09/Ubuntu-Dual-System.html</id><summary type="html">&lt;p&gt;新學期到了, 又到了該重灌ubuntu雙系統的時間了XDDD（等debian改版後就改裝debian）&lt;/p&gt;
+&lt;/pre&gt;&lt;/div&gt;</content><category term="ubuntu"></category></entry><entry><title>ubuntu 雙系統建置</title><link href="https://kuoteng.github.io/posts/linux/2016/09/Ubuntu-Dual-System.html" rel="alternate"></link><published>2016-09-26T00:00:00+08:00</published><updated>2016-09-26T00:00:00+08:00</updated><author><name>kuoteng</name></author><id>tag:kuoteng.github.io,2016-09-26:/posts/linux/2016/09/Ubuntu-Dual-System.html</id><summary type="html">&lt;p&gt;新學期到了, 又到了該重灌ubuntu雙系統的時間了XDDD（等debian改版後就改裝debian）&lt;/p&gt;
 &lt;p&gt;既然要重灌, 那就順便紀錄下來吧＠＠&lt;/p&gt;
 &lt;p&gt;下載並燒錄ubuntu
 到ubuntu官網(https://www.ubuntu.com/)下載你想安裝的ubuntu版本iso檔&lt;/p&gt;
