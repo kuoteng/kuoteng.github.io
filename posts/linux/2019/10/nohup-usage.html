@@ -95,22 +95,22 @@
 不過我比較常用 <code>nohup</code>!</p>
 <p><code>nohup</code> 可以讓程式忽略 <code>SIGHUP</code> 訊號，如果指定背景執行，那就不用怕中斷啦</p>
 <p>以下會直接將輸出印給 nohup.out</p>
-<div class="highlight"><pre><span></span>    <span class="n">nohup</span> <span class="p">[</span><span class="err">要執行的程式</span><span class="p">]</span> <span class="o">&amp;</span>
+<div class="highlight"><pre><span></span>    nohup <span class="o">[</span>要執行的程式<span class="o">]</span> <span class="p">&amp;</span>
 </pre></div>
 
 
 <p>也可以搭配 nice</p>
-<div class="highlight"><pre><span></span>    <span class="n">nohup</span> <span class="n">nice</span> <span class="p">[</span><span class="err">要執行的程式</span><span class="p">]</span> <span class="o">&amp;</span>
+<div class="highlight"><pre><span></span>    nohup nice <span class="o">[</span>要執行的程式<span class="o">]</span> <span class="p">&amp;</span>
 </pre></div>
 
 
 <p>也可以指定輸出</p>
-<div class="highlight"><pre><span></span>    <span class="n">nohup</span> <span class="n">nice</span> <span class="p">[</span><span class="err">要執行的程式</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">nohup</span><span class="p">.</span><span class="k">out</span> <span class="o">&amp;</span>
+<div class="highlight"><pre><span></span>    nohup nice <span class="o">[</span>要執行的程式<span class="o">]</span> &gt; nohup.out <span class="p">&amp;</span>
 </pre></div>
 
 
 <p>最後，可以搭配 tail 指令來查看輸出</p>
-<div class="highlight"><pre><span></span>    <span class="n">tail</span> <span class="o">-</span><span class="n">f</span> <span class="n">nohup</span><span class="p">.</span><span class="k">out</span>
+<div class="highlight"><pre><span></span>    tail -f nohup.out
 </pre></div>
 
 

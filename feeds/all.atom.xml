@@ -4,22 +4,22 @@
 不過我比較常用 &lt;code&gt;nohup&lt;/code&gt;!&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;nohup&lt;/code&gt; 可以讓程式忽略 &lt;code&gt;SIGHUP&lt;/code&gt; 訊號，如果指定背景執行，那就不用怕中斷啦&lt;/p&gt;
 &lt;p&gt;以下會直接將輸出印給 nohup.out&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    &lt;span class="n"&gt;nohup&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="err"&gt;要執行的程式&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    nohup &lt;span class="o"&gt;[&lt;/span&gt;要執行的程式&lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;也可以搭配 nice&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    &lt;span class="n"&gt;nohup&lt;/span&gt; &lt;span class="n"&gt;nice&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="err"&gt;要執行的程式&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    nohup nice &lt;span class="o"&gt;[&lt;/span&gt;要執行的程式&lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;也可以指定輸出&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    &lt;span class="n"&gt;nohup&lt;/span&gt; &lt;span class="n"&gt;nice&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="err"&gt;要執行的程式&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;nohup&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;out&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    nohup nice &lt;span class="o"&gt;[&lt;/span&gt;要執行的程式&lt;span class="o"&gt;]&lt;/span&gt; &amp;gt; nohup.out &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;最後，可以搭配 tail 指令來查看輸出&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    &lt;span class="n"&gt;tail&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt; &lt;span class="n"&gt;nohup&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;out&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    tail -f nohup.out
 &lt;/pre&gt;&lt;/div&gt;</content><category term="command"></category><category term="linux"></category></entry><entry><title>General-Specific text writing</title><link href="https://kuoteng.github.io/posts/course/2019/10/academic-english-week3.html" rel="alternate"></link><published>2019-10-14T00:00:00+08:00</published><updated>2019-10-14T00:00:00+08:00</updated><author><name>kuoteng</name></author><id>tag:kuoteng.github.io,2019-10-14:/posts/course/2019/10/academic-english-week3.html</id><summary type="html">&lt;h1&gt;上週的佳句分享&lt;/h1&gt;
 &lt;h2&gt;Betty&lt;/h2&gt;
 &lt;ul&gt;
