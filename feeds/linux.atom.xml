@@ -1,5 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>忘卻錄音 - Linux</title><link href="https://kuoteng.github.io/" rel="alternate"></link><link href="https://kuoteng.github.io/feeds/linux.atom.xml" rel="self"></link><id>https://kuoteng.github.io/</id><updated>2018-10-21T00:00:00+08:00</updated><subtitle>In fleeting instant, living only in the present</subtitle><entry><title>在 Cuda 10.0 的環境下安裝 Pytorch 及 Tensorflow</title><link href="https://kuoteng.github.io/posts/linux/2018/10/Install-pytorch-tensorflow-cuda10.html" rel="alternate"></link><published>2018-10-21T00:00:00+08:00</published><updated>2018-10-21T00:00:00+08:00</updated><author><name>kuoteng</name></author><id>tag:kuoteng.github.io,2018-10-21:/posts/linux/2018/10/Install-pytorch-tensorflow-cuda10.html</id><summary type="html">&lt;h1&gt;Tensorflow&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>忘卻錄音 - Linux</title><link href="https://kuoteng.github.io/" rel="alternate"></link><link href="https://kuoteng.github.io/feeds/linux.atom.xml" rel="self"></link><id>https://kuoteng.github.io/</id><updated>2019-10-18T00:00:00+08:00</updated><subtitle>In fleeting instant, living only in the present</subtitle><entry><title>nohup 指令的用法</title><link href="https://kuoteng.github.io/posts/linux/2019/10/nohup-usage.html" rel="alternate"></link><published>2019-10-18T00:00:00+08:00</published><updated>2019-10-18T00:00:00+08:00</updated><author><name>kuoteng</name></author><id>tag:kuoteng.github.io,2019-10-18:/posts/linux/2019/10/nohup-usage.html</id><content type="html">&lt;p&gt;在機器上執行一些長時間的運算，比如說訓練網路，時常需要等待大量時間，而如果這時候你是用終端機連線，有時候不小心斷線...運算就中斷了&lt;/p&gt;
+&lt;p&gt;這時候當然可以使用 &lt;code&gt;screen&lt;/code&gt;, &lt;code&gt;tmux&lt;/code&gt; 等指令創建不受連線中斷影響的終端機 session
+不過我比較常用 &lt;code&gt;nohup&lt;/code&gt;!&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;nohup&lt;/code&gt; 可以讓程式忽略 &lt;code&gt;SIGHUP&lt;/code&gt; 訊號，如果指定背景執行，那就不用怕中斷啦&lt;/p&gt;
+&lt;p&gt;以下會直接將輸出印給 nohup.out&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    &lt;span class="n"&gt;nohup&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="err"&gt;要執行的程式&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;也可以搭配 nice&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    &lt;span class="n"&gt;nohup&lt;/span&gt; &lt;span class="n"&gt;nice&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="err"&gt;要執行的程式&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;也可以指定輸出&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    &lt;span class="n"&gt;nohup&lt;/span&gt; &lt;span class="n"&gt;nice&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="err"&gt;要執行的程式&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;nohup&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;out&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;最後，可以搭配 tail 指令來查看輸出&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    &lt;span class="n"&gt;tail&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt; &lt;span class="n"&gt;nohup&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;out&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</content><category term="command"></category><category term="linux"></category></entry><entry><title>在 Cuda 10.0 的環境下安裝 Pytorch 及 Tensorflow</title><link href="https://kuoteng.github.io/posts/linux/2018/10/Install-pytorch-tensorflow-cuda10.html" rel="alternate"></link><published>2018-10-21T00:00:00+08:00</published><updated>2018-10-21T00:00:00+08:00</updated><author><name>kuoteng</name></author><id>tag:kuoteng.github.io,2018-10-21:/posts/linux/2018/10/Install-pytorch-tensorflow-cuda10.html</id><summary type="html">&lt;h1&gt;Tensorflow&lt;/h1&gt;
 &lt;p&gt;可以直接照著&lt;a href="https://www.tensorflow.org/install/source"&gt;官網的教學&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;因為現在 tnesorflow 並不支援 python 3.7，需自己建立3.6的環境&lt;ul&gt;
@@ -256,7 +277,7 @@ $ sudo cp _gi.cpython-35m-x86_64-linux-gnu.so _gi_cairo.cpython-36m-x86_64-linux
 我直接重新安裝就恢復正常了&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo dpkg -i --force-all /var/cache/apt/archives/gcin-im-client_2.8.5+eliu-4_amd64.deb
 $ sudo dpkg -i --force-all /var/cache/apt/archives/gcin_2.8.5+eliu-4_amd64.deb
-&lt;/pre&gt;&lt;/div&gt;</content><category term="ubuntu"></category></entry><entry><title>ubuntu 雙系統建置</title><link href="https://kuoteng.github.io/posts/linux/2016/10/Ubuntu-Dual-System.html" rel="alternate"></link><published>2016-10-14T00:00:00+08:00</published><updated>2016-10-14T00:00:00+08:00</updated><author><name>kuoteng</name></author><id>tag:kuoteng.github.io,2016-10-14:/posts/linux/2016/10/Ubuntu-Dual-System.html</id><summary type="html">&lt;p&gt;新學期到了, 又到了該重灌ubuntu雙系統的時間了XDDD（等debian改版後就改裝debian）&lt;/p&gt;
+&lt;/pre&gt;&lt;/div&gt;</content><category term="ubuntu"></category></entry><entry><title>ubuntu 雙系統建置</title><link href="https://kuoteng.github.io/posts/linux/2016/10/Ubuntu-Dual-System.html" rel="alternate"></link><published>2016-10-18T00:00:00+08:00</published><updated>2016-10-18T00:00:00+08:00</updated><author><name>kuoteng</name></author><id>tag:kuoteng.github.io,2016-10-18:/posts/linux/2016/10/Ubuntu-Dual-System.html</id><summary type="html">&lt;p&gt;新學期到了, 又到了該重灌ubuntu雙系統的時間了XDDD（等debian改版後就改裝debian）&lt;/p&gt;
 &lt;p&gt;既然要重灌, 那就順便紀錄下來吧＠＠&lt;/p&gt;
 &lt;p&gt;下載並燒錄ubuntu
 到ubuntu官網(https://www.ubuntu.com/)下載你想安裝的ubuntu版本iso檔&lt;/p&gt;
