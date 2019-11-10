@@ -139,7 +139,8 @@ Author: kuoteng
 **小技巧**
 
 - 標點
-    - 逗號使用於 and、but、or
-    - 分號和句號使用於句子相連如 however、moreover、therefore、in other words、in fact
+    - 逗號使用: and, but, or,
+    - 分號和句號使用於句子相連: ;however, ;moreover, ;therefore, ;in other words, ;in fact,
+    - 分號和句號使用於subordinator: ;although, ;if, ;whereas,
 - 在名詞前加入 this/these
 
