@@ -20,5 +20,5 @@ DELETE_OUTPUT_DIRECTORY = True
 
 # Following items are often useful when publishing
 
-DISQUS_SITENAME = 'kuoteng-blog'
+DISQUS_SITENAME = 'rapirent-blog'
 GOOGLE_ANALYTICS = 'UA-127828583-1'

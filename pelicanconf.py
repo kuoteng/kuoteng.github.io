@@ -7,7 +7,7 @@ SITENAME = '忘卻錄音'
 SITESUBTITLE = 'In fleeting instant, living only in the present'
 GITHUB_URL = 'http://github.com/kuoteng'
 SITEURL = 'http://127.0.0.1:8000'
-DISQUS_SITENAME = 'kuoteng-blog'
+DISQUS_SITENAME = 'rapirent-blog'
 THEME = 'themes/nest/'
 
 PATH = 'content'
