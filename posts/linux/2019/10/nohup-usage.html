@@ -4,11 +4,11 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Author list">
-        <meta name="keywords" content="">
+        <meta name="description" content="在機器上執行一些長時間的運算，比如說訓練網路，時常需要等待大量時間，而如果這時候你是用終端機連線，有時候不小心斷線...運算就中斷了 這時候當然可以使用 screen, tmux 等指令創建不受連線中斷影響的終端機 session 不過我比較常用 nohup! nohup 可以讓程式忽略 SIGHUP 訊號，如果指定背景執行，那就不用怕中斷啦 以下會直接將輸出印給 nohup.out...">
+        <meta name="keywords" content="command, linux">
         <link rel="icon" href="https://kuoteng.github.io/favicon.ico">
 
-        <title>Author list - 忘卻錄音</title>
+        <title>nohup 指令的用法 - 忘卻錄音</title>
 
         <!-- Stylesheets -->
         <link href="https://kuoteng.github.io/theme/css/all.min.css" rel="stylesheet">
@@ -16,6 +16,7 @@
 
         <!-- RSS Feeds -->
         <link href="https://kuoteng.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="忘卻錄音 Full Atom Feed" />
+        <link href="https://kuoteng.github.io/feeds/linux.atom.xml" type="application/atom+xml" rel="alternate" title="忘卻錄音 Categories Atom Feed" />
         <!-- /RSS Feeds -->
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -42,7 +43,7 @@
     <body>
 
         <!-- Header -->
-    <div class="header-container" style="background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('https://kuoteng.github.io/images/wallpaper.jpg'); background-position: center; background-size: cover;">
+    <div class="header-container" style="background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2)), url('https://kuoteng.github.io/images/wallpaper.jpg'); background-position: center; background-size: cover;">
 
             <!-- Static navbar -->
             <div class="container">
@@ -63,17 +64,24 @@
             <!-- /Static navbar -->
 
             <!-- Header -->
+    <!-- Header -->
     <div class="container header-wrapper">
         <div class="row">
               <div class="col-lg-12">
                   <div class="header-content">
-                      <h1 class="header-title text-uppercase">Author list</h1>
+                      <h1 class="header-title">nohup 指令的用法</h1>
+                      <p class="header-date">By
+<a href="https://kuoteng.github.io/author/kuoteng.html">kuoteng</a>, 五 18 10月 2019, in category <a href="https://kuoteng.github.io/category/linux.html">Linux</a></p>
                       <div class="header-underline"></div>
-                      <p class="header-subtitle header-subtitle-homepage">Archives listed by author</p>
+                      <div class="clearfix"></div>
+                      <p class="pull-right header-tags">
+                          <span class="glyphicon glyphicon-tags mr5" aria-hidden="true"></span>
+<a href="https://kuoteng.github.io/tag/command.html">command</a>, <a href="https://kuoteng.github.io/tag/linux.html">linux</a>                      </p>
                   </div>
               </div>
         </div>
     </div>
+    <!-- /Header -->
             <!-- /Header -->
 
         </div>
@@ -81,34 +89,46 @@
 
 
         <!-- Content -->
-    <div class="archive-container">
-        <div class="container content archive">
-            <h2><a href="https://kuoteng.github.io/author/kuoteng.html">kuoteng</a></h2>
-            <dl class="dl-horizontal">
-            	<dt>五 18 10月 2019</dt>
-            	<dd><a href="https://kuoteng.github.io/posts/linux/2019/10/nohup-usage.html">nohup 指令的用法</a></dd>
-            	<dt>一 14 10月 2019</dt>
-            	<dd><a href="https://kuoteng.github.io/posts/course/2019/10/academic-english-week3.html">General-Specific text writing</a></dd>
-            	<dt>四 26 9月 2019</dt>
-            	<dd><a href="https://kuoteng.github.io/posts/course/2019/09/academic-english-week2.html">Academic Writing Features</a></dd>
-            	<dt>二 11 12月 2018</dt>
-            	<dd><a href="https://kuoteng.github.io/posts/csharp/2018/12/unity-tank-aim-control.html">Unity上實作坦克炮塔的瞄準以及轉向音效</a></dd>
-            	<dt>日 21 10月 2018</dt>
-            	<dd><a href="https://kuoteng.github.io/posts/linux/2018/10/Install-pytorch-tensorflow-cuda10.html">在 Cuda 10.0 的環境下安裝 Pytorch 及 Tensorflow</a></dd>
-            	<dt>六 20 10月 2018</dt>
-            	<dd><a href="https://kuoteng.github.io/posts/book/2018/10/blockchain-revolution.html">區塊鏈革命</a></dd>
-            	<dt>五 19 10月 2018</dt>
-            	<dd><a href="https://kuoteng.github.io/posts/linux/2018/10/Install-Nvidia-driver-CUDA-and-cuDNN.html">Install Nvidia driver, CUDA and cuDNN with Ubuntu 18.04</a></dd>
-            	<dt>二 06 3月 2018</dt>
-            	<dd><a href="https://kuoteng.github.io/posts/linux/2018/03/ubuntu-dual-system-time-conflict.html">ubuntu & windows 的時間衝突</a></dd>
-            	<dt>一 05 3月 2018</dt>
-            	<dd><a href="https://kuoteng.github.io/posts/linux/2018/03/ubuntu-upgrade-pytyon3.6.html">ubuntu 16.04.3 升級python3.6而有的問題</a></dd>
-            	<dt>二 27 2月 2018</dt>
-            	<dd><a href="https://kuoteng.github.io/posts/book/2018/02/The-Road-to-Serfdom.html">到奴役之路書摘</a></dd>
-            	<dt>五 11 11月 2016</dt>
-            	<dd><a href="https://kuoteng.github.io/posts/linux/2016/11/Ubuntu-Dual-System.html">ubuntu 雙系統建置</a></dd>
-            </dl>
-        </div>
+    <div class="container content">
+        <p>在機器上執行一些長時間的運算，比如說訓練網路，時常需要等待大量時間，而如果這時候你是用終端機連線，有時候不小心斷線...運算就中斷了</p>
+<p>這時候當然可以使用 <code>screen</code>, <code>tmux</code> 等指令創建不受連線中斷影響的終端機 session
+不過我比較常用 <code>nohup</code>!</p>
+<p><code>nohup</code> 可以讓程式忽略 <code>SIGHUP</code> 訊號，如果指定背景執行，那就不用怕中斷啦</p>
+<p>以下會直接將輸出印給 nohup.out</p>
+<div class="highlight"><pre><span></span>    nohup <span class="o">[</span>要執行的程式<span class="o">]</span> <span class="p">&amp;</span>
+</pre></div>
+
+
+<p>也可以搭配 nice</p>
+<div class="highlight"><pre><span></span>    nohup nice <span class="o">[</span>要執行的程式<span class="o">]</span> <span class="p">&amp;</span>
+</pre></div>
+
+
+<p>也可以指定輸出</p>
+<div class="highlight"><pre><span></span>    nohup nice <span class="o">[</span>要執行的程式<span class="o">]</span> &gt; nohup.out <span class="p">&amp;</span>
+</pre></div>
+
+
+<p>最後，可以搭配 tail 指令來查看輸出</p>
+<div class="highlight"><pre><span></span>    tail -f nohup.out
+</pre></div>
+
+
+    <div class="comments">
+        <div id="disqus_thread"></div>
+            <script type="text/javascript">
+                var disqus_shortname = 'rapirent-blog';
+                var disqus_identifier = 'posts/linux/2019/10/nohup-usage.html';
+                var disqus_url = 'https://kuoteng.github.io/posts/linux/2019/10/nohup-usage.html';
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            </script>
+        <noscript>Please enable JavaScript to view the comments.</noscript>
+    </div>
+
     </div>
         <!-- /Content -->
 

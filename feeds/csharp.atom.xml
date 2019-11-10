@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>忘卻錄音 - csharp</title><link href="https://kuoteng.github.io/" rel="alternate"></link><link href="https://kuoteng.github.io/feeds/csharp.atom.xml" rel="self"></link><id>https://kuoteng.github.io/</id><updated>2018-12-11T00:00:00+08:00</updated><subtitle>In fleeting instant, living only in the present</subtitle><entry><title>Unity上實作坦克炮塔的瞄準以及轉向音效</title><link href="https://kuoteng.github.io/posts/csharp/2018/12/unity-tank-aim-control.html" rel="alternate"></link><published>2018-12-11T00:00:00+08:00</published><updated>2018-12-11T00:00:00+08:00</updated><author><name>kuoteng</name></author><id>tag:kuoteng.github.io,2018-12-11:/posts/csharp/2018/12/unity-tank-aim-control.html</id><summary type="html">&lt;h1&gt;瞄準&lt;/h1&gt;
+&lt;p&gt;這學期的計算機圖型課程有一份作業是要我們使用 Unity 寫出一款坦克遊戲，一想到坦克遊戲就想到之前在玩的 War thunder ...&lt;/p&gt;
+&lt;div class="youtube youtube-4x3"&gt;
+&lt;iframe src="https://www.youtube.com/embed/TD2GcubWX_k"&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;h2&gt;修正座標系&lt;/h2&gt;
+&lt;p&gt;裡面有個操控是在第一人稱和第三人稱視角時，都能以鼠標指向來操控砲塔指向，如果我們要實作這個操控，必須先查看砲塔物件的座標軸是否是正確的 ( z 軸正向應該是物件正向)，所以在砲塔這個物件中&lt;/p&gt;
+&lt;p&gt;為此，我們在砲塔物件中加入以下 script (在 update 這個方法中)：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    &lt;span class="n"&gt;Debug&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DrawRay&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;transform&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;position&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;transform&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;forward&lt;/span&gt;&lt;span class="p"&gt;*&lt;/span&gt;&lt;span class="m"&gt;10f&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;Color&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;blue&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="n"&gt;Debug&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DrawRay&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;transform&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;position&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;transform&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;up&lt;/span&gt;&lt;span class="p"&gt;*&lt;/span&gt;&lt;span class="m"&gt;10f&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;Color&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;green&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="n"&gt;Debug&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DrawRay&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;transform&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;position&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;transform&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;right&lt;/span&gt; &lt;span class="p"&gt;*&lt;/span&gt; &lt;span class="m"&gt;10f&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Color&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;red&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="tank-01" src="https://i.imgur.com/MulJSb2.png"&gt;&lt;/p&gt;
+&lt;p&gt;這樣會畫出砲塔的座標軸方向，對應到藍色 …&lt;/p&gt;</summary><content type="html">&lt;h1&gt;瞄準&lt;/h1&gt;
+&lt;p&gt;這學期的計算機圖型課程有一份作業是要我們使用 Unity 寫出一款坦克遊戲，一想到坦克遊戲就想到之前在玩的 War thunder ...&lt;/p&gt;
+&lt;div class="youtube youtube-4x3"&gt;
+&lt;iframe src="https://www.youtube.com/embed/TD2GcubWX_k"&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;h2&gt;修正座標系&lt;/h2&gt;
+&lt;p&gt;裡面有個操控是在第一人稱和第三人稱視角時，都能以鼠標指向來操控砲塔指向，如果我們要實作這個操控，必須先查看砲塔物件的座標軸是否是正確的 ( z 軸正向應該是物件正向)，所以在砲塔這個物件中&lt;/p&gt;
+&lt;p&gt;為此，我們在砲塔物件中加入以下 script (在 update 這個方法中)：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    &lt;span class="n"&gt;Debug&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DrawRay&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;transform&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;position&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;transform&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;forward&lt;/span&gt;&lt;span class="p"&gt;*&lt;/span&gt;&lt;span class="m"&gt;10f&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;Color&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;blue&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="n"&gt;Debug&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DrawRay&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;transform&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;position&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;transform&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;up&lt;/span&gt;&lt;span class="p"&gt;*&lt;/span&gt;&lt;span class="m"&gt;10f&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;Color&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;green&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="n"&gt;Debug&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DrawRay&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;transform&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;position&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;transform&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;right&lt;/span&gt; &lt;span class="p"&gt;*&lt;/span&gt; &lt;span class="m"&gt;10f&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Color&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;red&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="tank-01" src="https://i.imgur.com/MulJSb2.png"&gt;&lt;/p&gt;
+&lt;p&gt;這樣會畫出砲塔的座標軸方向，對應到藍色、綠色、紅色&lt;/p&gt;
+&lt;p&gt;&lt;img alt="tank-02" src="https://i.imgur.com/Prrg584.png"&gt;&lt;/p&gt;
+&lt;p&gt;可以看到座標軸是錯的，所以我們應該要修正座標軸，這邊要怎麼修正已經加入 Unity 場景中的物件呢？&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;我在 Unity 的官方論壇上找到了&lt;a href="https://answers.unity.com/questions/62675/redefine-axis-of-an-object.html"&gt;解答&lt;/a&gt;：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;先新增一個新的空 GameObject (隨便命名，像我就設置成&lt;code&gt;TowerAgent&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;將 GameObject 置於需要修正物件下，使之成為其子物件&lt;/li&gt;
+&lt;li&gt;Reset 空 GameObject 的座標，這個空物件的座標應該會顯示為 (1, 1, 1)，但他實際上已經是母物件的座標了&lt;/li&gt;
+&lt;li&gt;將空 GameObject 拉出修正物件，並且設置對應的座標轉向&lt;/li&gt;
+&lt;li&gt;設置轉向後將修正物件置於空 GameObject 下，使修正物件成為其子物件&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;計算出轉向角&lt;/h2&gt;
+&lt;p&gt;Unity 中有一好用的函式 &lt;code&gt;ScreenPointToRay&lt;/code&gt; 可以計算出場景照相機到場景某一點的向量，剛好我們有第一人稱視角的攝影機 Camera1&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Camera1" src="https://i.imgur.com/UT76C11.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Camera1-1" src="https://i.imgur.com/DHtAwa5.png"&gt;&lt;/p&gt;
+&lt;p&gt;（記住 Camera1不能在砲塔中，否則照相機會跟著我們砲塔轉動，而永遠不停止，我這邊卡超久&amp;gt;&amp;lt;）&lt;/p&gt;
+&lt;p&gt;我們就以此照相機來計算 (你必須先將 camera1 設置成 &lt;code&gt;Camera1&lt;/code&gt;) 方向向量 dir，並以黃線畫出，在沒有偵測到滑鼠與場景的交點時將此方向向量設置為物件正向 (以下 code 置於 FixedUpdate 方法中)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;Ray&lt;/span&gt; &lt;span class="n"&gt;ray&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;camera1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ScreenPointToRay&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Input&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;mousePosition&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;RaycastHit&lt;/span&gt; &lt;span class="n"&gt;hit&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;Vector3&lt;/span&gt; &lt;span class="n"&gt;dir&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Physics&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Raycast&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ray&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;out&lt;/span&gt; &lt;span class="n"&gt;hit&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;Vector3&lt;/span&gt; &lt;span class="n"&gt;hitpos&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;Vector3&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;hit&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;point&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;transform&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;position&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;hit&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;point&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;z&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="n"&gt;dir&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;hitpos&lt;/span&gt; &lt;span class="p"&gt;-&lt;/span&gt; &lt;span class="n"&gt;transform&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;position&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="n"&gt;normalized&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;dir&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;transform&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;forward&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="n"&gt;Debug&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DrawRay&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;transform&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;position&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;dir&lt;/span&gt;&lt;span class="p"&gt;*&lt;/span&gt;&lt;span class="m"&gt;10f&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Color&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;yellow&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+&lt;span class="kt"&gt;float&lt;/span&gt; &lt;span class="n"&gt;angle&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Vector3&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Angle&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;transform&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;forward&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;dir&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;Quaternion&lt;/span&gt; &lt;span class="n"&gt;rotate&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Quaternion&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;RotateTowards&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;transform&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rotation&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                                            &lt;span class="n"&gt;Quaternion&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;LookRotation&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dir&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;transform&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;up&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+                                            &lt;span class="n"&gt;RotateSpeed&lt;/span&gt; &lt;span class="p"&gt;*&lt;/span&gt; &lt;span class="n"&gt;Time&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;deltaTime&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;transform&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rotation&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;rotate&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;視角轉換&lt;/h2&gt;
+&lt;p&gt;但我們並不只有第一人稱視角相機，所以我們將原本的相機設為當前使用的場景攝影機 &lt;code&gt;Camera.current&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;Ray&lt;/span&gt; &lt;span class="n"&gt;ray&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Camera&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;current&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ScreenPointToRay&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Input&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;mousePosition&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;最後結果：&lt;/p&gt;
+&lt;iframe class="imgur-embed" width="100%" height="338" frameborder="0" src="https://i.imgur.com/xRbrhGI.gifv"&gt;&lt;/iframe&gt;
+
+&lt;h1&gt;音效&lt;/h1&gt;
+&lt;p&gt;而砲塔轉向有音效，人工轉動的砲塔如 KV 系列會有手搖輪桿的聲音，而電動砲塔則有電動傳帶的聲音&lt;/p&gt;
+&lt;p&gt;我們可以觀看目前物件的正向 (物件的 z 軸正向) 與轉動向量的夾角度數是否小於一定值，如果是則在 FixedUpdate 方法中改變 private 布林變數 is_looping&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Vector3&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Angle&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt; &lt;span class="n"&gt;transform&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;forward&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;dir&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;&amp;lt;&lt;/span&gt; &lt;span class="m"&gt;0.2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;is_looping&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="k"&gt;false&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;is_looping&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="k"&gt;true&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;當然...在 Start 方法中要記得初始化這個布林值&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;is_looping&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="k"&gt;true&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;最後在 Update 方法中處理音訊的播放與停止與否，其中 &lt;code&gt;loopSound&lt;/code&gt; 是 public AudioSource，必須先預設&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;is_looping&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(!&lt;/span&gt;&lt;span class="n"&gt;loopSound&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;isPlaying&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;
+        &lt;span class="n"&gt;loopSound&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Play&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;loopSound&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Stop&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;大功告成！&lt;/p&gt;</content><category term="csharp"></category><category term="tutorial"></category><category term="unity"></category><category term="game"></category></entry></feed>
